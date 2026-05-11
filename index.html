@@ -176,10 +176,12 @@
 <body>
 
 <nav>
-  <div class="nav-logo" onclick="showPage('ddsi')" style="cursor:pointer">
-    <img src="logo.png" alt="Logo" style="height: 40px; width: auto;">
-    <span class="nav-logo-main">D&amp;D Strategic Impact</span>
-    <span class="nav-logo-sub">A D&amp;D Legacy Capital Company</span>
+  <div class="nav-logo" onclick="showPage('ddsi')" style="cursor:pointer; display: flex; align-items: center; gap: 12px;">
+    <img src="logo.jpg" alt="Logo" style="height: 38px; width: 38px; object-fit: contain;">
+    <div style="display: flex; flex-direction: column;">
+      <span class="nav-logo-main">D&amp;D Strategic Impact</span>
+      <span class="nav-logo-sub">A D&amp;D Legacy Capital Company</span>
+    </div>
   </div>
   <div class="nav-links">
     <span class="nav-link" onclick="showPage('ddsi')">Overview</span>
@@ -191,44 +193,7 @@
   </div>
 </nav>
 
-<script>
-function showPage(id) {
-  // 1. Hide all pages
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  
-  // 2. Show requested page
-  const targetPage = document.getElementById('page-' + id);
-  if (targetPage) {
-    targetPage.classList.add('active');
-  }
 
-  // 3. Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  // 4. Update Nav active states
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-}
-
-function scrollToSection(id) {
-  // Ensure we are on the main DDSI page first
-  showPage('ddsi');
-  
-  // Wait a split second for the page to become 'display: block' before scrolling
-  setTimeout(() => {
-    const el = document.getElementById(id);
-    if (el) {
-      const navHeight = document.querySelector('nav').offsetHeight;
-      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  }, 100);
-}
-</script>
 
 <!-- ═══════════════════════════════════ DDSI PAGE ═══════════════════════════════════ -->
 <div id="page-ddsi" class="page active">
@@ -597,21 +562,45 @@ function scrollToSection(id) {
 
 <script>
 function showPage(id) {
+  // 1. Hide all pages
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  window.scrollTo(0, 0);
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  const map = { ddsi: 0, hub: 3, podcast: 4 };
-  const links = document.querySelectorAll('.nav-link');
-  if (map[id] !== undefined) links[map[id]].classList.add('active');
+  
+  // 2. Show the target page
+  const targetPage = document.getElementById('page-' + id);
+  if (targetPage) {
+    targetPage.classList.add('active');
+  }
+
+  // 3. Reset scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // 4. Update Nav link active styles
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.classList.remove('active');
+    if(l.innerText.toLowerCase().includes(id)) l.classList.add('active');
+  });
 }
-function scrollTo(id) {
+
+function scrollToSection(id) {
+  // Always go to main page first if we're on Hub or Podcast
   showPage('ddsi');
+  
+  // Slight delay to allow the page to render before calculating scroll position
   setTimeout(() => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 50);
+    if (el) {
+      const navHeight = document.querySelector('nav').offsetHeight;
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight - 20;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, 100);
 }
 </script>
+
 </body>
 </html>
