@@ -380,7 +380,7 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section class="section" id="contact-section">
+<section class="section" id="contact-section">
   <div class="contact-inner">
     <div class="section-label" style="text-align:center">Contact &amp; Inquiries</div>
     <div class="gold-rule" style="margin-bottom:1.5rem"></div>
@@ -393,11 +393,11 @@
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">First Name *</label>
-          <input type="text" name="first_name" class="form-input" placeholder="Alexander" required />
+          <input type="text" name="first_name" class="form-input" placeholder="Alexandra" required />
         </div>
         <div class="form-group">
           <label class="form-label">Last Name *</label>
-          <input type="text" name="last_name" class="form-input" placeholder="The Great" required />
+          <input type="text" name="last_name" class="form-input" placeholder="Chen" required />
         </div>
       </div>
       <div class="form-row">
@@ -418,7 +418,7 @@
         <label class="form-label">Nature of Inquiry *</label>
         <select name="inquiry_type" class="form-select form-input" required>
           <option value="" disabled selected>Select one</option>
-          <option>Technology Portfolio, Investment or Partnership</option>
+          <option>Technology Portfolio: Investment or Partnership</option>
           <option>Strategic Advisory Engagement</option>
           <option>D&amp;D Tech Hub: Join the Network</option>
           <option>Leading Transformation Podcast</option>
@@ -658,8 +658,8 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   const data = Object.fromEntries(formData.entries());
   
   try {
-    // Send to Vercel serverless function
-    const response = await fetch('/api/send-email', {
+    // Send to Bluehost PHP script
+    const response = await fetch('https://ddstrategic.com/send-email.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -675,7 +675,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       formMessage.style.color = 'var(--gold)';
       formMessage.style.background = 'rgba(201,168,76,0.1)';
       formMessage.style.border = '1px solid var(--gold-dim)';
-      formMessage.textContent = 'Thank you for your inquiry. We will respond within 24-48 hours.';
+      formMessage.textContent = 'Your message has been sent. Thank you for your inquiry.';
       
       // Reset form
       this.reset();
@@ -687,7 +687,8 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     formMessage.style.color = '#ff6b6b';
     formMessage.style.background = 'rgba(255,107,107,0.1)';
     formMessage.style.border = '1px solid #ff6b6b';
-    formMessage.textContent = 'There was an error sending your message. Please email us directly at petra@ddlegacycapital.com';
+    formMessage.textContent = 'There was an error sending your message. Please reach out to us directly on Linkedin http://linkedin.com/in/petradoerken';
+    console.error('Form error:', error);
   } finally {
     submitBtn.textContent = originalBtnText;
     submitBtn.disabled = false;
