@@ -381,55 +381,58 @@
 
   <!-- CONTACT SECTION -->
   <section class="section" id="contact-section">
-    <div class="contact-inner">
-      <div class="section-label" style="text-align:center">Contact &amp; Inquiries</div>
-      <div class="gold-rule" style="margin-bottom:1.5rem"></div>
-      <h2 class="section-title center">Engage with DDSI</h2>
-      <p class="section-body" style="margin:1rem auto 0;text-align:center">Whether you're exploring a portfolio partnership, seeking advisory engagement, or looking to connect with the DDSI network, we welcome the conversation.</p>
-      <form class="contact-form" onsubmit="return false">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">First Name</label>
-            <input type="text" class="form-input" placeholder="Alexandra" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Last Name</label>
-            <input type="text" class="form-input" placeholder="Chen" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Organization</label>
-            <input type="text" class="form-input" placeholder="Your company or institution" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Title</label>
-            <input type="text" class="form-input" placeholder="Chief Digital Officer" />
-          </div>
+  <div class="contact-inner">
+    <div class="section-label" style="text-align:center">Contact &amp; Inquiries</div>
+    <div class="gold-rule" style="margin-bottom:1.5rem"></div>
+    <h2 class="section-title center">Engage with DDSI</h2>
+    <p class="section-body" style="margin:1rem auto 0;text-align:center">Whether you're exploring a portfolio partnership, seeking advisory engagement, or looking to connect with the DDSI network — we welcome the conversation.</p>
+    
+    <div id="form-message" style="display:none; margin-top:2rem; padding:1rem; text-align:center; font-size:0.85rem;"></div>
+    
+    <form class="contact-form" id="contact-form" method="POST" action="send-email.php">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name *</label>
+          <input type="text" name="first_name" class="form-input" placeholder="Alexandra" required />
         </div>
         <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="you@organization.com" />
+          <label class="form-label">Last Name *</label>
+          <input type="text" name="last_name" class="form-input" placeholder="Chen" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Organization *</label>
+          <input type="text" name="organization" class="form-input" placeholder="Your company or institution" required />
         </div>
         <div class="form-group">
-          <label class="form-label">Nature of Inquiry</label>
-          <select class="form-select form-input">
-            <option value="" disabled selected>Select one</option>
-            <option>Technology Portfolio -Investment or Partnership</option>
-            <option>Strategic Advisory Engagement</option>
-            <option>D&amp;D Tech Hub - Join the Network</option>
-            <option>Leading Transformation Podcast</option>
-            <option>Other</option>
-          </select>
+          <label class="form-label">Title *</label>
+          <input type="text" name="title" class="form-input" placeholder="Chief Digital Officer" required />
         </div>
-        <div class="form-group">
-          <label class="form-label">Message</label>
-          <textarea class="form-textarea" placeholder="Tell us briefly about your organization and what you'd like to explore..."></textarea>
-        </div>
-        <button type="submit" class="form-submit">Submit Inquiry</button>
-      </form>
-    </div>
-  </section>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email *</label>
+        <input type="email" name="email" class="form-input" placeholder="you@organization.com" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nature of Inquiry *</label>
+        <select name="inquiry_type" class="form-select form-input" required>
+          <option value="" disabled selected>Select one</option>
+          <option>Technology Portfolio — Investment or Partnership</option>
+          <option>Strategic Advisory Engagement</option>
+          <option>D&amp;D Tech Hub — Join the Network</option>
+          <option>Leading Transformation Podcast</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message *</label>
+        <textarea name="message" class="form-textarea" placeholder="Tell us briefly about your organization and what you'd like to explore..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="submit-btn">Submit Inquiry</button>
+    </form>
+  </div>
+</section>
 
   <footer>
   <div class="footer-left">
@@ -636,6 +639,59 @@ function scrollToSection(id) {
     }
   }, 100);
 }
+</script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const submitBtn = document.getElementById('submit-btn');
+  const formMessage = document.getElementById('form-message');
+  const originalBtnText = submitBtn.textContent;
+  
+  // Show loading state
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+  formMessage.style.display = 'none';
+  
+  // Get form data
+  const formData = new FormData(this);
+  
+  // Send to PHP backend
+  fetch('send-email.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    formMessage.style.display = 'block';
+    
+    if (data.success) {
+      formMessage.style.color = 'var(--gold)';
+      formMessage.style.background = 'rgba(201,168,76,0.1)';
+      formMessage.style.border = '1px solid var(--gold-dim)';
+      formMessage.textContent = 'Thank you for your inquiry. We will respond within 24-48 hours.';
+      
+      // Reset form
+      document.getElementById('contact-form').reset();
+    } else {
+      formMessage.style.color = '#ff6b6b';
+      formMessage.style.background = 'rgba(255,107,107,0.1)';
+      formMessage.style.border = '1px solid #ff6b6b';
+      formMessage.textContent = 'There was an error sending your message. Please email us directly at petra@ddlegacycapital.com';
+    }
+  })
+  .catch(error => {
+    formMessage.style.display = 'block';
+    formMessage.style.color = '#ff6b6b';
+    formMessage.style.background = 'rgba(255,107,107,0.1)';
+    formMessage.style.border = '1px solid #ff6b6b';
+    formMessage.textContent = 'There was an error sending your message. Please email us directly at petra@ddlegacycapital.com';
+  })
+  .finally(() => {
+    submitBtn.textContent = originalBtnText;
+    submitBtn.disabled = false;
+  });
+});
 </script>
 
 </body>
