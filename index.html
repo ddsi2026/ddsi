@@ -99,6 +99,10 @@
   /* SECTION */
   .section { padding: 6rem 3rem; }
   .section-alt { background: var(--navy-mid); }
+  #portfolio-section { position: relative; overflow: hidden; }
+  #portfolio-section .portfolio-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/portfolio-bg.jpg'); background-size: cover; background-position: center; opacity: 0.22; filter: grayscale(0.1) contrast(1.05); }
+  #portfolio-section::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(18,30,51,0.55), rgba(18,30,51,0.85)); }
+  #portfolio-section .mw { position: relative; z-index: 1; }
   .section-label { font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
   .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
   .section-title em { font-style: italic; color: var(--gold-light); }
@@ -308,8 +312,8 @@
     <h1 class="hero-headline">Where <em>institutional capital</em> meets frontier technology</h1>
     <p class="hero-sub">We build, operate, and back AI-native technology companies serving regulated industries, and advise the enterprises transforming alongside them.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="scrollTo('portfolio-section')">Our Portfolio</button>
-      <button class="btn-ghost" onclick="scrollTo('advisory-section')">Strategic Advisory</button>
+      <button class="btn-primary" onclick="scrollToSection('portfolio-section')">Our Portfolio</button>
+      <button class="btn-ghost" onclick="scrollToSection('advisory-section')">Strategic Advisory</button>
     </div>
     <div class="hero-rule"></div>
     <div class="hero-stat-block">
@@ -330,6 +334,7 @@
 
   <!-- INTRO SECTION -->
   <section class="section section-alt" id="portfolio-section">
+    <div class="portfolio-bg"></div>
     <div class="mw">
       <div class="two-col two-col-wide">
         <div>
@@ -421,7 +426,7 @@
       </div>
 
       <div class="cohort-banner" style="margin-top:2.5rem;max-width:800px;margin-left:auto;margin-right:auto">
-        <div class="cohort-banner-label">Now Accepting Applications · Free of Cost</div>
+        <div class="cohort-banner-label">Empowering Future Global Leaders</div>
         <div class="cohort-banner-title">Global Gateway Incubator · 2027 Cohort</div>
         <div class="cohort-banner-body">A 16-week incubator (January&ndash;April 2027) powered by D&amp;D Legacy Capital in partnership with 5 premier universities across India and Vietnam, helping underserved student founders build, scale, and incorporate US-ready Delaware C-Corps for the global market.</div>
         <div class="hub-preview-stats">
@@ -442,7 +447,7 @@
 
       <div class="hero-actions" style="margin-top:2rem;justify-content:center">
         <button class="btn-primary" onclick="showPage('hub')">Explore the Hub</button>
-        <button class="btn-ghost" onclick="showPage('ddsi');setTimeout(()=>scrollTo('contact-section'),100)">Partner With Us</button>
+        <button class="btn-ghost" onclick="scrollToSection('contact-section')">Partner With Us</button>
       </div>
     </div>
   </section>
@@ -460,21 +465,21 @@
     </div>
     <div class="episode-grid">
       <div class="episode-card" onclick="window.location.href='blog/episode-01.html'">
-        <div class="episode-art"><img src="images/episode-01-karthick.jpg" alt="Karthick Iyer episode cover art" loading="lazy"></div>
+        <div class="episode-art"><img src="images/episode-01-karthick-square.jpg" alt="Karthick Iyer episode cover art" loading="lazy"></div>
         <div class="episode-info">
           <div class="episode-title">From Pilot to Production: An NVIDIA VP's Approach to Deploying AI</div>
           <div class="episode-desc">Karthick Iyer, VP of Systems Software at NVIDIA, on what it actually takes to move enterprise AI from pilot to production.</div>
         </div>
       </div>
       <div class="episode-card" onclick="window.location.href='blog/episode-02.html'">
-        <div class="episode-art"><img src="images/episode-02-pano.jpg" alt="Pano Anthos episode cover art" loading="lazy"></div>
+        <div class="episode-art"><img src="images/episode-02-pano-square.jpg" alt="Pano Anthos episode cover art" loading="lazy"></div>
         <div class="episode-info">
           <div class="episode-title">1.4 Million AI Apps Are Coming: A VC's Advice on What Manufacturers Must Fix First</div>
           <div class="episode-desc">Pano Anthos, Managing Partner at XRC Ventures, on the wave of AI applications headed for manufacturers and what to fix first.</div>
         </div>
       </div>
       <div class="episode-card" onclick="window.location.href='blog/episode-03.html'">
-        <div class="episode-art"><img src="images/episode-03-sri.jpg" alt="Sri Ambati episode cover art" loading="lazy"></div>
+        <div class="episode-art"><img src="images/episode-03-sri-square.jpg" alt="Sri Ambati episode cover art" loading="lazy"></div>
         <div class="episode-info">
           <div class="episode-title">AI &amp; Data Sovereignty: Copy Fortune 500's Playbook for ROI, Operational Transformation</div>
           <div class="episode-desc">Sri Ambati, Founder &amp; CEO of H2O.ai, on data sovereignty and borrowing the Fortune 500 playbook for AI ROI.</div>
@@ -636,7 +641,7 @@
   <!-- INCUBATOR SECTION -->
   <section class="section">
     <div class="mw center">
-      <div class="section-label">Now Accepting Applications · Free of Cost</div>
+      <div class="section-label">Empowering Future Global Leaders</div>
       <div class="gold-rule"></div>
       <h2 class="section-title">Global Gateway Incubator <em>2027 Cohort</em></h2>
       <p class="section-body" style="margin:1.25rem auto;max-width:680px;text-align:center">A 16-week incubator (January&ndash;April 2027) powered by D&amp;D Legacy Capital in direct partnership with 5 premier universities across India and Vietnam. Student founders undergo an intensive business and technical-architecture transformation, equipping them to acquire US/EU enterprise customers, raise institutional funding, and target global exits, entirely free of cost.</p>
@@ -672,7 +677,7 @@
       <div class="gold-rule"></div>
       <h2 class="section-title">Help us empower underserved talent to build and scale global startups</h2>
       <p class="section-body" style="margin:1.25rem auto;text-align:center">Whether you're a founder seeking capital and counsel, an investor looking for proprietary deal flow, or an enterprise partner exploring emerging technology, reach out and tell us about yourself.</p>
-      <button class="btn-primary" style="margin-top:1rem" onclick="showPage('ddsi');setTimeout(()=>scrollTo('contact-section'),100)">Partner With Us</button>
+      <button class="btn-primary" style="margin-top:1rem" onclick="scrollToSection('contact-section')">Partner With Us</button>
     </div>
 
     <div class="kit-signup-block">
@@ -756,7 +761,7 @@
         <input type="email" class="pod-email-input" placeholder="your@email.com" />
         <button class="pod-email-btn">Notify Me</button>
       </div>
-      <p style="font-size:0.7rem;color:var(--slate);margin-top:1rem">Interested in being a guest? <span style="color:var(--gold);cursor:pointer;text-decoration:underline" onclick="showPage('ddsi');setTimeout(()=>scrollTo('contact-section'),100)">Reach out to us here.</span></p>
+      <p style="font-size:0.7rem;color:var(--slate);margin-top:1rem">Interested in being a guest? <span style="color:var(--gold);cursor:pointer;text-decoration:underline" onclick="scrollToSection('contact-section')">Reach out to us here.</span></p>
     </div>
   </section>
 
