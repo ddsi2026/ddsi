@@ -230,7 +230,8 @@
 
   /* ═══════ HOMEPAGE: TECH HUB PREVIEW ═══════ */
   .hub-preview { padding: 6rem 3rem; background: var(--navy); position: relative; }
-  .hub-preview-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: start; max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
+  .hub-preview-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
+  .hub-preview-intro { max-width: 640px; }
   .hub-preview-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.15); margin-top: 2rem; }
   .hub-preview-stat { background: var(--navy-mid); padding: 1.25rem 1rem; text-align: center; }
   .hub-preview-stat-num { font-family: var(--font-display); font-size: 1.6rem; color: var(--gold); display: block; }
@@ -268,9 +269,11 @@
   .kit-signup-title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.75rem; }
   .kit-signup-body { font-size: 0.82rem; color: var(--slate); line-height: 1.7; margin-bottom: 1.5rem; }
 
+  .hub-preview-stats-5 { grid-template-columns: repeat(5, 1fr); }
+
   @media (max-width: 860px) {
-    .hub-preview-grid { grid-template-columns: 1fr; }
     .hub-preview-stats { grid-template-columns: repeat(3, 1fr); }
+    .hub-preview-stats-5 { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -326,13 +329,13 @@
   </section>
 
   <!-- INTRO SECTION -->
-  <section class="section section-alt">
+  <section class="section section-alt" id="portfolio-section">
     <div class="mw">
       <div class="two-col two-col-wide">
         <div>
-          <div class="section-label">What We Do</div>
+          <div class="section-label">Portfolio</div>
           <div class="gold-rule gold-rule-left"></div>
-          <h2 class="section-title">A technology firm built for the <em>complexity of regulated industries</em></h2>
+          <h2 class="section-title">A portfolio of technology solutions for the <em>complexity of regulated industries</em></h2>
           <p class="section-body" style="margin-top:1.5rem">DDSI sits at the intersection of institutional capital, deep domain expertise, and frontier artificial intelligence. We build and operate AI-native companies, invest in transformative B2B platforms, and guide large enterprises through one of the most consequential technological shifts in a generation.</p>
           <p class="section-body" style="margin-top:1rem">Our operating model is dual, we are simultaneously a technology builder and a strategic partner, which means we bring operational credibility to every advisory engagement and market intelligence to every investment.</p>
         </div>
@@ -359,13 +362,13 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO SECTION -->
-  <section class="section" id="portfolio-section">
+  <!-- PORTFOLIO SECTION (now framed as Strategic Advisory) -->
+  <section class="section" id="advisory-section">
     <div class="portfolio-header">
-      <div class="section-label">Technology Portfolio</div>
+      <div class="section-label">Strategic Advisory</div>
       <div class="gold-rule gold-rule-left"></div>
-      <h2 class="section-title">We build what <em>regulated industries</em> need most</h2>
-      <p class="section-body" style="margin-top:1rem">DDSI builds, operates, and co-founds AI-native enterprises designed from the ground up for the compliance, security, and scale demands of highly regulated markets. We invest in companies with durable enterprise moats and genuine category-defining potential.</p>
+      <h2 class="section-title">We advise the institutions <em>setting the pace</em></h2>
+      <p class="section-body" style="margin-top:1rem">Large enterprises and government agencies engage DDSI when the stakes of getting AI and technology adoption right are too high for incremental consulting. We bring operational depth, built from building, to every advisory mandate.</p>
     </div>
     <div class="portfolio-grid">
       <div class="portfolio-card">
@@ -391,94 +394,55 @@
     </div>
   </section>
 
-  <!-- ADVISORY SECTION -->
-  <section class="section section-alt" id="advisory-section">
-    <div class="mw">
-      <div class="section-label">Strategic Advisory</div>
-      <div class="gold-rule gold-rule-left"></div>
-      <h2 class="section-title">We advise the institutions <em>setting the pace</em></h2>
-      <p class="section-body" style="margin-top:1rem">Large enterprises and government agencies engage DDSI when the stakes of getting AI and technology adoption right are too high for incremental consulting. We bring operational depth, built from building, to every advisory mandate.</p>
-      <div class="advisory-list">
-        <div class="advisory-item">
-          <div class="advisory-item-title">AI Adoption &amp; Strategy</div>
-          <div class="advisory-item-body">Structured frameworks for evaluating, prioritizing, and deploying AI across complex organizations, from proof-of-concept to enterprise rollout.</div>
-        </div>
-        <div class="advisory-item">
-          <div class="advisory-item-title">Revenue Cycle Management</div>
-          <div class="advisory-item-body">End-to-end RCM intelligence advisory for health systems, payviders, and managed care, covering coding accuracy, denial reduction, and compliance risk.</div>
-        </div>
-        <div class="advisory-item">
-          <div class="advisory-item-title">Data Intelligence &amp; Architecture</div>
-          <div class="advisory-item-body">Building institutional data capabilities that are auditable, scalable, and AI-ready, without sacrificing governance or security.</div>
-        </div>
-        <div class="advisory-item">
-          <div class="advisory-item-title">Scaling &amp; Operational Excellence</div>
-          <div class="advisory-item-body">Growth architecture for organizations scaling technology products or AI capabilities: people, process, platform, and capital considerations.</div>
-        </div>
-        <div class="advisory-item">
-          <div class="advisory-item-title">Governance, Risk &amp; Compliance</div>
-          <div class="advisory-item-body">AI governance frameworks, regulatory readiness, and compliance infrastructure for organizations operating under HIPAA, SOC 2, FedRAMP, and sector-specific mandates.</div>
-        </div>
-        <div class="advisory-item">
-          <div class="advisory-item-title">Security &amp; System Stability</div>
-          <div class="advisory-item-body">Zero-compromise architecture reviews and resilience planning for mission-critical AI deployments in healthcare, finance, energy, and government.</div>
-        </div>
-        <div class="advisory-item advisory-item-full">
-          <div class="advisory-item-title">Manufacturing &amp; Industrial Operations</div>
-          <div class="advisory-item-body"><em>[NEEDS RESEARCH: confirm specific manufacturing/industrial advisory scope and any named engagements before publishing]</em> AI-driven revenue and margin protection for mid-market manufacturers, including pricing, discount, and rebate leakage detection, alongside operational AI for production planning, quality, and supply chain visibility in materials-intensive and process-industry environments.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TECH HUB PREVIEW SECTION -->
   <section class="hub-preview" id="hub-preview-section">
     <div class="glow-field"><div class="glow-orb gold" style="width:420px;height:420px;top:-10%;right:5%"></div></div>
-    <div class="hub-preview-grid">
-      <div>
+    <div class="hub-preview-inner">
+      <div class="hub-preview-intro">
         <div class="section-label">The DDSI Ecosystem · Open Access</div>
         <div class="gold-rule gold-rule-left"></div>
         <h2 class="section-title">D&amp;D <em>Tech Hub</em></h2>
         <p class="section-body" style="margin-top:1rem">A curated ecosystem connecting technology investors, enterprise partners, and founders building the next generation of regulated-industry AI companies.</p>
+      </div>
 
-        <div class="cohort-banner">
-          <div class="cohort-banner-label">Now Accepting Applications</div>
-          <div class="cohort-banner-title">2027 Incubator Cohort</div>
-          <div class="cohort-banner-body"><em style="color:var(--gold-dim)">[NEEDS RESEARCH: confirm cohort dates, program length, and application deadline]</em> A structured incubator program pairing early-stage founders with DDSI's operating team, capital network, and enterprise relationships to help underserved talent build and scale global startups.</div>
-          <div class="hub-preview-stats">
-            <div class="hub-preview-stat">
-              <span class="hub-preview-stat-num">[NEEDS RESEARCH]</span>
-              <span class="hub-preview-stat-label">Past Events</span>
-            </div>
-            <div class="hub-preview-stat">
-              <span class="hub-preview-stat-num">[NEEDS RESEARCH]</span>
-              <span class="hub-preview-stat-label">Founders Reached</span>
-            </div>
-            <div class="hub-preview-stat">
-              <span class="hub-preview-stat-num">2027</span>
-              <span class="hub-preview-stat-label">Next Cohort</span>
-            </div>
-          </div>
+      <div class="carousel" id="homeHubCarousel" style="margin-top:2.5rem">
+        <div class="carousel-track" id="homeHubCarouselTrack">
+          <div class="carousel-slide"><img src="images/event-1.jpg" alt="DDSI Tech Hub session in progress" loading="lazy"><div class="carousel-caption">Tech Hub Session</div></div>
+          <div class="carousel-slide"><img src="images/event-4.jpg" alt="Founders and mentors collaborating at a DDSI Tech Hub event" loading="lazy"><div class="carousel-caption">Founder Working Session</div></div>
+          <div class="carousel-slide"><img src="images/event-2.jpg" alt="Startup pitch night hosted by DDSI Tech Hub" loading="lazy"><div class="carousel-caption">Pitch Night</div></div>
+          <div class="carousel-slide"><img src="images/event-5.jpg" alt="DDSI Tech Hub community gathering" loading="lazy"><div class="carousel-caption">Community Gathering</div></div>
+          <div class="carousel-slide"><img src="images/event-6.jpg" alt="DDSI Tech Hub past event" loading="lazy"><div class="carousel-caption">Tech Hub Community</div></div>
+          <div class="carousel-slide"><img src="images/event-7.jpg" alt="DDSI Tech Hub past event" loading="lazy"><div class="carousel-caption">Tech Hub Community</div></div>
         </div>
+        <div class="carousel-nav prev" onclick="carouselMove('homeHubCarousel', -1)">&#8249;</div>
+        <div class="carousel-nav next" onclick="carouselMove('homeHubCarousel', 1)">&#8250;</div>
+        <div class="carousel-dots" id="homeHubCarouselDots"></div>
+      </div>
 
-        <div class="hero-actions" style="margin-top:2rem">
-          <button class="btn-primary" onclick="showPage('hub')">Explore the Hub</button>
-          <button class="btn-ghost" onclick="showPage('ddsi');setTimeout(()=>scrollTo('contact-section'),100)">Partner With Us</button>
+      <div class="cohort-banner" style="margin-top:2.5rem;max-width:800px;margin-left:auto;margin-right:auto">
+        <div class="cohort-banner-label">Now Accepting Applications · Free of Cost</div>
+        <div class="cohort-banner-title">Global Gateway Incubator · 2027 Cohort</div>
+        <div class="cohort-banner-body">A 16-week incubator (January&ndash;April 2027) powered by D&amp;D Legacy Capital in partnership with 5 premier universities across India and Vietnam, helping underserved student founders build, scale, and incorporate US-ready Delaware C-Corps for the global market.</div>
+        <div class="hub-preview-stats">
+          <div class="hub-preview-stat">
+            <span class="hub-preview-stat-num">5</span>
+            <span class="hub-preview-stat-label">Partner Universities</span>
+          </div>
+          <div class="hub-preview-stat">
+            <span class="hub-preview-stat-num">18&ndash;25</span>
+            <span class="hub-preview-stat-label">Founding Teams</span>
+          </div>
+          <div class="hub-preview-stat">
+            <span class="hub-preview-stat-num">May 2027</span>
+            <span class="hub-preview-stat-label">Demo Day</span>
+          </div>
         </div>
       </div>
 
-      <div>
-        <div class="carousel" id="homeHubCarousel">
-          <div class="carousel-track" id="homeHubCarouselTrack">
-            <div class="carousel-slide"><img src="images/event-1.jpg" alt="DDSI Tech Hub session in progress" loading="lazy"><div class="carousel-caption">Tech Hub Session</div></div>
-            <div class="carousel-slide"><img src="images/event-4.jpg" alt="Founders and mentors collaborating at a DDSI Tech Hub event" loading="lazy"><div class="carousel-caption">Founder Working Session</div></div>
-            <div class="carousel-slide"><img src="images/event-2.jpg" alt="Startup pitch night hosted by DDSI Tech Hub" loading="lazy"><div class="carousel-caption">Pitch Night</div></div>
-            <div class="carousel-slide"><img src="images/event-5.jpg" alt="DDSI Tech Hub community gathering" loading="lazy"><div class="carousel-caption">Community Gathering</div></div>
-          </div>
-          <div class="carousel-nav prev" onclick="carouselMove('homeHubCarousel', -1)">&#8249;</div>
-          <div class="carousel-nav next" onclick="carouselMove('homeHubCarousel', 1)">&#8250;</div>
-          <div class="carousel-dots" id="homeHubCarouselDots"></div>
-        </div>
+      <div class="hero-actions" style="margin-top:2rem;justify-content:center">
+        <button class="btn-primary" onclick="showPage('hub')">Explore the Hub</button>
+        <button class="btn-ghost" onclick="showPage('ddsi');setTimeout(()=>scrollTo('contact-section'),100)">Partner With Us</button>
       </div>
     </div>
   </section>
@@ -495,31 +459,25 @@
       <p style="font-size:0.82rem;color:var(--slate);max-width:420px">Conversations with the executives, founders, and investors defining how institutions adopt AI and lead through change.</p>
     </div>
     <div class="episode-grid">
-      <div class="episode-card" onclick="showPage('podcast')">
-        <div class="episode-art placeholder">
-          <span>Episode 1 Art Pending</span>
-        </div>
+      <div class="episode-card" onclick="window.location.href='blog/episode-01.html'">
+        <div class="episode-art"><img src="images/episode-01-karthick.jpg" alt="Karthick Iyer episode cover art" loading="lazy"></div>
         <div class="episode-info">
-          <div class="episode-title">[NEEDS RESEARCH: Episode 1 title]</div>
-          <div class="episode-desc">[NEEDS RESEARCH: one-line episode description]</div>
+          <div class="episode-title">From Pilot to Production: An NVIDIA VP's Approach to Deploying AI</div>
+          <div class="episode-desc">Karthick Iyer, VP of Systems Software at NVIDIA, on what it actually takes to move enterprise AI from pilot to production.</div>
         </div>
       </div>
-      <div class="episode-card" onclick="showPage('podcast')">
-        <div class="episode-art placeholder">
-          <span>Episode 2 Art Pending</span>
-        </div>
+      <div class="episode-card" onclick="window.location.href='blog/episode-02.html'">
+        <div class="episode-art"><img src="images/episode-02-pano.jpg" alt="Pano Anthos episode cover art" loading="lazy"></div>
         <div class="episode-info">
-          <div class="episode-title">[NEEDS RESEARCH: Episode 2 title]</div>
-          <div class="episode-desc">[NEEDS RESEARCH: one-line episode description]</div>
+          <div class="episode-title">1.4 Million AI Apps Are Coming: A VC's Advice on What Manufacturers Must Fix First</div>
+          <div class="episode-desc">Pano Anthos, Managing Partner at XRC Ventures, on the wave of AI applications headed for manufacturers and what to fix first.</div>
         </div>
       </div>
-      <div class="episode-card" onclick="showPage('podcast')">
-        <div class="episode-art placeholder">
-          <span>Episode 3 Art Pending</span>
-        </div>
+      <div class="episode-card" onclick="window.location.href='blog/episode-03.html'">
+        <div class="episode-art"><img src="images/episode-03-sri.jpg" alt="Sri Ambati episode cover art" loading="lazy"></div>
         <div class="episode-info">
-          <div class="episode-title">[NEEDS RESEARCH: Episode 3 title]</div>
-          <div class="episode-desc">[NEEDS RESEARCH: one-line episode description]</div>
+          <div class="episode-title">AI &amp; Data Sovereignty: Copy Fortune 500's Playbook for ROI, Operational Transformation</div>
+          <div class="episode-desc">Sri Ambati, Founder &amp; CEO of H2O.ai, on data sovereignty and borrowing the Fortune 500 playbook for AI ROI.</div>
         </div>
       </div>
     </div>
@@ -678,23 +636,32 @@
   <!-- INCUBATOR SECTION -->
   <section class="section">
     <div class="mw center">
-      <div class="section-label">Now Accepting Applications</div>
+      <div class="section-label">Now Accepting Applications · Free of Cost</div>
       <div class="gold-rule"></div>
-      <h2 class="section-title">The 2027 <em>Incubator Cohort</em></h2>
-      <p class="section-body" style="margin:1.25rem auto;max-width:640px;text-align:center"><em style="color:var(--gold-dim)">[NEEDS RESEARCH: confirm program length, cohort size, application window, and eligibility criteria before publishing]</em> A structured incubator program built to empower underserved talent to build and scale global startups, pairing founders with DDSI's operating team, capital relationships, and enterprise network.</p>
+      <h2 class="section-title">Global Gateway Incubator <em>2027 Cohort</em></h2>
+      <p class="section-body" style="margin:1.25rem auto;max-width:680px;text-align:center">A 16-week incubator (January&ndash;April 2027) powered by D&amp;D Legacy Capital in direct partnership with 5 premier universities across India and Vietnam. Student founders undergo an intensive business and technical-architecture transformation, equipping them to acquire US/EU enterprise customers, raise institutional funding, and target global exits, entirely free of cost.</p>
+      <p class="section-body" style="margin:1rem auto 0;max-width:680px;text-align:center">The program runs on a hybrid cadence of bi-weekly masterclasses with global VC investors and enterprise executives, bi-weekly cross-university peer working sessions, and dedicated 1-on-1 architecture advisory from DDSI's in-house technology team. In April, the top 5 highest-execution teams pitch live to an exclusive group of international investors and enterprise partners at Demo Day.</p>
     </div>
-    <div class="hub-preview-stats" style="max-width:700px;margin:2.5rem auto 0">
+    <div class="hub-preview-stats hub-preview-stats-5" style="max-width:960px;margin:2.5rem auto 0">
       <div class="hub-preview-stat">
-        <span class="hub-preview-stat-num">[NEEDS RESEARCH]</span>
-        <span class="hub-preview-stat-label">Cohort Size</span>
+        <span class="hub-preview-stat-num">5</span>
+        <span class="hub-preview-stat-label">Partner Universities</span>
       </div>
       <div class="hub-preview-stat">
-        <span class="hub-preview-stat-num">[NEEDS RESEARCH]</span>
-        <span class="hub-preview-stat-label">Program Length</span>
+        <span class="hub-preview-stat-num">18&ndash;25</span>
+        <span class="hub-preview-stat-label">Founding Teams</span>
       </div>
       <div class="hub-preview-stat">
-        <span class="hub-preview-stat-num">2027</span>
-        <span class="hub-preview-stat-label">Cohort Year</span>
+        <span class="hub-preview-stat-num">16 Weeks</span>
+        <span class="hub-preview-stat-label">Jan&ndash;Apr 2027</span>
+      </div>
+      <div class="hub-preview-stat">
+        <span class="hub-preview-stat-num">100%</span>
+        <span class="hub-preview-stat-label">Delaware C-Corp Goal</span>
+      </div>
+      <div class="hub-preview-stat">
+        <span class="hub-preview-stat-num">Top 5</span>
+        <span class="hub-preview-stat-label">May 2027 Demo Day</span>
       </div>
     </div>
   </section>
