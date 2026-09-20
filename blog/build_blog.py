@@ -124,7 +124,18 @@ def render_post_page(post: dict) -> str:
 
 
 def render_index(posts: list) -> str:
-    posts_sorted = sorted(posts, key=lambda p: str(p.get("date", "")), reverse=True)
+    # Podcast episodes list in episode order (1, 2, 3, ...); everything else
+    # (non-episode blog posts) lists newest-first by date.
+    episodes = sorted(
+        (p for p in posts if p.get("episode_number") is not None),
+        key=lambda p: p["episode_number"],
+    )
+    others = sorted(
+        (p for p in posts if p.get("episode_number") is None),
+        key=lambda p: str(p.get("date", "")),
+        reverse=True,
+    )
+    posts_sorted = episodes + others
     categories = sorted(set(p.get("category", "blog") for p in posts_sorted))
 
     filter_buttons = '<button class="filter-btn active" data-cat="all">All</button>' + "".join(
