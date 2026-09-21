@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="93786d8f-7512-427c-b471-567cafb2d65c" data-blockingmode="auto" type="text/javascript"></script>
 <title>1.4 Million AI Apps Are Coming: A VC's Advice on What Manufacturers Must Fix First | Pano Anthos | D&amp;D Strategic Impact</title>
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -17,13 +21,23 @@
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
   }
-  body { background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; }
-  a { color: var(--gold); }
-  nav { padding: 1.25rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(11,19,34,0.95); }
-  nav a { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); text-decoration: none; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(11,19,34,0.95); backdrop-filter: blur(12px); }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo-main { font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; line-height: 1.2; }
+  .nav-logo-sub { font-size: 0.55rem; letter-spacing: 0.18em; color: var(--slate); text-transform: uppercase; line-height: 1.2; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-link { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); cursor: pointer; white-space: nowrap; }
+  .nav-link:hover { color: var(--gold); }
+  .nav-cta { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.55rem 1.3rem; border: 1px solid var(--gold-dim); color: var(--gold); }
+  .nav-cta:hover { background: var(--gold); color: var(--navy); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; }
+  .nav-toggle span { width: 22px; height: 1.5px; background: var(--gold); display: block; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 9rem 1.5rem 6rem; }
   .tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25); padding: 0.3rem 0.8rem; margin-bottom: 1.5rem; }
-  h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin-bottom: 1rem; }
+  h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin-bottom: 1rem; max-width: none; }
   .meta { font-size: 0.75rem; color: var(--slate); letter-spacing: 0.05em; margin-bottom: 2rem; }
   .cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2.5rem; border: 1px solid rgba(201,168,76,0.15); }
   .listen-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
@@ -33,12 +47,42 @@
   .content ul, .content ol { margin: 0 0 1.2rem 1.3rem; color: var(--slate-light); }
   .content li { margin-bottom: 0.4rem; }
   .content em { color: var(--gold-dim); }
-  .back-link { display: inline-block; margin-top: 3rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
-  footer { padding: 2rem 3rem; border-top: 1px solid rgba(201,168,76,0.12); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); text-align: center; }
+  .back-link { display: inline-block; margin-top: 3rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--gold); }
+  footer { padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-left { font-size: 0.7rem; color: var(--slate); }
+  .footer-right { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
+  @media (max-width: 900px) {
+    nav { padding: 0.75rem 1.25rem; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 1.25rem; background: var(--navy); padding: 1.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+  }
+  @media (max-width: 860px) {
+    .wrap { padding: 8rem 1.25rem 4rem; }
+  }
 </style>
 </head>
 <body>
-<nav><a href="../index.html">&#8592; D&amp;D Strategic Impact</a></nav>
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <img src="../logo.png" alt="Logo" style="height: 34px; width: auto;">
+    <div style="display:flex;flex-direction:column;">
+      <span class="nav-logo-main">D&amp;D Strategic Impact</span>
+      <span class="nav-logo-sub">A D&amp;D Legacy Capital Company</span>
+    </div>
+  </a>
+  <div class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="../index.html#top">Overview</a>
+    <a class="nav-link" href="../index.html#portfolio-section">Portfolio</a>
+    <a class="nav-link" href="../index.html#advisory-section">Advisory</a>
+    <a class="nav-link" href="../index.html#techhub-section">Tech Hub</a>
+    <a class="nav-link" href="../index.html#incubator-section">Incubator</a>
+    <a class="nav-link" href="../index.html#podcast-preview-section">Podcast</a>
+    <a class="nav-link" href="../about.html">About Us</a>
+    <a class="nav-link nav-cta" href="../index.html#contact-section">Engage</a>
+  </div>
+</nav>
 
 <div class="wrap">
   <div class="tag">podcast &middot; Episode 2</div>
@@ -48,18 +92,33 @@
   <img class="cover" src="../images/episode-02-pano.jpg" alt="1.4 Million AI Apps Are Coming: A VC's Advice on What Manufacturers Must Fix First | Pano Anthos cover art" />
   <div class="listen-row"></div>
   <div class="content"><h2>Show Notes</h2>
-<p><em>[NEEDS RESEARCH: paste the full show notes for this episode here once recorded/published — this section supports standard markdown: headings, </em><em>bold</em><em>, </em>italics<em>, links, and lists.]</em></p>
+<p>1.4 million AI apps are hitting the market by 2030. Your ERP won't survive that flood, and neither will your approval chains.</p>
+<p>In this episode of Leading Transformation, Uwe Doerken sits down with Pano Anthos, Managing Partner at XRC Ventures, who has placed early bets on AI startups now running inside Fortune 500 supply chains.</p>
+<p>Here's what nobody wants to admit. Most manufacturers trying to build AI in-house are setting themselves up to fail. The winners aren't the companies with the biggest engineering teams. They're the ones who know exactly which decisions to keep sacred and which 30-step approval process to kill entirely.</p>
+<p>If you run a manufacturing company and think AI is someone else's problem, this conversation will change your mind, or cost you the next five years catching up. Watch now, then go find the bottleneck in your business that's really just bureaucracy in disguise.</p>
 <h2>In This Episode</h2>
 <ul>
-<li>[NEEDS RESEARCH: topic or timestamp one]</li>
-<li>[NEEDS RESEARCH: topic or timestamp two]</li>
-<li>[NEEDS RESEARCH: topic or timestamp three]</li>
+<li>A 7-person team that automated parts procurement for two airlines in two weeks</li>
+<li>How drones now scan warehouse inventory daily at 99.8% accuracy with zero human labor</li>
+<li>The one question every CFO should ask before greenlighting another internal AI build</li>
+<li>Why "customer support bots" are just the opening act for what's coming next</li>
 </ul>
 <h2>About the Guest</h2>
-<p>Pano Anthos is Managing Partner at XRC Ventures. <em>[NEEDS RESEARCH: expand with a full guest bio paragraph.]</em></p></div>
+<p>Pano Anthos is Managing Partner at XRC Ventures, where he invests early in AI startups, several of which now run inside Fortune 500 supply chains and manufacturing operations.</p></div>
   <a class="back-link" href="index.html">&#8592; All Episodes &amp; Posts</a>
 </div>
 
-<footer>D&amp;D Tech Hub &middot; A D&amp;D Strategic Impact Initiative</footer>
+<footer>
+  <div class="footer-left">Leading Transformation Podcast &middot; A <a href="../index.html">D&amp;D Strategic Impact</a> Initiative</div>
+  <div class="footer-right">&copy; 2026 D&amp;D Strategic Impact</div>
+</footer>
+<script>
+  var navToggleLinks = document.getElementById('navLinks');
+  if (navToggleLinks) {
+    navToggleLinks.querySelectorAll('.nav-link').forEach(function(l){
+      l.addEventListener('click', function(){ navToggleLinks.classList.remove('open'); });
+    });
+  }
+</script>
 </body>
 </html>

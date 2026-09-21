@@ -13,14 +13,21 @@ listen_apple_url: "#"
 
 ## Show Notes
 
-*[NEEDS RESEARCH: paste the full show notes for this episode here once recorded/published — this section supports standard markdown: headings, **bold**, *italics*, links, and lists.]*
+Most enterprise leaders are blindly handing their operational trade secrets to third-party AI labs. That's a mistake that destroys your competitive moat.
+
+If you run a mid-market manufacturing or industrial company, your data is your business. If you don't own your AI stack, you don't own your future.
+
+In this episode of Leading Transformation, Dr. Petra Doerken sits down with H2O.ai Founder & CEO Sri Ambati to break down why closed AI models leak your trade secrets, and how to fix it.
+
+Stop burning capital on token hype. Build assets you actually control.
 
 ## In This Episode
 
-- [NEEDS RESEARCH: topic or timestamp one]
-- [NEEDS RESEARCH: topic or timestamp two]
-- [NEEDS RESEARCH: topic or timestamp three]
+- Why closed AI models leak your trade secrets, and how to fix it
+- How small language models (SLMs) cut AI compute costs by 10x to 100x
+- The pivot from generic AI hype to high-ROI predictive maintenance
+- How to cut through vendor noise and build real enterprise AI sovereignty
 
 ## About the Guest
 
-Sri Ambati is Founder &amp; CEO of H2O.ai. *[NEEDS RESEARCH: expand with a full guest bio paragraph.]*
+Sri Ambati is Founder &amp; CEO of H2O.ai, where he builds open-source and enterprise AI platforms that help organizations own their AI stack instead of renting intelligence from closed, third-party labs.

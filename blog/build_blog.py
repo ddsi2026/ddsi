@@ -41,6 +41,10 @@ PAGE_HEAD = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="93786d8f-7512-427c-b471-567cafb2d65c" data-blockingmode="auto" type="text/javascript"></script>
 <title>{title} | D&amp;D Strategic Impact</title>
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -53,13 +57,23 @@ PAGE_HEAD = """<!DOCTYPE html>
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
   }}
-  body {{ background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; }}
-  a {{ color: var(--gold); }}
-  nav {{ padding: 1.25rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(11,19,34,0.95); }}
-  nav a {{ font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); text-decoration: none; }}
-  .wrap {{ max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }}
+  html {{ scroll-behavior: smooth; }}
+  body {{ background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; }}
+  a {{ color: inherit; text-decoration: none; }}
+  nav {{ position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(11,19,34,0.95); backdrop-filter: blur(12px); }}
+  .nav-logo {{ display: flex; align-items: center; gap: 12px; }}
+  .nav-logo-main {{ font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; line-height: 1.2; }}
+  .nav-logo-sub {{ font-size: 0.55rem; letter-spacing: 0.18em; color: var(--slate); text-transform: uppercase; line-height: 1.2; }}
+  .nav-links {{ display: flex; align-items: center; gap: 2rem; }}
+  .nav-link {{ font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); cursor: pointer; white-space: nowrap; }}
+  .nav-link:hover {{ color: var(--gold); }}
+  .nav-cta {{ font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.55rem 1.3rem; border: 1px solid var(--gold-dim); color: var(--gold); }}
+  .nav-cta:hover {{ background: var(--gold); color: var(--navy); }}
+  .nav-toggle {{ display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; }}
+  .nav-toggle span {{ width: 22px; height: 1.5px; background: var(--gold); display: block; }}
+  .wrap {{ max-width: 900px; margin: 0 auto; padding: 9rem 1.5rem 6rem; }}
   .tag {{ display: inline-block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25); padding: 0.3rem 0.8rem; margin-bottom: 1.5rem; }}
-  h1 {{ font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin-bottom: 1rem; }}
+  h1 {{ font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin-bottom: 1rem; max-width: none; }}
   .meta {{ font-size: 0.75rem; color: var(--slate); letter-spacing: 0.05em; margin-bottom: 2rem; }}
   .cover {{ width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2.5rem; border: 1px solid rgba(201,168,76,0.15); }}
   .listen-row {{ display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }}
@@ -69,16 +83,57 @@ PAGE_HEAD = """<!DOCTYPE html>
   .content ul, .content ol {{ margin: 0 0 1.2rem 1.3rem; color: var(--slate-light); }}
   .content li {{ margin-bottom: 0.4rem; }}
   .content em {{ color: var(--gold-dim); }}
-  .back-link {{ display: inline-block; margin-top: 3rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }}
-  footer {{ padding: 2rem 3rem; border-top: 1px solid rgba(201,168,76,0.12); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); text-align: center; }}
+  .back-link {{ display: inline-block; margin-top: 3rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--gold); }}
+  footer {{ padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }}
+  .footer-left {{ font-size: 0.7rem; color: var(--slate); }}
+  .footer-right {{ font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }}
+  @media (max-width: 900px) {{
+    nav {{ padding: 0.75rem 1.25rem; }}
+    .nav-links {{ display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 1.25rem; background: var(--navy); padding: 1.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }}
+    .nav-links.open {{ display: flex; }}
+    .nav-toggle {{ display: flex; }}
+  }}
+  @media (max-width: 860px) {{
+    .wrap {{ padding: 8rem 1.25rem 4rem; }}
+  }}
 </style>
 </head>
 <body>
-<nav><a href="../index.html">&#8592; D&amp;D Strategic Impact</a></nav>
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <img src="../logo.png" alt="Logo" style="height: 34px; width: auto;">
+    <div style="display:flex;flex-direction:column;">
+      <span class="nav-logo-main">D&amp;D Strategic Impact</span>
+      <span class="nav-logo-sub">A D&amp;D Legacy Capital Company</span>
+    </div>
+  </a>
+  <div class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="../index.html#top">Overview</a>
+    <a class="nav-link" href="../index.html#portfolio-section">Portfolio</a>
+    <a class="nav-link" href="../index.html#advisory-section">Advisory</a>
+    <a class="nav-link" href="../index.html#techhub-section">Tech Hub</a>
+    <a class="nav-link" href="../index.html#incubator-section">Incubator</a>
+    <a class="nav-link" href="../index.html#podcast-preview-section">Podcast</a>
+    <a class="nav-link" href="../about.html">About Us</a>
+    <a class="nav-link nav-cta" href="../index.html#contact-section">Engage</a>
+  </div>
+</nav>
 """
 
 PAGE_FOOT = """
-<footer>D&amp;D Tech Hub &middot; A D&amp;D Strategic Impact Initiative</footer>
+<footer>
+  <div class="footer-left">Leading Transformation Podcast &middot; A <a href="../index.html">D&amp;D Strategic Impact</a> Initiative</div>
+  <div class="footer-right">&copy; 2026 D&amp;D Strategic Impact</div>
+</footer>
+<script>
+  var navToggleLinks = document.getElementById('navLinks');
+  if (navToggleLinks) {
+    navToggleLinks.querySelectorAll('.nav-link').forEach(function(l){
+      l.addEventListener('click', function(){ navToggleLinks.classList.remove('open'); });
+    });
+  }
+</script>
 </body>
 </html>
 """
@@ -123,6 +178,16 @@ def render_post_page(post: dict) -> str:
 {PAGE_FOOT}"""
 
 
+TOPICS = [
+    "AI Adoption: Pilot to Deployment",
+    "Realizing Measurable ROI",
+    "Compliance & Governance",
+    "Scaling Technology",
+    "Building in Regulated Industries",
+    "Unconventional, Overlooked Insights",
+]
+
+
 def render_index(posts: list) -> str:
     # Podcast episodes list in episode order (1, 2, 3, ...); everything else
     # (non-episode blog posts) lists newest-first by date.
@@ -136,70 +201,66 @@ def render_index(posts: list) -> str:
         reverse=True,
     )
     posts_sorted = episodes + others
-    categories = sorted(set(p.get("category", "blog") for p in posts_sorted))
 
-    filter_buttons = '<button class="filter-btn active" data-cat="all">All</button>' + "".join(
-        f'<button class="filter-btn" data-cat="{c}">{c.title()}</button>' for c in categories
-    )
+    topics_html = "".join(f'<div class="topic-item">{t}</div>' for t in TOPICS)
 
-    cards = ""
+    rows = ""
     for p in posts_sorted:
         cover = p.get("cover_image", "")
         cover_html = f'<img src="{cover}" alt="{p.get("title","")}" />' if cover else '<div class="no-cover">No Cover Yet</div>'
-        cards += f"""
-        <a class="card" href="{p['slug']}.html" data-cat="{p.get('category','blog')}">
-          <div class="card-art">{cover_html}</div>
-          <div class="card-body">
-            <div class="card-tag">{p.get('category','Blog')}{' &middot; Ep. ' + str(p['episode_number']) if p.get('episode_number') else ''}</div>
-            <div class="card-title">{p.get('title','Untitled')}</div>
-            <div class="card-desc">{p.get('description','')}</div>
+        guest_line = f'<div class="row-guest">Guest: {p["guest"]}</div>' if p.get("guest") else ""
+        rows += f"""
+        <a class="episode-row" href="{p['slug']}.html">
+          <div class="row-art">{cover_html}</div>
+          <div class="row-body">
+            <div class="row-tag">{p.get('category','Blog')}{' &middot; Episode ' + str(p['episode_number']) if p.get('episode_number') else ''}</div>
+            <div class="row-title">{p.get('title','Untitled')}</div>
+            {guest_line}
+            <div class="row-desc">{p.get('description','')}</div>
           </div>
         </a>"""
 
-    return f"""{PAGE_HEAD.format(title='Tech Hub Blog')}
+    return f"""{PAGE_HEAD.format(title='Leading Transformation Podcast')}
 <style>
-  .wrap {{ max-width: 1100px; }}
-  h1 {{ margin-bottom: 0.5rem; }}
-  .filters {{ display: flex; gap: 0.75rem; margin: 2rem 0 3rem; flex-wrap: wrap; }}
-  .filter-btn {{ background: transparent; border: 1px solid rgba(201,168,76,0.25); color: var(--slate); font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 1.1rem; cursor: pointer; }}
-  .filter-btn.active, .filter-btn:hover {{ border-color: var(--gold); color: var(--gold); }}
-  .grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5px; background: rgba(201,168,76,0.12); }}
-  .card {{ background: var(--navy); text-decoration: none; color: inherit; display: block; transition: background 0.2s; }}
-  .card:hover {{ background: var(--navy-light); }}
-  .card-art {{ aspect-ratio: 16/9; background: var(--navy-light); overflow: hidden; }}
-  .card-art img {{ width: 100%; height: 100%; object-fit: cover; }}
-  .no-cover {{ width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); border: 1px dashed rgba(201,168,76,0.25); }}
-  .card-body {{ padding: 1.5rem; }}
-  .card-tag {{ font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.5rem; }}
-  .card-title {{ font-size: 0.95rem; font-weight: 500; margin-bottom: 0.5rem; }}
-  .card-desc {{ font-size: 0.78rem; color: var(--slate); line-height: 1.6; }}
+  .wrap {{ max-width: 900px; }}
+  h1 {{ margin-bottom: 1rem; max-width: none; }}
+  .lede {{ color: var(--slate); font-size: 0.95rem; max-width: none; line-height: 1.8; margin-bottom: 2.5rem; }}
+  .topics-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(201,168,76,0.15); margin-bottom: 3.5rem; }}
+  .topic-item {{ background: var(--navy-mid); padding: 1.1rem 1.25rem; font-size: 0.76rem; letter-spacing: 0.02em; color: var(--gold-light); text-align: center; }}
+  .episode-list {{ display: flex; flex-direction: column; gap: 1.5px; background: rgba(201,168,76,0.12); margin-bottom: 3.5rem; }}
+  .episode-row {{ display: flex; gap: 1.5rem; background: var(--navy); text-decoration: none; color: inherit; padding: 1.25rem; align-items: center; transition: background 0.2s; }}
+  .episode-row:hover {{ background: var(--navy-light); }}
+  .row-art {{ flex: 0 0 180px; aspect-ratio: 16/9; background: var(--navy-light); overflow: hidden; }}
+  .row-art img {{ width: 100%; height: 100%; object-fit: cover; }}
+  .no-cover {{ width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); border: 1px dashed rgba(201,168,76,0.25); }}
+  .row-body {{ flex: 1; min-width: 0; }}
+  .row-tag {{ font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.4rem; }}
+  .row-title {{ font-size: 1.05rem; font-weight: 500; font-family: var(--font-display); margin-bottom: 0.3rem; }}
+  .row-guest {{ font-size: 0.72rem; color: var(--gold); margin-bottom: 0.4rem; }}
+  .row-desc {{ font-size: 0.8rem; color: var(--slate); line-height: 1.6; }}
+  .guest-cta {{ background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.2); padding: 2.5rem; text-align: center; }}
+  .guest-cta h2 {{ font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--gold-light); }}
+  .guest-cta p {{ color: var(--slate); max-width: 560px; margin: 0 auto 1.5rem; font-size: 0.85rem; line-height: 1.7; }}
+  .btn-primary {{ display: inline-block; padding: 0.85rem 2.2rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }}
+  .btn-primary:hover {{ background: var(--gold-light); }}
+  @media (max-width: 640px) {{
+    .topics-grid {{ grid-template-columns: repeat(2, 1fr); }}
+    .episode-row {{ flex-direction: column; align-items: flex-start; }}
+    .row-art {{ flex: none; width: 100%; }}
+  }}
 </style>
 <div class="wrap">
-  <div class="tag">Tech Hub</div>
-  <h1>Blog &amp; Episodes</h1>
-  <p style="color:var(--slate);font-size:0.9rem;max-width:600px">News from the D&amp;D Tech Hub, plus every Leading Transformation podcast episode with full show notes.</p>
-  <div class="filters">{filter_buttons}</div>
-  <div class="grid" id="postGrid">{cards}</div>
+  <div class="tag">Leading Transformation</div>
+  <h1>Leading Transformation</h1>
+  <p class="lede">An interview series with executives and founders navigating AI adoption and technology transformation inside large, regulated organizations.</p>
+  <div class="topics-grid">{topics_html}</div>
+  <div class="episode-list">{rows}</div>
+  <div class="guest-cta">
+    <h2>Become a Guest</h2>
+    <p>We're always looking to feature enterprise leaders sharing their real AI-adoption and technology-transformation journey. If that's you, we'd love to have you on the show.</p>
+    <a class="btn-primary" href="../index.html?inquiry=podcast#contact-section">Get Featured</a>
+  </div>
 </div>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const initialCat = params.get('category') || 'all';
-
-  function applyFilter(cat) {{
-    document.querySelectorAll('.card').forEach(c => {{
-      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
-    }});
-    document.querySelectorAll('.filter-btn').forEach(b => {{
-      b.classList.toggle('active', b.dataset.cat === cat);
-    }});
-  }}
-
-  document.querySelectorAll('.filter-btn').forEach(btn => {{
-    btn.addEventListener('click', () => applyFilter(btn.dataset.cat));
-  }});
-
-  applyFilter(initialCat);
-</script>
 {PAGE_FOOT}"""
 
 
