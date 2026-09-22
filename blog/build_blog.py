@@ -198,6 +198,7 @@ def render_index(posts: list) -> str:
     episodes = sorted(
         (p for p in posts if p.get("episode_number") is not None),
         key=lambda p: p["episode_number"],
+        reverse=True,
     )
     others = sorted(
         (p for p in posts if p.get("episode_number") is None),
@@ -234,7 +235,7 @@ def render_index(posts: list) -> str:
   .episode-list {{ display: flex; flex-direction: column; gap: 2px; background: rgba(201,168,76,0.12); margin-bottom: 4.5rem; }}
   .episode-row {{ display: flex; gap: 2.5rem; background: var(--navy); text-decoration: none; color: inherit; padding: 2rem; align-items: center; transition: background 0.2s; }}
   .episode-row:hover {{ background: var(--navy-light); }}
-  .row-art {{ flex: 0 0 340px; aspect-ratio: 16/9; background: var(--navy-light); overflow: hidden; border: 1px solid rgba(201,168,76,0.15); }}
+  .row-art {{ flex: 0 0 50%; aspect-ratio: 16/9; background: var(--navy-light); overflow: hidden; border: 1px solid rgba(201,168,76,0.15); }}
   .row-art img {{ width: 100%; height: 100%; object-fit: cover; }}
   .no-cover {{ width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); border: 1px dashed rgba(201,168,76,0.25); }}
   .row-body {{ flex: 1; min-width: 0; }}
@@ -247,6 +248,10 @@ def render_index(posts: list) -> str:
   .guest-cta p {{ color: var(--slate-light); max-width: 620px; margin: 0 auto 1.75rem; font-size: 0.95rem; line-height: 1.75; }}
   .btn-primary {{ display: inline-block; padding: 0.95rem 2.5rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }}
   .btn-primary:hover {{ background: var(--gold-light); }}
+  .newsletter-block {{ max-width: 480px; margin: 0 auto 3rem; text-align: center; padding: 2rem; background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.15); }}
+  .newsletter-label {{ font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }}
+  .newsletter-title {{ font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--white); }}
+  .newsletter-sub {{ font-size: 0.8rem; color: var(--slate); margin-bottom: 1.25rem; line-height: 1.6; }}
   @media (max-width: 900px) {{
     .topics-grid {{ grid-template-columns: repeat(2, 1fr); }}
     .episode-row {{ flex-direction: column; align-items: flex-start; gap: 1.25rem; padding: 1.5rem; }}
@@ -259,6 +264,12 @@ def render_index(posts: list) -> str:
   <p class="lede">An interview series with executives and founders navigating AI adoption and technology transformation inside large, regulated organizations.</p>
   <div class="topics-grid">{topics_html}</div>
   <div class="episode-list">{rows}</div>
+  <div class="newsletter-block">
+    <div class="newsletter-label">Stay in the Loop</div>
+    <div class="newsletter-title">Get Tech Hub updates in your inbox</div>
+    <p class="newsletter-sub">New startup cohorts, event recaps, and ecosystem news, sent occasionally, never sold.</p>
+    <script async data-uid="9a17655aa3" src="https://leading-transformation.kit.com/9a17655aa3/index.js"></script>
+  </div>
   <div class="guest-cta">
     <h2>Become a Guest</h2>
     <p>We're always looking to feature enterprise leaders sharing their real AI-adoption and technology-transformation journey. If that's you, we'd love to have you on the show.</p>

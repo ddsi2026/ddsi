@@ -38,20 +38,20 @@
   section[id] { scroll-margin-top: 84px; }
 
   /* TOP HERO: skyline background, two-column layout */
-  .about-hero { position: relative; overflow: hidden; padding: 10rem 3rem 6rem; min-height: 90vh; display: flex; align-items: center; }
+  .about-hero { position: relative; overflow: hidden; padding: 7.5rem 3rem 3.5rem; display: flex; align-items: center; }
   .about-hero-bg { position: absolute; inset: 0; z-index: -2; background-image: url('images/skyline-hero.jpg'); background-size: cover; background-position: center 35%; opacity: 0.42; filter: grayscale(0.25) contrast(1.05); }
   .about-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to bottom, var(--navy) 0%, rgba(11,19,34,0.4) 25%, rgba(11,19,34,0.55) 70%, var(--navy) 100%), radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.07) 0%, transparent 60%); pointer-events: none; }
-  .about-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4.5rem; align-items: center; max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
-  .about-hero-left .badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-dim); padding: 0.4rem 1rem; margin-bottom: 1.5rem; width: fit-content; }
-  .about-hero-left h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.8vw, 3.6rem); font-weight: 300; max-width: 620px; margin-bottom: 1.25rem; line-height: 1.15; }
+  .about-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
+  .about-hero-left .badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-dim); padding: 0.4rem 1rem; margin-bottom: 1.25rem; width: fit-content; }
+  .about-hero-left h1 { font-family: var(--font-display); font-size: clamp(2rem, 4.2vw, 3.1rem); font-weight: 300; max-width: 620px; margin-bottom: 1rem; line-height: 1.15; }
   .about-hero-left h1 em { font-style: italic; color: var(--gold-light); }
-  .about-hero-left p { color: var(--slate-light); max-width: 560px; font-size: 1rem; line-height: 1.8; }
-  .about-hero-right { display: flex; flex-direction: column; gap: 1.5rem; }
-  .about-hero-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 1px solid rgba(201,168,76,0.3); }
+  .about-hero-left p { color: var(--slate-light); max-width: 560px; font-size: 0.92rem; line-height: 1.75; }
+  .about-hero-right { display: flex; flex-direction: column; gap: 1.1rem; }
+  .about-hero-photo { width: 100%; max-height: 260px; aspect-ratio: 16/10; object-fit: cover; border: 1px solid rgba(201,168,76,0.3); }
   .about-kpi-stack { display: flex; flex-direction: column; gap: 1px; background: rgba(201,168,76,0.18); border: 1px solid rgba(201,168,76,0.18); }
-  .about-kpi-item { background: rgba(11,19,34,0.7); padding: 1rem 1.4rem; display: flex; justify-content: space-between; align-items: baseline; }
-  .about-kpi-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--gold); }
-  .about-kpi-label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); text-align: right; }
+  .about-kpi-item { background: rgba(11,19,34,0.7); padding: 0.7rem 1.2rem; display: flex; justify-content: space-between; align-items: baseline; }
+  .about-kpi-num { font-family: var(--font-display); font-size: 1.35rem; font-weight: 300; color: var(--gold); }
+  .about-kpi-label { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); text-align: right; }
 
   .section { padding: 5rem 3rem; }
   .section-alt { background: var(--navy-mid); }
@@ -68,31 +68,29 @@
   .sector-item { background: var(--navy); padding: 2.25rem 1.5rem; text-align: center; }
   .sector-item-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--white); }
 
-  .bio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-top: 2.5rem; }
-  .bio-card { display: flex; gap: 1.5rem; align-items: flex-start; }
-  .bio-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(201,168,76,0.3); flex-shrink: 0; }
-  .bio-name { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.25rem; }
-  .bio-role { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.75rem; }
-  .bio-text { font-size: 0.82rem; color: var(--slate); line-height: 1.75; }
+  /* LEADERSHIP — replicates ddlegacycapital.com's leadership section format/style */
+  #leadership-section { position: relative; overflow: hidden; }
+  #leadership-section .leadership-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/leadership-bg.jpg'); background-size: cover; background-position: center 20%; opacity: 0.25; filter: grayscale(0.15) contrast(1.05); }
+  #leadership-section::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(11,19,34,0.78), rgba(11,19,34,0.94)); }
+  #leadership-section .mw { position: relative; z-index: 1; }
+  .leader-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2.5rem; }
+  .leader-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; padding: 3rem 2.5rem; }
+  .leader-photo-wrap { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(201,168,76,0.5); margin-bottom: 1.75rem; }
+  .leader-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .leader-name { font-family: var(--font-display); font-size: 1.9rem; font-weight: 400; color: var(--white); margin-bottom: 0.3rem; }
+  .leader-title { font-family: var(--font-body); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+  .leader-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.3); margin-bottom: 1.25rem; }
+  .leader-highlights { list-style: none; margin: 0 0 1.25rem; padding: 0; }
+  .leader-highlights li { font-size: 0.82rem; color: var(--slate); line-height: 1.75; padding-left: 1rem; position: relative; }
+  .leader-highlights li::before { content: '\2013'; position: absolute; left: 0; color: var(--gold-dim); }
+  .leader-bio { font-size: 0.85rem; font-weight: 300; color: var(--slate); line-height: 1.8; margin-bottom: 1.25rem; }
+  .leader-linkedin { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; }
+  .leader-linkedin:hover { color: var(--gold); border-color: var(--gold); }
 
-  /* CONTACT FORM (matches homepage) */
-  .contact-inner { max-width: 100%; margin: 0; }
-  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; max-width: 900px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .form-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); }
-  .form-input, .form-select, .form-textarea { background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.2); color: var(--white); padding: 0.85rem 1rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 300; }
-  .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--gold-dim); }
-  .form-textarea { min-height: 120px; resize: vertical; }
-  .form-select { appearance: none; cursor: pointer; }
-  .form-submit { align-self: flex-start; padding: 0.9rem 2.4rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; border: none; }
-  .form-submit:hover { background: var(--gold-light); }
-  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-
-  /* DISCLAIMER */
-  .disclaimer-section { padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); background: var(--navy-mid); }
-  .disclaimer-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.9rem; }
-  .disclaimer-text { width: 100%; font-size: 0.74rem; color: var(--slate); line-height: 1.85; }
+  /* ENGAGE CTA (replaces the on-page form; links to the homepage contact form) */
+  .engage-cta { text-align: center; margin-top: 2.5rem; }
+  .btn-primary { padding: 0.9rem 2.4rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; border: none; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); }
 
   footer { padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-left { font-size: 0.7rem; color: var(--slate); }
@@ -106,13 +104,10 @@
   }
   @media (max-width: 860px) {
     .section { padding: 3.5rem 1.5rem; }
-    .about-hero { padding: 7rem 1.5rem 3.5rem; min-height: auto; }
-    .about-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-hero { padding: 6.5rem 1.5rem 2.5rem; }
+    .about-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
     .sector-grid-6 { grid-template-columns: 1fr; }
-    .bio-grid { grid-template-columns: 1fr; }
-    .bio-card { flex-direction: column; align-items: flex-start; }
-    .form-row { grid-template-columns: 1fr; }
-    .disclaimer-section { padding: 2rem 1.5rem; }
+    .leader-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -135,7 +130,7 @@
     <a class="nav-link" href="index.html#incubator-section">Incubator</a>
     <a class="nav-link" href="index.html#podcast-preview-section">Podcast</a>
     <a class="nav-link active" href="about.html">About Us</a>
-    <a class="nav-link nav-cta" href="#contact-section">Engage</a>
+    <a class="nav-link nav-cta" href="index.html#contact-section">Engage</a>
   </div>
 </nav>
 
@@ -176,99 +171,56 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="leadership-section">
+  <div class="leadership-bg"></div>
   <div class="mw">
     <div class="section-label">Leadership</div>
     <div class="gold-rule"></div>
-    <h2 class="section-title">Managing <em>Partners</em></h2>
-    <div class="bio-grid">
-      <div class="bio-card">
-        <img class="bio-photo" src="images/bio-uwe-real.png" alt="Uwe Doerken">
-        <div>
-          <div class="bio-name">Uwe Doerken</div>
-          <div class="bio-role">Managing Partner</div>
-          <div class="bio-text">Former Chairman &amp; CEO of DHL Express Worldwide and former Associate Partner at McKinsey &amp; Company. A World Economic Forum "Global Leader for Tomorrow," Uwe has led 100+ acquisitions across 25+ countries over the course of his career.</div>
-        </div>
+    <h2 class="section-title">The <em>Partners</em></h2>
+    <p class="section-body">D&amp;D Legacy Capital is led by two Managing Partners who bring complementary strengths, executive leadership at global scale and deep technical innovation, to every investment and partnership.</p>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="leader-photo-wrap"><img src="images/bio-uwe-real.png" alt="Portrait of Uwe Doerken"></div>
+        <div class="leader-name">Uwe Doerken</div>
+        <div class="leader-title">Managing Partner</div>
+        <div class="leader-divider"></div>
+        <ul class="leader-highlights">
+          <li>Former Chairman &amp; CEO, DHL Express Worldwide</li>
+          <li>Former Associate Partner, McKinsey &amp; Company</li>
+          <li>WEF &ldquo;Global Leader for Tomorrow&rdquo;</li>
+          <li>100+ acquisitions across 25+ countries</li>
+        </ul>
+        <p class="leader-bio">Uwe brings decades of executive leadership in global logistics, strategy, and transformation. At DHL Group he spearheaded international expansion and led the creation of the world's leading transportation and logistics company. He is fluent in five languages and has lived and operated across more than ten countries.</p>
+        <a class="leader-linkedin" href="https://www.linkedin.com/in/uwedoerken/" target="_blank" rel="noopener">LinkedIn Profile</a>
       </div>
-      <div class="bio-card">
-        <img class="bio-photo" src="images/bio-petra-real.png" alt="Dr. Petra Doerken">
-        <div>
-          <div class="bio-name">Dr. Petra Doerken</div>
-          <div class="bio-role">Managing Partner</div>
-          <div class="bio-text">PhD in Chemical Engineering and an MBA from UCLA Anderson. Petra holds a portfolio of technology patents, has managed multi-billion-dollar portfolios, and has influenced US and international legislation over the course of her career.</div>
-        </div>
+      <div class="leader-card">
+        <div class="leader-photo-wrap"><img src="images/bio-petra-real.png" alt="Portrait of Dr. Petra Doerken"></div>
+        <div class="leader-name">Dr. Petra Doerken</div>
+        <div class="leader-title">Managing Partner</div>
+        <div class="leader-divider"></div>
+        <ul class="leader-highlights">
+          <li>PhD Chemical Engineering and MBA</li>
+          <li>A portfolio of technology patents authored</li>
+          <li>Multi-billion-dollar portfolio management</li>
+          <li>Influenced US and international legislation</li>
+        </ul>
+        <p class="leader-bio">Petra is an investor, operator, and venture architect with deep technical fluency and enterprise strategy expertise. She combines an engineering foundation with executive business acumen to guide emerging technology commercialization, cross-border market expansion, and institutional partnership strategy.</p>
+        <a class="leader-linkedin" href="https://www.linkedin.com/in/petradoerken" target="_blank" rel="noopener">LinkedIn Profile</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT / LEAD INTAKE SECTION -->
-<section class="section section-alt" id="contact-section">
+<!-- ENGAGE CTA -->
+<section class="section section-alt">
   <div class="mw">
     <div class="section-label">Contact &amp; Inquiries</div>
     <div class="gold-rule"></div>
     <h2 class="section-title">Engage with DDSI</h2>
     <p class="section-body">Whether you're exploring a portfolio partnership, seeking advisory engagement, joining the Tech Hub, or pitching a podcast idea, tell us about your organization and what you're facing, and we'll help you find the right path in.</p>
-
-    <div class="contact-inner">
-      <div id="form-message" style="display:none; margin-top:1rem; padding:1rem; text-align:center; font-size:0.85rem;"></div>
-
-      <form class="contact-form" id="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">First Name *</label>
-            <input type="text" name="first_name" class="form-input" placeholder="Alexander" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Last Name *</label>
-            <input type="text" name="last_name" class="form-input" placeholder="The Great" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Organization</label>
-            <input type="text" name="organization" class="form-input" placeholder="Your company or institution" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Role / Title</label>
-            <input type="text" name="title" class="form-input" placeholder="Chief Digital Officer" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Industry</label>
-            <input type="text" name="industry" class="form-input" placeholder="e.g. Healthcare, Banking, Energy, Government" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email *</label>
-            <input type="email" name="email" class="form-input" placeholder="you@organization.com" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Nature of Inquiry *</label>
-          <select name="inquiry_type" id="inquiryType" class="form-select form-input" required>
-            <option value="" disabled selected>Select one</option>
-            <option>Portfolio: Investment or Partnership</option>
-            <option>Strategic Advisory Engagement</option>
-            <option>D&amp;D Tech Hub: Investor or Enterprise Leader</option>
-            <option>Leading Transformation Podcast: Become a Guest</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">What problems or challenges are you facing? *</label>
-          <textarea name="message" class="form-textarea" placeholder="Tell us briefly about your organization, what you're working through, and how we can help..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit" id="submit-btn">Let Us Help You</button>
-      </form>
+    <div class="engage-cta">
+      <a class="btn-primary" href="index.html#contact-section">Engage with DDSI</a>
     </div>
-  </div>
-</section>
-
-<section class="disclaimer-section">
-  <div class="mw-full">
-    <div class="disclaimer-label">Disclaimer</div>
-    <p class="disclaimer-text">D&amp;D Strategic Impact, part of the D&amp;D Legacy Capital family office, is a private family office. The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities or investment advisory services. DDSI does not provide investment advice to the general public.</p>
   </div>
 </section>
 
@@ -286,57 +238,6 @@
 <script>
 document.getElementById('navLinks').querySelectorAll('.nav-link').forEach(function(l){
   l.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
-});
-</script>
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-
-  const submitBtn = document.getElementById('submit-btn');
-  const formMessage = document.getElementById('form-message');
-  const originalBtnText = submitBtn.textContent;
-
-  submitBtn.textContent = 'Sending...';
-  submitBtn.disabled = true;
-  formMessage.style.display = 'none';
-
-  const formData = new FormData(this);
-  const data = Object.fromEntries(formData.entries());
-
-  try {
-    const response = await fetch('https://formspree.io/f/mwlppgwa', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-
-    formMessage.style.display = 'block';
-
-    if (response.ok) {
-      formMessage.style.color = 'var(--gold)';
-      formMessage.style.background = 'rgba(201,168,76,0.1)';
-      formMessage.style.border = '1px solid var(--gold-dim)';
-      formMessage.textContent = 'Your message has been sent. Thank you for your inquiry.';
-      this.reset();
-    } else {
-      const result = await response.json().catch(() => ({}));
-      throw new Error((result.errors || []).map(e => e.message).join(', ') || 'Failed to send');
-    }
-  } catch (error) {
-    formMessage.style.display = 'block';
-    formMessage.style.color = '#ff6b6b';
-    formMessage.style.background = 'rgba(255,107,107,0.1)';
-    formMessage.style.border = '1px solid #ff6b6b';
-    formMessage.textContent = 'There was an error sending your message. Please reach out to us directly on Linkedin http://linkedin.com/in/petradoerken';
-    console.error('Form error:', error);
-  } finally {
-    submitBtn.textContent = originalBtnText;
-    submitBtn.disabled = false;
-  }
 });
 </script>
 

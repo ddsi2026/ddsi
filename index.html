@@ -76,7 +76,7 @@
   .gold-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 0 1.5rem; }
 
   /* SECTION */
-  .section { padding: 6rem 3rem; }
+  .section { padding: 3.25rem 3rem; }
   .section-alt { background: var(--navy-mid); }
   #portfolio-section { position: relative; overflow: hidden; }
   #portfolio-section .portfolio-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/portfolio-bg.jpg'); background-size: cover; background-position: center; opacity: 0.22; filter: grayscale(0.1) contrast(1.05); }
@@ -98,9 +98,9 @@
   .section-body { color: var(--slate); max-width: 600px; line-height: 1.8; }
 
   /* CONSISTENT SECTION HEAD + CTA */
-  .section-head { max-width: 1100px; margin: 0 auto 2.5rem; text-align: left; }
+  .section-head { max-width: 1100px; margin: 0 auto 1.5rem; text-align: left; }
   .section-head .section-body { max-width: 920px; }
-  .cta-row { display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem; }
+  .cta-row { display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.75rem; }
   .newsletter-block { max-width: 480px; margin: 3.5rem auto 0; text-align: center; padding: 2rem; background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.15); }
   .newsletter-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
   .newsletter-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--white); }
@@ -144,6 +144,11 @@
   .form-submit { padding: 1rem 2.5rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; align-self: center; margin-top: 0.5rem; }
   .form-submit:hover { background: var(--gold-light); }
 
+  /* DISCLAIMER */
+  .disclaimer-section { padding: 2.5rem 3rem; border-top: 1px solid rgba(201,168,76,0.12); background: var(--navy-mid); }
+  .disclaimer-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.9rem; }
+  .disclaimer-text { width: 100%; max-width: none; font-size: 0.85rem; color: var(--slate-light); line-height: 1.85; }
+
   /* FOOTER */
   footer { padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-left { font-size: 0.7rem; color: var(--slate); }
@@ -159,7 +164,8 @@
   /* HORIZONTAL CAROUSEL */
   .carousel { position: relative; overflow: hidden; border: 1px solid rgba(201,168,76,0.18); }
   .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.65,0,0.35,1); }
-  .carousel-slide { flex: 0 0 100%; position: relative; aspect-ratio: 16 / 9; background: var(--navy-mid); }
+  .carousel-slide { flex: 0 0 50%; position: relative; aspect-ratio: 16 / 9; background: var(--navy-mid); border-left: 1px solid rgba(201,168,76,0.12); }
+  .carousel-slide:first-child { border-left: none; }
   .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.85) contrast(1.05); }
   .carousel-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,19,34,0.75) 0%, rgba(11,19,34,0) 40%); }
   .carousel-caption { position: absolute; bottom: 1.25rem; left: 1.5rem; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); z-index: 2; }
@@ -172,7 +178,7 @@
   .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
 
   /* TECH HUB SECTION */
-  .hub-preview { padding: 6rem 3rem; }
+  .hub-preview { padding: 3.25rem 3rem; }
   .hub-preview-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
   .free-ecosystem-block { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(201,168,76,0.12); max-width: 1100px; margin: 2.5rem auto 0; }
   .free-ecosystem-item { background: var(--navy-mid); padding: 1.75rem 1.5rem; }
@@ -194,7 +200,7 @@
   .topic-tag { font-size: 0.76rem; padding: 0.9rem 1.1rem; border: 1px solid rgba(201,168,76,0.2); color: var(--slate-light); letter-spacing: 0.03em; text-align: center; background: rgba(201,168,76,0.03); }
 
   /* HOMEPAGE: PODCAST PREVIEW */
-  .podcast-preview { padding: 6rem 3rem; background: var(--navy-mid); position: relative; border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .podcast-preview { padding: 3.25rem 3rem; background: var(--navy-mid); position: relative; border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
   .episode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5px; max-width: 1180px; margin: 0 auto; background: rgba(201,168,76,0.12); position: relative; z-index: 1; }
   .episode-card { background: var(--navy); display: flex; flex-direction: column; cursor: pointer; transition: background 0.2s; }
   .episode-card:hover { background: var(--navy-light); }
@@ -252,6 +258,8 @@
     .form-row { grid-template-columns: 1fr; }
     .hero-stat-block, .hero-rule { display: none; }
     footer { flex-direction: column; align-items: flex-start; text-align: left; }
+    .carousel-slide { flex: 0 0 100%; border-left: none; }
+    .disclaimer-section { padding: 2rem 1.5rem; }
   }
 </style>
 </head>
@@ -322,22 +330,22 @@
       <div class="portfolio-card">
         <span class="portfolio-tag">Healthcare AI</span>
         <div class="portfolio-card-title">Clinical &amp; Revenue Cycle Intelligence</div>
-        <div class="portfolio-card-body">On-premises AI audit and coding compliance platforms for Medicare Advantage risk adjustment, HCC coding accuracy, and V28 transition, purpose-built for payviders and managed services organizations where data sovereignty is non-negotiable.</div>
+        <div class="portfolio-card-body">On-premises AI audit and coding compliance for Medicare Advantage risk adjustment, built for payviders where data sovereignty is non-negotiable.</div>
       </div>
       <div class="portfolio-card">
         <span class="portfolio-tag">Enterprise Data</span>
         <div class="portfolio-card-title">Data Intelligence &amp; Governance Platforms</div>
-        <div class="portfolio-card-body">AI-native platforms that turn institutional data into a governed, auditable, decision-ready asset, including lineage, access control, regulatory traceability, and cross-system intelligence for enterprise and government environments.</div>
+        <div class="portfolio-card-body">AI-native platforms that turn institutional data into a governed, auditable, decision-ready asset for enterprise and government environments.</div>
       </div>
       <div class="portfolio-card">
         <span class="portfolio-tag">Infrastructure AI</span>
         <div class="portfolio-card-title">AI for Critical Infrastructure</div>
-        <div class="portfolio-card-body">Predictive intelligence and operational AI for energy, utilities, and grid operators, enabling data-driven capital planning, outage forecasting, demand modeling, and workforce optimization at cooperative and enterprise scale.</div>
+        <div class="portfolio-card-body">Predictive, operational AI for energy and utility operators, powering capital planning, outage forecasting, and workforce optimization at scale.</div>
       </div>
       <div class="portfolio-card">
         <span class="portfolio-tag">RegTech &amp; GovTech</span>
         <div class="portfolio-card-title">Compliance &amp; Government Modernization</div>
-        <div class="portfolio-card-body">Enterprise technology for government agencies and regulated institutions navigating AI adoption, security requirements, procurement complexity, and legacy system modernization, without compromising mission continuity.</div>
+        <div class="portfolio-card-body">Enterprise technology helping agencies and regulated institutions navigate AI adoption and legacy modernization without compromising mission continuity.</div>
       </div>
     </div>
     <div class="cta-row">
@@ -396,17 +404,16 @@
       <p class="section-body" style="margin-top:1rem;max-width:920px">A curated ecosystem connecting technology investors, enterprise partners, and founders building the next generation of regulated-industry AI-native solution-focused companies.</p>
     </div>
 
-    <div class="carousel" id="homeHubCarousel" style="margin-top:2.5rem">
+    <div class="carousel" id="homeHubCarousel" style="margin-top:1.75rem">
       <div class="carousel-track" id="homeHubCarouselTrack">
-        <div class="carousel-slide"><img src="images/event-1.jpg" alt="DDSI Tech Hub session in progress" loading="lazy"><div class="carousel-caption">Tech Hub Session</div></div>
-        <div class="carousel-slide"><img src="images/event-3.jpg" alt="DDSI Tech Hub networking mixer" loading="lazy"><div class="carousel-caption">Ecosystem Mixer</div></div>
-        <div class="carousel-slide"><img src="images/event-9.jpg" alt="DDSI Tech Hub startup conference" loading="lazy"><div class="carousel-caption">Startup Conference</div></div>
-        <div class="carousel-slide"><img src="images/event-10.jpg" alt="DDSI Tech Hub speaker session" loading="lazy"><div class="carousel-caption">Speaker Session</div></div>
-        <div class="carousel-slide"><img src="images/event-11.jpg" alt="DDSI Tech Hub evening gathering" loading="lazy"><div class="carousel-caption">Evening Gathering</div></div>
-        <div class="carousel-slide"><img src="images/event-12.jpg" alt="DDSI Tech Hub pitch session" loading="lazy"><div class="carousel-caption">Pitch Session</div></div>
-        <div class="carousel-slide"><img src="images/event-13.jpg" alt="DDSI Tech Hub panel discussion" loading="lazy"><div class="carousel-caption">Panel Discussion</div></div>
-        <div class="carousel-slide"><img src="images/event-14.jpg" alt="DDSI Tech Hub investor gathering" loading="lazy"><div class="carousel-caption">Investor Gathering</div></div>
-        <div class="carousel-slide"><img src="images/event-16.jpg" alt="DDSI Tech Hub founders' summit" loading="lazy"><div class="carousel-caption">Founders&#39; Summit</div></div>
+        <div class="carousel-slide"><img src="images/event-9.jpg" alt="DDSI Tech Hub startup conference" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-10.jpg" alt="DDSI Tech Hub speaker session" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-11.jpg" alt="DDSI Tech Hub evening gathering" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-12.jpg" alt="DDSI Tech Hub pitch session" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-13.jpg" alt="DDSI Tech Hub panel discussion" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-14.jpg" alt="DDSI Tech Hub investor gathering" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-16.jpg" alt="DDSI Tech Hub founders' summit" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-3.jpg" alt="DDSI Tech Hub networking mixer" loading="lazy"></div>
       </div>
       <div class="carousel-nav prev" onclick="carouselMove('homeHubCarousel', -1)">&#8249;</div>
       <div class="carousel-nav next" onclick="carouselMove('homeHubCarousel', 1)">&#8250;</div>
@@ -414,7 +421,7 @@
     </div>
 
     <div class="cta-row">
-      <a class="btn-primary" href="tech-hub.html">Explore the Tech Hub</a>
+      <a class="btn-primary" href="tech-hub.html">Explore D&amp;D Tech Hub</a>
     </div>
   </div>
 </section>
@@ -429,22 +436,22 @@
       <p class="section-body" style="margin-top:1rem;max-width:920px">A free program since 2019, built to help founders build and scale technology companies through a curriculum led by investors and operators who have done it themselves. The 2027 Cohort is our Global Gateway program, created to help founders in underserved markets reach the global market.</p>
     </div>
 
-    <div class="carousel" id="homeIncubatorCarousel" style="margin-top:2.5rem">
+    <div class="carousel" id="homeIncubatorCarousel" style="margin-top:1.75rem">
       <div class="carousel-track" id="homeIncubatorCarouselTrack">
-        <div class="carousel-slide"><img src="images/event-2.jpg" alt="Startup pitch night hosted by DDSI Tech Hub" loading="lazy"><div class="carousel-caption">Pitch Night</div></div>
+        <div class="carousel-slide"><img src="images/event-15.jpg" alt="DDSI Tech Hub robotics demo, India" loading="lazy"><div class="carousel-caption">Robotics Demo, India</div></div>
+        <div class="carousel-slide"><img src="images/event-1.jpg" alt="DDSI Tech Hub session in progress" loading="lazy"><div class="carousel-caption">Tech Hub Session</div></div>
         <div class="carousel-slide"><img src="images/event-4.jpg" alt="Founders and mentors collaborating at a DDSI Tech Hub event" loading="lazy"><div class="carousel-caption">Founder Working Session</div></div>
         <div class="carousel-slide"><img src="images/event-5.jpg" alt="DDSI Tech Hub community gathering" loading="lazy"><div class="carousel-caption">Community Gathering</div></div>
         <div class="carousel-slide"><img src="images/event-6.jpg" alt="DDSI Tech Hub past event" loading="lazy"><div class="carousel-caption">Tech Hub Community</div></div>
         <div class="carousel-slide"><img src="images/event-7.jpg" alt="DDSI Tech Hub past event" loading="lazy"><div class="carousel-caption">Tech Hub Community</div></div>
         <div class="carousel-slide"><img src="images/event-8.jpg" alt="DDSI Tech Hub India campus visit" loading="lazy"><div class="carousel-caption">Campus Visit, India</div></div>
-        <div class="carousel-slide"><img src="images/event-15.jpg" alt="DDSI Tech Hub robotics demo, India" loading="lazy"><div class="carousel-caption">Robotics Demo, India</div></div>
       </div>
       <div class="carousel-nav prev" onclick="carouselMove('homeIncubatorCarousel', -1)">&#8249;</div>
       <div class="carousel-nav next" onclick="carouselMove('homeIncubatorCarousel', 1)">&#8250;</div>
       <div class="carousel-dots" id="homeIncubatorCarouselDots"></div>
     </div>
 
-    <div class="stat-grid-5" style="margin-top:2.5rem">
+    <div class="stat-grid-5" style="margin-top:1.75rem">
       <div class="stat-item">
         <span class="stat-item-num">5</span>
         <span class="stat-item-label">Partner Universities</span>
@@ -579,6 +586,13 @@
   </div>
 </section>
 
+<section class="disclaimer-section">
+  <div class="mw">
+    <div class="disclaimer-label">Disclaimer</div>
+    <p class="disclaimer-text">D&amp;D Strategic Impact, part of the D&amp;D Legacy Capital family office, is a private family office. The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities or investment advisory services. DDSI does not provide investment advice to the general public.</p>
+  </div>
+</section>
+
 <footer>
   <div class="footer-left">
     <div style="margin-bottom: 0.5rem;">
@@ -696,7 +710,9 @@ function initCarousel(id, autoplayMs) {
 
 function renderCarousel(id) {
   const c = carousels[id];
-  c.track.style.transform = `translateX(-${c.index * 100}%)`;
+  const slideEl = c.track.children[0];
+  const slideWidth = slideEl ? slideEl.getBoundingClientRect().width : 0;
+  c.track.style.transform = `translateX(-${c.index * slideWidth}px)`;
   Array.from(c.dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === c.index));
 }
 
@@ -719,6 +735,10 @@ function startCarouselAutoplay(id) {
 function stopCarouselAutoplay(id) {
   if (carousels[id] && carousels[id].timer) clearInterval(carousels[id].timer);
 }
+
+window.addEventListener('resize', () => {
+  Object.keys(carousels).forEach(renderCarousel);
+});
 
 initCarousel('homeHubCarousel', 5000);
 initCarousel('homeIncubatorCarousel', 5500);
