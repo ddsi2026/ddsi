@@ -50,7 +50,7 @@
   .about-hero-photo { width: 100%; max-height: 260px; aspect-ratio: 16/10; object-fit: cover; border: 1px solid rgba(201,168,76,0.3); }
   .about-kpi-stack { display: flex; flex-direction: column; gap: 1px; background: rgba(201,168,76,0.18); border: 1px solid rgba(201,168,76,0.18); }
   .about-kpi-item { background: rgba(11,19,34,0.7); padding: 0.7rem 1.2rem; display: flex; justify-content: space-between; align-items: baseline; }
-  .about-kpi-num { font-family: var(--font-display); font-size: 1.35rem; font-weight: 300; color: var(--gold); }
+  .about-kpi-num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--gold); }
   .about-kpi-label { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); text-align: right; }
 
   .section { padding: 5rem 3rem; }
@@ -70,7 +70,7 @@
 
   /* LEADERSHIP — replicates ddlegacycapital.com's leadership section format/style */
   #leadership-section { position: relative; overflow: hidden; }
-  #leadership-section .leadership-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/leadership-bg.jpg'); background-size: cover; background-position: center 20%; opacity: 0.25; filter: grayscale(0.15) contrast(1.05); }
+  #leadership-section .leadership-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/techhub-bg.jpg'); background-size: cover; background-position: center; opacity: 0.25; filter: grayscale(0.05) contrast(1.05); }
   #leadership-section::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(11,19,34,0.78), rgba(11,19,34,0.94)); }
   #leadership-section .mw { position: relative; z-index: 1; }
   .leader-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2.5rem; }
@@ -84,8 +84,9 @@
   .leader-highlights li { font-size: 0.82rem; color: var(--slate); line-height: 1.75; padding-left: 1rem; position: relative; }
   .leader-highlights li::before { content: '\2013'; position: absolute; left: 0; color: var(--gold-dim); }
   .leader-bio { font-size: 0.85rem; font-weight: 300; color: var(--slate); line-height: 1.8; margin-bottom: 1.25rem; }
-  .leader-linkedin { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; }
-  .leader-linkedin:hover { color: var(--gold); border-color: var(--gold); }
+  .leader-linkedin { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); border-bottom: 1px solid rgba(201,168,76,0.5); padding-bottom: 2px; }
+  .leader-linkedin img { width: 16px; height: 16px; border-radius: 3px; }
+  .leader-linkedin:hover { color: var(--gold-light); border-color: var(--gold-light); }
 
   /* ENGAGE CTA (replaces the on-page form; links to the homepage contact form) */
   .engage-cta { text-align: center; margin-top: 2.5rem; }
@@ -140,13 +141,14 @@
     <div class="about-hero-left">
       <div class="badge">D&amp;D Legacy Capital</div>
       <h1>A global family office, <em>building for the long term</em></h1>
-      <p>D&amp;D Legacy Capital is a global family office with a diverse portfolio spanning non-tech investments, including real estate, and active technology operations. D&amp;D Strategic Impact (DDSI) is our technology portfolio: the AI-native companies we build, operate, and back, and the enterprises we advise as they transform alongside them.</p>
+      <p style="margin-bottom:1rem">D&amp;D Legacy Capital is a global family office with a diverse portfolio spanning non-tech (real estate, media, healthcare,&hellip;), and active technology operations (manufacturing, AI&hellip;).</p>
+      <p>D&amp;D Strategic Impact (DDSI) is our AI-focused technology portfolio: the technology solutions we build, operate, and back, and the enterprises we advise as they transform alongside them.</p>
     </div>
     <div class="about-hero-right">
       <img class="about-hero-photo" src="images/handshake.jpg" alt="D&amp;D Legacy Capital partnership handshake">
       <div class="about-kpi-stack">
         <div class="about-kpi-item"><span class="about-kpi-num">100+</span><span class="about-kpi-label">M&amp;A Projects Executed</span></div>
-        <div class="about-kpi-item"><span class="about-kpi-num">20+</span><span class="about-kpi-label">Patents Authored</span></div>
+        <div class="about-kpi-item"><span class="about-kpi-num">20</span><span class="about-kpi-label">Patents Authored</span></div>
         <div class="about-kpi-item"><span class="about-kpi-num">6</span><span class="about-kpi-label">Investment Sectors</span></div>
         <div class="about-kpi-item"><span class="about-kpi-num">10+</span><span class="about-kpi-label">Countries of Operation</span></div>
       </div>
@@ -176,8 +178,7 @@
   <div class="mw">
     <div class="section-label">Leadership</div>
     <div class="gold-rule"></div>
-    <h2 class="section-title">The <em>Partners</em></h2>
-    <p class="section-body">D&amp;D Legacy Capital is led by two Managing Partners who bring complementary strengths, executive leadership at global scale and deep technical innovation, to every investment and partnership.</p>
+    <p class="section-body">D&amp;D Legacy Capital is led by two Managing Partners and backed by a world-class team. Together, they combine executive leadership at global scale with deep technical innovation to drive every investment and partnership.</p>
     <div class="leader-grid">
       <div class="leader-card">
         <div class="leader-photo-wrap"><img src="images/bio-uwe-real.png" alt="Portrait of Uwe Doerken"></div>
@@ -187,11 +188,11 @@
         <ul class="leader-highlights">
           <li>Former Chairman &amp; CEO, DHL Express Worldwide</li>
           <li>Former Associate Partner, McKinsey &amp; Company</li>
-          <li>WEF &ldquo;Global Leader for Tomorrow&rdquo;</li>
+          <li>World Economic Forum &ldquo;Global Leader for Tomorrow&rdquo;</li>
           <li>100+ acquisitions across 25+ countries</li>
         </ul>
         <p class="leader-bio">Uwe brings decades of executive leadership in global logistics, strategy, and transformation. At DHL Group he spearheaded international expansion and led the creation of the world's leading transportation and logistics company. He is fluent in five languages and has lived and operated across more than ten countries.</p>
-        <a class="leader-linkedin" href="https://www.linkedin.com/in/uwedoerken/" target="_blank" rel="noopener">LinkedIn Profile</a>
+        <a class="leader-linkedin" href="https://www.linkedin.com/in/uwedoerken/" target="_blank" rel="noopener"><img src="images/icon-linkedin.png" alt="">LinkedIn Profile</a>
       </div>
       <div class="leader-card">
         <div class="leader-photo-wrap"><img src="images/bio-petra-real.png" alt="Portrait of Dr. Petra Doerken"></div>
@@ -205,7 +206,7 @@
           <li>Influenced US and international legislation</li>
         </ul>
         <p class="leader-bio">Petra is an investor, operator, and venture architect with deep technical fluency and enterprise strategy expertise. She combines an engineering foundation with executive business acumen to guide emerging technology commercialization, cross-border market expansion, and institutional partnership strategy.</p>
-        <a class="leader-linkedin" href="https://www.linkedin.com/in/petradoerken" target="_blank" rel="noopener">LinkedIn Profile</a>
+        <a class="leader-linkedin" href="https://www.linkedin.com/in/petradoerken" target="_blank" rel="noopener"><img src="images/icon-linkedin.png" alt="">LinkedIn Profile</a>
       </div>
     </div>
   </div>

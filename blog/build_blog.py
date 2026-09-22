@@ -60,8 +60,8 @@ PAGE_HEAD = """<!DOCTYPE html>
   html {{ scroll-behavior: smooth; }}
   body {{ background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; position: relative; }}
   a {{ color: inherit; text-decoration: none; }}
-  .page-bg {{ position: fixed; inset: 0; z-index: -2; background-image: url('../images/portfolio-bg.jpg'); background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(0.1) contrast(1.05); }}
-  .page-bg-overlay {{ position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,19,34,0.72), rgba(11,19,34,0.9) 40%, var(--navy) 92%); }}
+  .page-bg {{ position: fixed; inset: 0; z-index: -2; background-image: url('../images/portfolio-bg.jpg'); background-size: cover; background-position: center; opacity: 0.38; filter: grayscale(0.05) contrast(1.1); }}
+  .page-bg-overlay {{ position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,19,34,0.55), rgba(11,19,34,0.78) 40%, var(--navy) 92%); }}
   nav {{ position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(11,19,34,0.95); backdrop-filter: blur(12px); }}
   .nav-logo {{ display: flex; align-items: center; gap: 12px; }}
   .nav-logo-main {{ font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; line-height: 1.2; }}
