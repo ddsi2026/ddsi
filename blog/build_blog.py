@@ -78,6 +78,8 @@ PAGE_HEAD = """<!DOCTYPE html>
   h1 {{ font-family: var(--font-display); font-weight: 300; font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; max-width: none; }}
   .meta {{ font-size: 0.85rem; color: var(--slate); letter-spacing: 0.05em; margin-bottom: 2rem; }}
   .cover {{ width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2.5rem; border: 1px solid rgba(201,168,76,0.15); }}
+  .video-embed {{ position: relative; width: 100%; aspect-ratio: 16/9; margin-bottom: 2.5rem; border: 1px solid rgba(201,168,76,0.15); background: var(--navy-mid); }}
+  .video-embed iframe {{ position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }}
   .listen-row {{ display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }}
   .listen-row a {{ font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 0.7rem 1.4rem; text-decoration: none; }}
   .content h2 {{ font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; margin: 2.5rem 0 1rem; color: var(--gold-light); }}
@@ -155,6 +157,17 @@ def load_post(path: Path):
     return meta
 
 
+def youtube_iframe(video_id: str, si: str = "", title: str = "YouTube video player") -> str:
+    """Standard YouTube embed code, exactly as YouTube's Share > Embed provides it."""
+    q = f"?si={si}" if si else ""
+    return (
+        f'<iframe width="560" height="315" src="https://www.youtube.com/embed/{video_id}{q}" '
+        f'title="{title}" frameborder="0" '
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" '
+        'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+    )
+
+
 def render_post_page(post: dict) -> str:
     listen_links = ""
     if post.get("listen_spotify_url") and post["listen_spotify_url"] != "#":
@@ -163,7 +176,9 @@ def render_post_page(post: dict) -> str:
         listen_links += f'<a href="{post["listen_apple_url"]}" target="_blank" rel="noopener">Listen on Apple Podcasts</a>'
 
     cover_html = ""
-    if post.get("cover_image"):
+    if post.get("video_id"):
+        cover_html = f'<div class="video-embed">{youtube_iframe(post["video_id"], post.get("video_si", ""))}</div>'
+    elif post.get("cover_image"):
         cover_html = f'<img class="cover" src="{post["cover_image"]}" alt="{post.get("title","")} cover art" />'
 
     guest_html = f'<div class="meta">Guest: {post["guest"]}</div>' if post.get("guest") else ""
@@ -172,7 +187,7 @@ def render_post_page(post: dict) -> str:
 <div class="wrap">
   <div class="tag">{post.get('category','Blog')}{' &middot; Episode ' + str(post['episode_number']) if post.get('episode_number') else ''}</div>
   <h1>{post.get('title','Untitled')}</h1>
-  <div class="meta">{post.get('date','')}</div>
+  <div class="meta">{post.get('display_date') or post.get('date','')}</div>
   {guest_html}
   {cover_html}
   <div class="listen-row">{listen_links}</div>
@@ -264,7 +279,7 @@ def render_index(posts: list) -> str:
   <div class="tag">Leading Transformation</div>
   <h1>Leading Transformation</h1>
   <p class="lede">An interview series with executives and founders navigating AI adoption and technology transformation inside large, regulated organizations.</p>
-  <div class="trailer"><iframe src="https://www.youtube.com/embed/BtI38EZnGLE" title="Leading Transformation podcast trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="trailer">{youtube_iframe("BtI38EZnGLE", "_15asjbeEvWfBmdi", "Leading Transformation podcast trailer")}</div>
   <div class="topics-grid">{topics_html}</div>
   <div class="episode-list">{rows}</div>
   <div class="newsletter-block">

@@ -3,7 +3,8 @@ title: "From Pilot to Production: A Former NVIDIA VP's Approach to Deploying AI 
 slug: episode-03
 category: podcast
 episode_number: 3
-date: 2027-01-29
+date: 2026-10-12
+display_date: "Coming on Oct 12, 2026"
 guest: "Karthick Iyer, Former VP of Systems Software, NVIDIA"
 cover_image: ../images/episode-03-karthick.jpg
 description: "Karthick Iyer, former VP of Systems Software at NVIDIA, on what it actually takes to move enterprise AI from pilot to production."
