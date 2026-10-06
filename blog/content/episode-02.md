@@ -1,33 +1,52 @@
 ---
-title: "1.4 Million AI Apps Are Coming: A VC's Advice on What Manufacturers Must Fix First | Pano Anthos"
+title: "60% Time Saved by Fixing the Process Before AI: From the CEO Managing 15,000 SKUs | Tal Rozenberg"
 slug: episode-02
 category: podcast
 episode_number: 2
 date: 2027-01-15
-guest: "Pano Anthos, Managing Partner, XRC Ventures"
-cover_image: ../images/episode-02-pano.jpg
-description: "Pano Anthos, Managing Partner at XRC Ventures, on the wave of AI applications headed for manufacturers and what to fix first."
+guest: "Tal Rozenberg, CEO, RH Group"
+cover_image: ../images/episode-02-tal.jpg
+description: "How do you get real returns from AI in a complex manufacturing operation? Tal Rozenberg, CEO of RH Group, Israel's leading contract electronics manufacturer, walks through a process-first approach."
 listen_spotify_url: "#"
 listen_apple_url: "#"
 ---
 
 ## Show Notes
 
-1.4 million AI apps are hitting the market by 2030. Your ERP won't survive that flood, and neither will your approval chains.
+How do you get real returns from AI in a complex manufacturing operation? Tal Rozenberg is CEO of RH Group, Israel's leading contract electronics manufacturer, serving medical devices, aerospace, defense and green tech. RH runs more than 15,000 SKUs, 25,000 active purchase orders and a base of over 1,000 suppliers, with sites on three continents.
 
-In this episode of Leading Transformation, Uwe Doerken sits down with Pano Anthos, Managing Partner at XRC Ventures, who has placed early bets on AI startups now running inside Fortune 500 supply chains.
-
-Here's what nobody wants to admit. Most manufacturers trying to build AI in-house are setting themselves up to fail. The winners aren't the companies with the biggest engineering teams. They're the ones who know exactly which decisions to keep sacred and which 30-step approval process to kill entirely.
-
-If you run a manufacturing company and think AI is someone else's problem, this conversation will change your mind, or cost you the next five years catching up. Watch now, then go find the bottleneck in your business that's really just bureaucracy in disguise.
+Tal walks through RH's AI journey in specific, practical detail, including how AI agents that work inside the tools buyers already use (Excel) cut the time buyers spend on tactical supplier follow-ups by more than 60%, improved supplier past-dues by over 40%, and increased confirmed order lines by 15%.
 
 ## In This Episode
 
-- A 7-person team that automated parts procurement for two airlines in two weeks
-- How drones now scan warehouse inventory daily at 99.8% accuracy with zero human labor
-- The one question every CFO should ask before greenlighting another internal AI build
-- Why "customer support bots" are just the opening act for what's coming next
+- How RH started its AI journey in 2023 with a cross-functional learning group, from executives to line workers
+- The framework: business problem first, technology second, adoption with people in mind
+- Why most of RH's early pilots failed, and how the successes paid for the losses
+- How RH decides whether to build AI tools in-house or buy from vendors
+- Building toward a unified data set, with separate tools for each function on top
+- What's next: physical AI, humanoid robots and dexterity on a high-mix, low-volume line
+- Three lessons for getting out of pilot limbo: involve operators from day one, manage expectations, and fix the process before you build
+- Lessons from international expansion and M&A
+- Why supply chain resilience is the most overlooked factor for companies in defense, AI hardware and data centers
 
-## About the Guest
+If you run a complex manufacturing operation and are deciding where AI fits, this episode shows what a process-first approach looks like in practice.
 
-Pano Anthos is Managing Partner at XRC Ventures, where he invests early in AI startups, several of which now run inside Fortune 500 supply chains and manufacturing operations.
+## Chapters
+
+- 0:00 Preview
+- 0:18 Introduction
+- 1:39 How RH Group manages a highly complex operation
+- 2:33 Starting the AI journey with a cross-functional learning group
+- 5:03 AI agents in the supply chain: 60% less buyer time on follow-ups
+- 8:50 How to get a whole organization on board with AI
+- 16:17 Choosing which pilots to bet on
+- 20:12 Build vs. buy
+- 24:52 Building a unified data set
+- 31:02 Physical AI and the biggest challenges now
+- 34:45 Three lessons for escaping pilot limbo
+- 39:23 How broad experience shapes decision-making
+- 41:42 Lessons from international expansion and M&A
+- 47:00 Why supply chain is the most overlooked factor
+- 50:46 Closing
+
+\#AIinManufacturing \#SupplyChain \#DigitalTransformation \#Manufacturing \#OperationalExcellence \#LeadingTransformation \#industrialAI

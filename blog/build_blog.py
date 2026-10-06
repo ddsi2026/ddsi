@@ -116,9 +116,9 @@ PAGE_HEAD = """<!DOCTYPE html>
     <a class="nav-link" href="../index.html#top">Overview</a>
     <a class="nav-link" href="../index.html#portfolio-section">Portfolio</a>
     <a class="nav-link" href="../index.html#advisory-section">Advisory</a>
-    <a class="nav-link" href="../index.html#techhub-section">Tech Hub</a>
-    <a class="nav-link" href="../index.html#incubator-section">Incubator</a>
-    <a class="nav-link" href="../index.html#podcast-preview-section">Podcast</a>
+    <a class="nav-link" href="../tech-hub.html">Tech Hub</a>
+    <a class="nav-link" href="../incubator.html">Incubator</a>
+    <a class="nav-link" href="index.html">Podcast</a>
     <a class="nav-link" href="../about.html">About Us</a>
     <a class="nav-link nav-cta" href="../index.html#contact-section">Engage</a>
   </div>
@@ -230,6 +230,8 @@ def render_index(posts: list) -> str:
   .wrap {{ max-width: 1280px; }}
   h1 {{ margin-bottom: 1.25rem; max-width: none; font-size: clamp(2.6rem, 5.5vw, 4rem); }}
   .lede {{ color: var(--slate-light); font-size: 1.15rem; max-width: 880px; line-height: 1.85; margin-bottom: 3.5rem; }}
+  .trailer {{ position: relative; width: 100%; max-width: 960px; aspect-ratio: 16/9; margin: 0 auto 3.5rem; border: 1px solid rgba(201,168,76,0.2); background: var(--navy-mid); }}
+  .trailer iframe {{ position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }}
   .topics-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(201,168,76,0.15); margin-bottom: 4.5rem; }}
   .topic-item {{ background: var(--navy-mid); padding: 1.4rem 1.5rem; font-size: 0.9rem; letter-spacing: 0.02em; color: var(--gold-light); text-align: center; font-family: var(--font-display); }}
   .episode-list {{ display: flex; flex-direction: column; gap: 2px; background: rgba(201,168,76,0.12); margin-bottom: 4.5rem; }}
@@ -262,6 +264,7 @@ def render_index(posts: list) -> str:
   <div class="tag">Leading Transformation</div>
   <h1>Leading Transformation</h1>
   <p class="lede">An interview series with executives and founders navigating AI adoption and technology transformation inside large, regulated organizations.</p>
+  <div class="trailer"><iframe src="https://www.youtube.com/embed/BtI38EZnGLE" title="Leading Transformation podcast trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
   <div class="topics-grid">{topics_html}</div>
   <div class="episode-list">{rows}</div>
   <div class="newsletter-block">
