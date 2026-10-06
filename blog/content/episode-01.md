@@ -5,11 +5,10 @@ category: podcast
 episode_number: 1
 date: 2026-10-07
 display_date: "Oct 7, 2026"
-video_id: cwS6OO3Ds60
-video_si: _XmqJJXYzK-32QHS
 guest: "Uwe Doerken, Former CEO and Executive Chairman, DHL Worldwide Express"
 cover_image: ../images/episode-01-uwe.jpg
 description: "Most transformation programs are built to satisfy a board. Uwe Doerken argues they should be built around one measurable benefit to the customer."
+listen_youtube_url: "https://youtu.be/cwS6OO3Ds60?si=r0-EqCnVL99lv7G1"
 listen_spotify_url: "#"
 listen_apple_url: "#"
 ---

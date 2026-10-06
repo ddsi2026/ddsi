@@ -5,11 +5,10 @@ category: podcast
 episode_number: 2
 date: 2026-10-07
 display_date: "Oct 7, 2026"
-video_id: iGBvYod7gLI
-video_si: -MM2UmMTQT9KzUYT
 guest: "Tal Rozenberg, CEO, RH Group"
 cover_image: ../images/episode-02-tal.jpg
 description: "How do you get real returns from AI in a complex manufacturing operation? Tal Rozenberg, CEO of RH Group, Israel's leading contract electronics manufacturer, walks through a process-first approach."
+listen_youtube_url: "https://youtu.be/iGBvYod7gLI?si=syo9pRnl0nXYGtEW"
 listen_spotify_url: "#"
 listen_apple_url: "#"
 ---
