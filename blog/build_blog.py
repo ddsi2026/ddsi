@@ -39,7 +39,8 @@ PAGE_HEAD = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="93786d8f-7512-427c-b471-567cafb2d65c" data-blockingmode="auto" type="text/javascript"></script>
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8c8d3c1d-e4c5-4068-8870-3a759273063d" type="text/javascript"></script>
 <title>{title} | D&amp;D Strategic Impact</title>
 <link rel="icon" href="../favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
@@ -78,7 +79,10 @@ PAGE_HEAD = """<!DOCTYPE html>
   h1 {{ font-family: var(--font-display); font-weight: 300; font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; max-width: none; }}
   .meta {{ font-size: 0.85rem; color: var(--slate); letter-spacing: 0.05em; margin-bottom: 2rem; }}
   .cover {{ width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2.5rem; border: 1px solid rgba(201,168,76,0.15); }}
-  .listen-row {{ display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }}
+  .video-embed {{ width: 100%; aspect-ratio: 16/9; margin: 0 auto 1.75rem; border: 1px solid rgba(201,168,76,0.15); background: var(--navy-mid); }}
+  .video-embed iframe {{ display: block; width: 100%; height: 100%; border: 0; }}
+  .listen-row {{ display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }}
+  .listen-row a:hover {{ border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }}
   .listen-row a {{ font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 0.7rem 1.4rem; text-decoration: none; }}
   .content h2 {{ font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; margin: 2.5rem 0 1rem; color: var(--gold-light); }}
   .content p {{ margin-bottom: 1.2rem; color: var(--slate-light); font-size: 1rem; }}
@@ -150,23 +154,32 @@ def load_post(path: Path):
         raise ValueError(f"{path.name}: missing frontmatter (--- block)")
     meta = yaml.safe_load(m.group(1)) or {}
     body = m.group(2)
-    meta["_body_html"] = md.markdown(body, extensions=["extra"])
+    html = md.markdown(body, extensions=["extra"])
+    html = re.sub(r'<a href="(https?://)', r'<a target="_blank" rel="noopener" href="\1', html)
+    meta["_body_html"] = html
     meta.setdefault("slug", path.stem)
     return meta
 
 
-def render_post_page(post: dict) -> str:
-    listen_links = ""
-    if post.get("listen_youtube_url") and post["listen_youtube_url"] != "#":
-        listen_links += f'<a href="{post["listen_youtube_url"]}" target="_blank" rel="noopener">Watch on YouTube</a>'
-    if post.get("listen_spotify_url") and post["listen_spotify_url"] != "#":
-        listen_links += f'<a href="{post["listen_spotify_url"]}" target="_blank" rel="noopener">Listen on Spotify</a>'
-    if post.get("listen_apple_url") and post["listen_apple_url"] != "#":
-        listen_links += f'<a href="{post["listen_apple_url"]}" target="_blank" rel="noopener">Listen on Apple Podcasts</a>'
+IFRAME_ATTRS = 'title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen'
 
-    cover_html = ""
-    if post.get("cover_image"):
+
+def listen_buttons(post: dict, css_class: str = "listen-row") -> str:
+    out = ""
+    for key, label in (("listen_youtube_url", "YouTube"), ("listen_spotify_url", "Spotify"), ("listen_apple_url", "Apple Podcasts")):
+        url = post.get(key)
+        if url and url != "#":
+            out += f'<a href="{url}" target="_blank" rel="noopener">{label}</a>'
+    return f'<div class="{css_class}">{out}</div>' if out else ""
+
+
+def render_post_page(post: dict) -> str:
+    if post.get("youtube_embed_url"):
+        cover_html = f'<div class="video-embed"><iframe src="{post["youtube_embed_url"]}" {IFRAME_ATTRS}></iframe></div>'
+    elif post.get("cover_image"):
         cover_html = f'<img class="cover" src="{post["cover_image"]}" alt="{post.get("title","")} cover art" />'
+    else:
+        cover_html = ""
 
     guest_html = f'<div class="meta">Guest: {post["guest"]}</div>' if post.get("guest") else ""
 
@@ -177,7 +190,7 @@ def render_post_page(post: dict) -> str:
   <div class="meta">{post.get('display_date') or post.get('date','')}</div>
   {guest_html}
   {cover_html}
-  <div class="listen-row">{listen_links}</div>
+  {listen_buttons(post)}
   <div class="content">{post['_body_html']}</div>
   <a class="back-link" href="index.html">&#8592; All Episodes &amp; Posts</a>
 </div>
@@ -214,18 +227,24 @@ def render_index(posts: list) -> str:
     rows = ""
     for p in posts_sorted:
         cover = p.get("cover_image", "")
-        cover_html = f'<img src="{cover}" alt="{p.get("title","")}" />' if cover else '<div class="no-cover">No Cover Yet</div>'
+        if p.get("youtube_embed_url"):
+            cover_html = f'<iframe src="{p["youtube_embed_url"]}" loading="lazy" {IFRAME_ATTRS}></iframe>'
+        elif cover:
+            cover_html = f'<img src="{cover}" alt="{p.get("title","")}" />'
+        else:
+            cover_html = '<div class="no-cover">No Cover Yet</div>'
         guest_line = f'<div class="row-guest">Guest: {p["guest"]}</div>' if p.get("guest") else ""
         rows += f"""
-        <a class="episode-row" href="{p['slug']}.html">
+        <div class="episode-row">
           <div class="row-art">{cover_html}</div>
           <div class="row-body">
             <div class="row-tag">{p.get('category','Blog')}{' &middot; Episode ' + str(p['episode_number']) if p.get('episode_number') else ''}</div>
-            <div class="row-title">{p.get('title','Untitled')}</div>
+            <a class="row-title" href="{p['slug']}.html">{p.get('title','Untitled')}</a>
             {guest_line}
             <div class="row-desc">{p.get('description','')}</div>
+            {listen_buttons(p, "row-links")}
           </div>
-        </a>"""
+        </div>"""
 
     return f"""{PAGE_HEAD.format(title='Leading Transformation Podcast')}
 <style>
@@ -233,7 +252,7 @@ def render_index(posts: list) -> str:
   h1 {{ margin-bottom: 1.25rem; max-width: none; font-size: clamp(2.6rem, 5.5vw, 4rem); }}
   .lede {{ color: var(--slate-light); font-size: 1.15rem; max-width: 880px; line-height: 1.85; margin-bottom: 3.5rem; }}
   .trailer {{ width: 100%; max-width: 960px; margin: 0 auto 1.75rem; border: 1px solid rgba(201,168,76,0.2); background: var(--navy-mid); }}
-  .trailer img {{ display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }}
+  .trailer iframe {{ display: block; width: 100%; aspect-ratio: 16/9; border: 0; }}
   .show-links {{ display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 0 auto 3.5rem; }}
   .show-links a {{ font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 0.7rem 1.4rem; color: var(--slate-light); transition: all 0.2s; }}
   .show-links a:hover {{ border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }}
@@ -242,6 +261,12 @@ def render_index(posts: list) -> str:
   .episode-list {{ display: flex; flex-direction: column; gap: 2px; background: rgba(201,168,76,0.12); margin-bottom: 4.5rem; }}
   .episode-row {{ display: flex; gap: 2.5rem; background: var(--navy); text-decoration: none; color: inherit; padding: 2rem; align-items: center; transition: background 0.2s; }}
   .episode-row:hover {{ background: var(--navy-light); }}
+  .row-art iframe {{ display: block; width: 100%; height: 100%; border: 0; }}
+  .row-title {{ display: block; }}
+  .row-title:hover {{ color: var(--gold-light); }}
+  .row-links {{ display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.1rem; }}
+  .row-links a {{ font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 0.55rem 1.1rem; color: var(--slate-light); transition: all 0.2s; }}
+  .row-links a:hover {{ border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }}
   .row-art {{ flex: 0 0 50%; aspect-ratio: 16/9; background: var(--navy-light); overflow: hidden; border: 1px solid rgba(201,168,76,0.15); }}
   .row-art img {{ width: 100%; height: 100%; object-fit: cover; }}
   .no-cover {{ width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); border: 1px dashed rgba(201,168,76,0.25); }}
@@ -268,12 +293,12 @@ def render_index(posts: list) -> str:
 <div class="wrap">
   <div class="tag">Leading Transformation</div>
   <h1>Leading Transformation</h1>
-  <p class="lede">An interview series with executives and founders navigating AI adoption and technology transformation inside large, regulated organizations.</p>
-  <div class="trailer"><img src="../images/podcast-trailer.jpg" alt="Leading Transformation hosted by Dr. Petra Doerken and Uwe Doerken" /></div>
+  <p class="lede">An interview series with executives and founders navigating AI adoption and technology transformation inside large organizations.</p>
+  <div class="trailer"><iframe src="https://www.youtube.com/embed/BtI38EZnGLE?si=20TmHTsIpozx5TTd" {IFRAME_ATTRS}></iframe></div>
   <div class="show-links">
     <a href="https://www.youtube.com/@ddlegacycapital" target="_blank" rel="noopener">YouTube</a>
     <a href="https://open.spotify.com/show/0345Tr0N6qkhAUcf4GAqjN" target="_blank" rel="noopener">Spotify</a>
-    <a href="https://podcasts.apple.com/us/podcast/leading-transformation-podcast-industrial-ai-without/id6819590943?i=1000793400330" target="_blank" rel="noopener">Apple Podcasts</a>
+    <a href="https://podcasts.apple.com/us/podcast/leading-transformation/id6819590943" target="_blank" rel="noopener">Apple Podcasts</a>
   </div>
   <div class="topics-grid">{topics_html}</div>
   <div class="episode-list">{rows}</div>

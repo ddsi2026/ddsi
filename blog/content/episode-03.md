@@ -1,33 +1,62 @@
 ---
-title: "From Pilot to Production: A Former NVIDIA VP's Approach to Deploying AI | Karthick Iyer"
+title: "Why AI Demos Fail in Production: From a Former NVIDIA VP, Now Corporate VP at Intel | Karthick Iyer"
 slug: episode-03
 category: podcast
 episode_number: 3
-date: 2026-10-12
-display_date: "Coming on Oct 12, 2026"
-guest: "Karthick Iyer, Former VP of Systems Software, NVIDIA"
+date: 2026-10-14
+display_date: "Oct 14, 2026"
+guest: "Karthick Iyer, Corporate Vice President, Client Compute and Physical AI Group, Intel"
 cover_image: ../images/episode-03-karthick.jpg
-description: "Karthick Iyer, former VP of Systems Software at NVIDIA, on what it actually takes to move enterprise AI from pilot to production."
-listen_spotify_url: "#"
-listen_apple_url: "#"
+description: "Most AI pilots look impressive in a demo and never make it into production. Karthick Iyer has seen AI from the ground up and explains why, and what it actually takes to close that gap."
+youtube_embed_url: "https://www.youtube.com/embed/g50-WEEkq6E?si=LZOY9NpaA9DL-RjZ"
+listen_youtube_url: "https://youtu.be/g50-WEEkq6E"
+listen_spotify_url: "https://open.spotify.com/episode/5WhGrLtTLEF5NvbU93l60y"
+listen_apple_url: "https://podcasts.apple.com/us/podcast/leading-transformation/id6819590943"
 ---
 
 ## Show Notes
 
-Most AI pilots never make it to production and fail to generate any return. Karthick Iyer, former VP of Systems Software at NVIDIA, spent his career on the infrastructure side of exactly this problem, building the systems that power AI at scale. In this conversation, he breaks down why the gap between a working demo and a production deployment is so much wider than most enterprise leaders expect, and what it actually takes to close it. If your last AI pilot stalled somewhere between the demo and the deployment, this conversation will tell you why.
+Most AI pilots look impressive in a demo and never make it into production. Karthick Iyer has seen AI from the ground up and explains why, and what it actually takes to close that gap.
 
-We get specific about what's realistic for a mid-market manufacturer without a data center budget or a dedicated AI team, not the hypothetical version of AI adoption, the actual one. Karthick walks through his five-layer framework for thinking about AI infrastructure, from power supply up through chips, orchestration, models, and application, and shows how a small shoe factory with two production lines could apply it starting tomorrow.
+Karthick is Corporate Vice President and software leader in Intel's Client Compute and Physical AI Group. At the time of this conversation, he was Vice President of Systems Software at NVIDIA, where he led one of the teams building the software infrastructure that makes AI run at scale. Earlier in his career, he spent 18 years at Qualcomm, then worked at a startup and at Amazon.
 
-You don't need a Fortune 500 budget to start. You need one problem, one camera or dataset you already have, and a plan to get it into production instead of stuck as a demo.
+For someone that close to the technology, his advice is refreshingly practical: start with your biggest pain point, and don't try to boil the ocean.
 
 ## In This Episode
 
-- The single biggest mistake enterprise leaders make when starting with AI, and why picking one narrow, painful problem beats a company-wide strategy every time
-- Why edge devices now let a 50-person manufacturer run real AI locally for a few thousand dollars, without sending sensitive data to the cloud
-- The real reason so many pilots die before reaching production, and why the people who understand your existing systems and workflows matter more than which model you choose
-- How to think about data sovereignty and vendor lock-in before you commit to a vendor or platform
-- Why Karthick believes AI should make your best people more valuable instead of replacing them, and what that looks like in practice on a factory floor
+- What enterprise leaders can deploy today and see a return on, from defect detection on an assembly line to human-robot safety on the factory floor
+- How mid-market companies without an AI team can compete, using AI computers that cost a few thousand dollars rather than hundreds of thousands
+- Why the gap between a demo and a working deployment is bigger than most leaders expect
+- Why forward deployed engineers matter more than coding agents for getting AI into production
+- How to handle data silos, protect sensitive data and avoid vendor lock-in
+- The five layers of AI, from power to application, walked through with a small shoe factory example
+- How he uses an AI assistant to save two hours every morning
+- Why AI should make your workforce more productive, not smaller
+- Leadership lessons from working under Jensen Huang, including the "parking lot exercise"
+- Work-life balance at the frontier of AI, and whether an MBA is still worth it
+- His contrarian take on how much AI to use, and why humans stay in the loop
 
-## About the Guest
+If you lead an operation and are trying to turn AI pilots into results, this episode gives you a grounded way to decide where to start and what to build.
 
-Karthick Iyer is the former VP of Systems Software at NVIDIA, where he worked on the infrastructure that powers AI at scale. His focus is the practical side of enterprise AI adoption: closing the gap between a working pilot and a real production deployment.
+## Chapters
+
+- [0:00](https://www.youtube.com/watch?v=g50-WEEkq6E) Introduction
+- [2:21](https://www.youtube.com/watch?v=g50-WEEkq6E&t=141s) What AI can deliver today: start with your biggest pain point
+- [4:38](https://www.youtube.com/watch?v=g50-WEEkq6E&t=278s) Competing with big players on a small budget
+- [8:06](https://www.youtube.com/watch?v=g50-WEEkq6E&t=486s) Misconceptions about AI and the demo-to-production gap
+- [11:02](https://www.youtube.com/watch?v=g50-WEEkq6E&t=662s) Why forward deployed engineers matter more than coding agents
+- [14:56](https://www.youtube.com/watch?v=g50-WEEkq6E&t=896s) Data silos and multi-agent orchestration
+- [17:37](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1057s) Data sovereignty and avoiding vendor lock-in
+- [21:19](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1279s) The five layers of AI
+- [22:42](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1362s) A small factory example, layer by layer
+- [26:50](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1610s) How he uses AI to save two hours every morning
+- [28:08](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1688s) The mental shift: AI as additional employees
+- [29:57](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1797s) Leadership lessons from working under Jensen Huang
+- [34:14](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2054s) Work-life balance at the frontier of AI
+- [37:05](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2225s) Is an MBA still worth it?
+- [39:40](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2380s) The contrarian take
+- [42:02](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2522s) Closing
+
+Listen on Spotify and Apple Podcasts, and find more at [leadingtransformationpodcast.com](https://leadingtransformationpodcast.com).
+
+\#EnterpriseAI \#AIinManufacturing \#digitaltransformation
