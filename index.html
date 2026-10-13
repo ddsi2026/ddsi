@@ -3,202 +3,769 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="referrer" content="strict-origin-when-cross-origin" />
+<!-- Cookiebot consent management - must load before any other script that sets cookies -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="93786d8f-7512-427c-b471-567cafb2d65c" data-blockingmode="auto" type="text/javascript"></script>
-<title>Leading Transformation Podcast | D&amp;D Strategic Impact</title>
-<link rel="icon" href="../favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
-<link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+<title>D&amp;D Strategic Impact</title>
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --navy: #0b1322; --navy-mid: #121e33; --navy-light: #1a2a44;
-    --gold: #c9a84c; --gold-light: #e8c97a; --gold-dim: #8a6e2f;
-    --slate: #9aafc8; --slate-light: #d4dde8; --white: #f5f2ec;
+    --navy: #0b1322;
+    --navy-mid: #121e33;
+    --navy-light: #1a2a44;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: #8a6e2f;
+    --slate: #9aafc8;
+    --slate-light: #d4dde8;
+    --white: #f5f2ec;
+    --off-white: #e8e3d8;
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; position: relative; }
+  body { background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
-  .page-bg { position: fixed; inset: 0; z-index: -2; background-image: url('../images/portfolio-bg.jpg'); background-size: cover; background-position: center; opacity: 0.38; filter: grayscale(0.05) contrast(1.1); }
-  .page-bg-overlay { position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,19,34,0.55), rgba(11,19,34,0.78) 40%, var(--navy) 92%); }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(11,19,34,0.95); backdrop-filter: blur(12px); }
-  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  section[id] { scroll-margin-top: 84px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 3rem;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    background: rgba(11,19,34,0.95); backdrop-filter: blur(12px);
+  }
+  .nav-logo { display: flex; flex-direction: row; align-items: center; gap: 12px; }
   .nav-logo-main { font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; line-height: 1.2; }
   .nav-logo-sub { font-size: 0.55rem; letter-spacing: 0.18em; color: var(--slate); text-transform: uppercase; line-height: 1.2; }
   .nav-links { display: flex; align-items: center; gap: 2rem; }
-  .nav-link { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); cursor: pointer; white-space: nowrap; }
-  .nav-link:hover { color: var(--gold); }
-  .nav-cta { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.55rem 1.3rem; border: 1px solid var(--gold-dim); color: var(--gold); }
+  .nav-link { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); cursor: pointer; transition: color 0.2s; white-space: nowrap; }
+  .nav-link:hover, .nav-link.active { color: var(--gold); }
+  .nav-cta { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.55rem 1.3rem; border: 1px solid var(--gold-dim); color: var(--gold); cursor: pointer; transition: all 0.2s; }
   .nav-cta:hover { background: var(--gold); color: var(--navy); }
   .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; }
-  .nav-toggle span { width: 22px; height: 1.5px; background: var(--gold); display: block; }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 9rem 2rem 6rem; }
-  .tag { display: inline-block; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25); padding: 0.35rem 0.9rem; margin-bottom: 1.5rem; }
-  h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; max-width: none; }
-  .meta { font-size: 0.85rem; color: var(--slate); letter-spacing: 0.05em; margin-bottom: 2rem; }
-  .cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2.5rem; border: 1px solid rgba(201,168,76,0.15); }
-  .listen-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-  .listen-row a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 0.7rem 1.4rem; text-decoration: none; }
-  .content h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; margin: 2.5rem 0 1rem; color: var(--gold-light); }
-  .content p { margin-bottom: 1.2rem; color: var(--slate-light); font-size: 1rem; }
-  .content ul, .content ol { margin: 0 0 1.2rem 1.3rem; color: var(--slate-light); font-size: 1rem; }
-  .content li { margin-bottom: 0.4rem; }
-  .content em { color: var(--gold-dim); }
-  .back-link { display: inline-block; margin-top: 3rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--gold); }
-  footer { padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; position: relative; }
+  .nav-toggle span { width: 22px; height: 1.5px; background: var(--gold); display: block; transition: all 0.2s; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+  .hero-skyline { position: absolute; inset: 0; z-index: -2; background-image: url('images/skyline-hero.jpg'); background-size: cover; background-position: center 35%; opacity: 0.4; filter: grayscale(0.25) contrast(1.05); }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background: linear-gradient(to bottom, var(--navy) 0%, rgba(11,19,34,0.35) 30%, rgba(11,19,34,0.55) 70%, var(--navy) 100%), radial-gradient(ellipse at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(26,42,68,0.6) 0%, transparent 50%); pointer-events: none; }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .hero-headline { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.08; color: var(--white); max-width: 900px; margin-bottom: 1.5rem; }
+  .hero-headline em { font-style: italic; color: var(--gold-light); }
+  .hero-sub { font-size: 1.05rem; color: var(--slate); max-width: 900px; line-height: 1.75; margin-bottom: 3rem; font-weight: 300; }
+  .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .btn-primary { padding: 0.85rem 2.2rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-ghost { padding: 0.85rem 2.2rem; background: transparent; color: var(--gold); font-family: var(--font-body); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--gold-dim); transition: all 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+  .hero-rule { position: absolute; right: 3rem; top: 50%; transform: translateY(-50%); width: 1px; height: 200px; background: linear-gradient(to bottom, transparent, var(--gold-dim), transparent); }
+  .hero-stat-block { position: absolute; right: 4.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 2rem; }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--gold); display: block; }
+  .hero-stat-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); display: block; margin-top: 2px; }
+
+  /* DIVIDER */
+  .gold-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 0 1.5rem; }
+
+  /* SECTION */
+  .section { padding: 3.25rem 3rem; }
+  .section-alt { background: var(--navy-mid); }
+  #portfolio-section { position: relative; overflow: hidden; }
+  #portfolio-section .portfolio-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/portfolio-bg.jpg'); background-size: cover; background-position: center; opacity: 0.22; filter: grayscale(0.1) contrast(1.05); }
+  #portfolio-section::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(18,30,51,0.55), rgba(18,30,51,0.85)); }
+  #portfolio-section .mw { position: relative; z-index: 1; }
+  #advisory-section { position: relative; overflow: hidden; }
+  #advisory-section .advisory-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/advisory-bg.jpg'); background-size: cover; background-position: center 30%; opacity: 0.16; filter: grayscale(0.1) contrast(1.05); }
+  #advisory-section::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(11,19,34,0.6), rgba(11,19,34,0.9)); }
+  #advisory-section .mw { position: relative; z-index: 1; }
+  #techhub-section { position: relative; overflow: hidden; background: var(--navy); }
+  #techhub-section .techhub-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/techhub-bg.jpg'); background-size: cover; background-position: center; opacity: 0.22; filter: grayscale(0.05) contrast(1.05); }
+  #techhub-section::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(11,19,34,0.55), rgba(11,19,34,0.85)); }
+  #techhub-section .mw { position: relative; z-index: 1; }
+  #incubator-section { background: var(--navy-mid); }
+  #podcast-preview-section { position: relative; }
+  .section-label { font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+  .section-body { color: var(--slate); max-width: 600px; line-height: 1.8; }
+
+  /* CONSISTENT SECTION HEAD + CTA */
+  .section-head { max-width: 1100px; margin: 0 auto 1.5rem; text-align: left; }
+  .section-head .section-body { max-width: 920px; }
+  .cta-row { display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .newsletter-block { max-width: 480px; margin: 3.5rem auto 0; text-align: center; padding: 2rem; background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.15); }
+  .newsletter-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  .newsletter-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--white); }
+  .newsletter-sub { font-size: 0.8rem; color: var(--slate); margin-bottom: 1.25rem; line-height: 1.6; }
+  .cta-note { text-align: center; font-size: 0.78rem; color: var(--slate); max-width: 480px; margin: 0 auto 1rem; }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; max-width: 1100px; margin: 0 auto; }
+
+  /* SECTOR / CAPABILITY GRID */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 3rem; background: rgba(201,168,76,0.15); max-width: 1100px; margin-left: auto; margin-right: auto; }
+  .pillar { background: var(--navy); padding: 2.5rem 2rem; position: relative; }
+  .pillar::after { content: ''; position: absolute; bottom: 0; left: 2rem; width: 24px; height: 1px; background: var(--gold); }
+  .pillar-num { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 1rem; }
+  .pillar-title { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.06em; margin-bottom: 0.75rem; color: var(--white); }
+  .pillar-body { font-size: 0.82rem; color: var(--slate); line-height: 1.75; }
+
+  /* PORTFOLIO / ADVISORY CARD GRID */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; max-width: 1100px; margin: 0 auto; background: rgba(201,168,76,0.1); }
+  .portfolio-card { background: var(--navy-mid); padding: 2.5rem; border-top: 2px solid transparent; transition: border-color 0.25s; }
+  .portfolio-card:hover { border-color: var(--gold); }
+  .portfolio-tag { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1rem; display: inline-block; border: 1px solid rgba(201,168,76,0.2); padding: 0.3rem 0.7rem; }
+  .portfolio-card-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem; }
+  .portfolio-card-body { font-size: 0.82rem; color: var(--slate); line-height: 1.75; }
+
+  /* KPI STRIP */
+  .kpi-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.15); max-width: 1100px; margin: 2.5rem auto 3rem; }
+  .kpi-item { background: var(--navy); padding: 1.5rem 1.25rem; text-align: center; }
+  .kpi-item span { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--gold-light); line-height: 1.4; }
+
+  /* CONTACT / INTAKE FORM */
+  .contact-inner { max-width: 760px; margin: 0 auto; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; text-align: left; margin-top: 3rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
+  .form-input, .form-select, .form-textarea { background: var(--navy-light); border: 1px solid rgba(201,168,76,0.18); color: var(--white); font-family: var(--font-body); font-size: 0.85rem; font-weight: 300; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold-dim); }
+  .form-select { appearance: none; }
+  .form-textarea { resize: vertical; min-height: 110px; }
+  .form-submit { padding: 1rem 2.5rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; align-self: center; margin-top: 0.5rem; }
+  .form-submit:hover { background: var(--gold-light); }
+
+  /* DISCLAIMER */
+  .disclaimer-section { padding: 2.5rem 3rem; border-top: 1px solid rgba(201,168,76,0.12); background: var(--navy-mid); }
+  .disclaimer-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
+  .disclaimer-text { width: 100%; max-width: none; font-size: 0.85rem; color: var(--slate-light); line-height: 1.85; }
+
+  /* FOOTER */
+  footer { padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-left { font-size: 0.7rem; color: var(--slate); }
+  .footer-left a { color: var(--gold-dim); }
   .footer-right { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
+
+  /* GENERATIVE / AMBIENT GRAPHICS */
+  .glow-field { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .glow-orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.35; }
+  .glow-orb.gold { background: radial-gradient(circle, var(--gold) 0%, transparent 70%); }
+  .glow-orb.slate { background: radial-gradient(circle, var(--slate) 0%, transparent 70%); }
+
+  /* HORIZONTAL CAROUSEL */
+  .carousel { position: relative; overflow: hidden; border: 1px solid rgba(201,168,76,0.18); }
+  .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.65,0,0.35,1); }
+  .carousel-slide { flex: 0 0 50%; position: relative; aspect-ratio: 16 / 9; background: var(--navy-mid); border-left: 1px solid rgba(201,168,76,0.12); }
+  .carousel-slide:first-child { border-left: none; }
+  .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.85) contrast(1.05); }
+  .carousel-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,19,34,0.75) 0%, rgba(11,19,34,0) 40%); }
+  .carousel-caption { position: absolute; bottom: 1.25rem; left: 1.5rem; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); z-index: 2; }
+  .carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 2.25rem; height: 2.25rem; border: 1px solid rgba(201,168,76,0.35); background: rgba(11,19,34,0.6); backdrop-filter: blur(4px); color: var(--gold); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 3; transition: all 0.2s; font-size: 1rem; }
+  .carousel-nav:hover { background: var(--gold); color: var(--navy); }
+  .carousel-nav.prev { left: 1rem; }
+  .carousel-nav.next { right: 1rem; }
+  .carousel-dots { position: absolute; bottom: 1.25rem; right: 1.5rem; display: flex; gap: 0.4rem; z-index: 3; flex-wrap: wrap; max-width: 200px; justify-content: flex-end; }
+  .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,242,236,0.35); cursor: pointer; transition: background 0.2s, transform 0.2s; }
+  .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
+
+  /* TECH HUB SECTION */
+  .hub-preview { padding: 3.25rem 3rem; }
+  .hub-preview-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
+  .free-ecosystem-block { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(201,168,76,0.12); max-width: 1100px; margin: 2.5rem auto 0; }
+  .free-ecosystem-item { background: var(--navy-mid); padding: 1.75rem 1.5rem; }
+  .free-ecosystem-item .fe-label { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.5rem; }
+  .free-ecosystem-item .fe-body { font-size: 0.8rem; color: var(--slate); line-height: 1.65; }
+
+  /* FEATURED STARTUPS */
+  .startup-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: rgba(201,168,76,0.12); max-width: 1180px; margin: 2.5rem auto 0; }
+  .startup-card { background: var(--navy-mid); padding: 2rem 1.5rem; text-align: center; }
+  .startup-logo { width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: var(--navy-light); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.02em; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .startup-logo-img { width: 84px; height: 60px; margin: 0 auto 1rem; border-radius: 10px; background: var(--white); display: flex; align-items: center; justify-content: center; padding: 0.6rem; border: 1px solid rgba(201,168,76,0.3); }
+  .startup-logo-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .startup-logo-img.dark-tile { background: var(--navy-light); }
+  .startup-name { font-weight: 500; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--white); }
+  .startup-desc { font-size: 0.78rem; color: var(--slate); line-height: 1.65; }
+
+  /* TOPICS GRID (podcast) */
+  .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 1000px; margin: 2.5rem auto 0; }
+  .topic-tag { font-size: 0.76rem; padding: 0.9rem 1.1rem; border: 1px solid rgba(201,168,76,0.2); color: var(--slate-light); letter-spacing: 0.03em; text-align: center; background: rgba(201,168,76,0.03); }
+
+  /* HOMEPAGE: PODCAST PREVIEW */
+  .podcast-preview { padding: 3.25rem 3rem; background: var(--navy-mid); position: relative; border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .episode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5px; max-width: 1180px; margin: 0 auto; background: rgba(201,168,76,0.12); position: relative; z-index: 1; }
+  .episode-card { background: var(--navy); display: flex; flex-direction: column; cursor: pointer; transition: background 0.2s; }
+  .episode-card:hover { background: var(--navy-light); }
+  .episode-art { aspect-ratio: 1; background: var(--navy-light); position: relative; overflow: hidden; }
+  .episode-art img { width: 100%; height: 100%; object-fit: cover; }
+  .episode-info { padding: 1.25rem 1.25rem 1.5rem; }
+  .episode-title { font-size: 0.85rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; line-height: 1.4; }
+  .episode-desc { font-size: 0.74rem; color: var(--slate); line-height: 1.6; }
+  .subscribe-row { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 2.5rem; max-width: 1180px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
+  .subscribe-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.4rem; border: 1px solid rgba(201,168,76,0.3); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-light); transition: all 0.2s; }
+  .subscribe-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }
+
+  /* INCUBATOR STATS */
+  .stat-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(201,168,76,0.15); max-width: 1000px; margin: 2.5rem auto 0; }
+  .stat-item { background: var(--navy); padding: 1.25rem 1rem; text-align: center; }
+  .stat-item-num { font-family: var(--font-display); font-size: 1.6rem; color: var(--gold); display: block; }
+  .stat-item-label { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); display: block; margin-top: 0.25rem; }
+
+  /* MAX WIDTH */
+  .mw { max-width: 1100px; margin: 0 auto; }
+  .center { text-align: center; }
+
+  /* SCROLL-ZOOM HERO TRANSITION */
+  .zoom-hero-wrap { position: relative; height: 100vh; }
+
+  /* KIT SIGNUP BLOCK */
+  .kit-signup-block { max-width: 600px; margin: 3rem auto 0; padding: 2rem; border: 1px solid rgba(201,168,76,0.2); background: rgba(201,168,76,0.03); text-align: center; }
+  .kit-signup-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .kit-signup-title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .kit-signup-body { font-size: 0.82rem; color: var(--slate); line-height: 1.7; margin-bottom: 1.5rem; }
+
+  /* ═══════ MOBILE RESPONSIVE ═══════ */
+  @media (max-width: 980px) {
+    .startup-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-grid-5 { grid-template-columns: repeat(3, 1fr); }
+    .free-ecosystem-block { grid-template-columns: 1fr; }
+  }
   @media (max-width: 900px) {
     nav { padding: 0.75rem 1.25rem; }
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 1.25rem; background: var(--navy); padding: 1.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 1.25rem; background: var(--navy); padding: 1.5rem 1.5rem 2rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
     .nav-links.open { display: flex; }
     .nav-toggle { display: flex; }
+    .nav-cta { align-self: flex-start; }
   }
   @media (max-width: 860px) {
-    .wrap { padding: 8rem 1.25rem 4rem; }
+    .section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+    .pillars { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .kpi-strip { grid-template-columns: 1fr; }
+    .startup-grid { grid-template-columns: 1fr; }
+    .stat-grid-5 { grid-template-columns: repeat(2, 1fr); }
+    .topics-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stat-block, .hero-rule { display: none; }
+    footer { flex-direction: column; align-items: flex-start; text-align: left; }
+    .carousel-slide { flex: 0 0 100%; border-left: none; }
+    .disclaimer-section { padding: 2rem 1.5rem; }
   }
 </style>
 </head>
 <body>
-<div class="page-bg"></div>
-<div class="page-bg-overlay"></div>
+
 <nav>
-  <a class="nav-logo" href="../index.html">
-    <img src="../logo.png" alt="Logo" style="height: 34px; width: auto;">
-    <div style="display:flex;flex-direction:column;">
+  <a class="nav-logo" href="#top">
+    <img src="logo.png" alt="Logo" style="height: 34px; width: auto;">
+    <div style="display: flex; flex-direction: column;">
       <span class="nav-logo-main">D&amp;D Strategic Impact</span>
       <span class="nav-logo-sub">A D&amp;D Legacy Capital Company</span>
     </div>
   </a>
-  <div class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
   <div class="nav-links" id="navLinks">
-    <a class="nav-link" href="../index.html#top">Overview</a>
-    <a class="nav-link" href="../index.html#portfolio-section">Portfolio</a>
-    <a class="nav-link" href="../index.html#advisory-section">Advisory</a>
-    <a class="nav-link" href="../tech-hub.html">Tech Hub</a>
-    <a class="nav-link" href="../incubator.html">Incubator</a>
-    <a class="nav-link" href="index.html">Podcast</a>
-    <a class="nav-link" href="../about.html">About Us</a>
-    <a class="nav-link nav-cta" href="../index.html#contact-section">Engage</a>
+    <a class="nav-link" href="#top">Overview</a>
+    <a class="nav-link" href="#portfolio-section">Portfolio</a>
+    <a class="nav-link" href="#advisory-section">Advisory</a>
+    <a class="nav-link" href="tech-hub.html">Tech Hub</a>
+    <a class="nav-link" href="incubator.html">Incubator</a>
+    <a class="nav-link" href="blog/index.html">Podcast</a>
+    <a class="nav-link" href="about.html">About Us</a>
+    <a class="nav-link nav-cta" href="#contact-section">Engage</a>
   </div>
 </nav>
 
-<style>
-  .wrap { max-width: 1280px; }
-  h1 { margin-bottom: 1.25rem; max-width: none; font-size: clamp(2.6rem, 5.5vw, 4rem); }
-  .lede { color: var(--slate-light); font-size: 1.15rem; max-width: 880px; line-height: 1.85; margin-bottom: 3.5rem; }
-  .trailer { width: 100%; max-width: 960px; margin: 0 auto 1.75rem; border: 1px solid rgba(201,168,76,0.2); background: var(--navy-mid); }
-  .trailer img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-  .show-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 0 auto 3.5rem; }
-  .show-links a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 0.7rem 1.4rem; color: var(--slate-light); transition: all 0.2s; }
-  .show-links a:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }
-  .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(201,168,76,0.15); margin-bottom: 4.5rem; }
-  .topic-item { background: var(--navy-mid); padding: 1.4rem 1.5rem; font-size: 0.9rem; letter-spacing: 0.02em; color: var(--gold-light); text-align: center; font-family: var(--font-display); }
-  .episode-list { display: flex; flex-direction: column; gap: 2px; background: rgba(201,168,76,0.12); margin-bottom: 4.5rem; }
-  .episode-row { display: flex; gap: 2.5rem; background: var(--navy); text-decoration: none; color: inherit; padding: 2rem; align-items: center; transition: background 0.2s; }
-  .episode-row:hover { background: var(--navy-light); }
-  .row-art { flex: 0 0 50%; aspect-ratio: 16/9; background: var(--navy-light); overflow: hidden; border: 1px solid rgba(201,168,76,0.15); }
-  .row-art img { width: 100%; height: 100%; object-fit: cover; }
-  .no-cover { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); border: 1px dashed rgba(201,168,76,0.25); }
-  .row-body { flex: 1; min-width: 0; }
-  .row-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.6rem; }
-  .row-title { font-size: 1.55rem; font-weight: 400; font-family: var(--font-display); line-height: 1.25; margin-bottom: 0.6rem; }
-  .row-guest { font-size: 0.85rem; color: var(--gold); margin-bottom: 0.6rem; letter-spacing: 0.02em; }
-  .row-desc { font-size: 0.95rem; color: var(--slate-light); line-height: 1.7; }
-  .guest-cta { background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.2); padding: 3.5rem 2.5rem; text-align: center; }
-  .guest-cta h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; margin-bottom: 1rem; color: var(--gold-light); }
-  .guest-cta p { color: var(--slate-light); max-width: 620px; margin: 0 auto 1.75rem; font-size: 0.95rem; line-height: 1.75; }
-  .btn-primary { display: inline-block; padding: 0.95rem 2.5rem; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
-  .btn-primary:hover { background: var(--gold-light); }
-  .newsletter-block { max-width: 480px; margin: 0 auto 3rem; text-align: center; padding: 2rem; background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.15); }
-  .newsletter-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-  .newsletter-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--white); }
-  .newsletter-sub { font-size: 0.8rem; color: var(--slate); margin-bottom: 1.25rem; line-height: 1.6; }
-  @media (max-width: 900px) {
-    .topics-grid { grid-template-columns: repeat(2, 1fr); }
-    .episode-row { flex-direction: column; align-items: flex-start; gap: 1.25rem; padding: 1.5rem; }
-    .row-art { flex: none; width: 100%; }
-  }
-</style>
-<div class="wrap">
-  <div class="tag">Leading Transformation</div>
-  <h1>Leading Transformation</h1>
-  <p class="lede">An interview series with executives and founders navigating AI adoption and technology transformation inside large organizations.</p>
-  <div class="video-container">
-  <iframe 
-    id="player"
-    src="https://www.youtube.com/embed/BtI38EZnGLE" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe> 
-</div>  <div class="trailer"><img src="../images/podcast-trailer.jpg" alt="Leading Transformation hosted by Dr. Petra Doerken and Uwe Doerken" /></div>
-  <div class="show-links">
-    <a href="https://www.youtube.com/@ddlegacycapital" target="_blank" rel="noopener">YouTube</a>
-    <a href="https://open.spotify.com/show/0345Tr0N6qkhAUcf4GAqjN" target="_blank" rel="noopener">Spotify</a>
-    <a href="https://podcasts.apple.com/us/podcast/leading-transformation-podcast-industrial-ai-without/id6819590943?i=1000793400330" target="_blank" rel="noopener">Apple Podcasts</a>
+<div id="top"></div>
+
+<section class="hero">
+  <div class="hero-skyline"></div>
+  <div class="hero-eyebrow">D&amp;D Strategic Impact · DDSI</div>
+  <h1 class="hero-headline">Where <em>institutional capital</em> meets frontier technology</h1>
+  <p class="hero-sub">We build, operate, and back AI-native technology companies serving regulated industries, and advise the enterprises transforming alongside them.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#portfolio-section">Our Portfolio</a>
+    <a class="btn-ghost" href="#advisory-section">Strategic Advisory</a>
   </div>
-  <div class="topics-grid"><div class="topic-item">AI Adoption: Pilot to Deployment</div><div class="topic-item">Realizing Measurable ROI</div><div class="topic-item">Compliance & Governance</div><div class="topic-item">Scaling Technology</div><div class="topic-item">Building in Regulated Industries</div><div class="topic-item">Unconventional, Overlooked Insights</div></div>
-  <div class="episode-list">
-        <a class="episode-row" href="episode-03.html">
-          <div class="row-art"><img src="../images/episode-03-karthick.jpg" alt="From Pilot to Production: A Former NVIDIA VP's Approach to Deploying AI | Karthick Iyer" /></div>
-          <div class="row-body">
-            <div class="row-tag">podcast &middot; Episode 3</div>
-            <div class="row-title">From Pilot to Production: A Former NVIDIA VP's Approach to Deploying AI | Karthick Iyer</div>
-            <div class="row-guest">Guest: Karthick Iyer, Former VP of Systems Software, NVIDIA</div>
-            <div class="row-desc">Karthick Iyer, former VP of Systems Software at NVIDIA, on what it actually takes to move enterprise AI from pilot to production.</div>
-          </div>
-        </a>
-        <a class="episode-row" href="episode-02.html">
-          <div class="row-art"><img src="../images/episode-02-tal.jpg" alt="60% Time Saved by Fixing the Process Before AI: From the CEO Managing 15,000 SKUs | Tal Rozenberg" /></div>
-          <div class="row-body">
-            <div class="row-tag">podcast &middot; Episode 2</div>
-            <div class="row-title">60% Time Saved by Fixing the Process Before AI: From the CEO Managing 15,000 SKUs | Tal Rozenberg</div>
-            <div class="row-guest">Guest: Tal Rozenberg, CEO, RH Group</div>
-            <div class="row-desc">How do you get real returns from AI in a complex manufacturing operation? Tal Rozenberg, CEO of RH Group, Israel's leading contract electronics manufacturer, walks through a process-first approach.</div>
-          </div>
-        </a>
-        <a class="episode-row" href="episode-01.html">
-          <div class="row-art"><img src="../images/episode-01-uwe.jpg" alt="The Transformation Playbook From the Man Who Led the World's Largest Express Company | Uwe Doerken" /></div>
-          <div class="row-body">
-            <div class="row-tag">podcast &middot; Episode 1</div>
-            <div class="row-title">The Transformation Playbook From the Man Who Led the World's Largest Express Company | Uwe Doerken</div>
-            <div class="row-guest">Guest: Uwe Doerken, Former CEO and Executive Chairman, DHL Worldwide Express</div>
-            <div class="row-desc">Most transformation programs are built to satisfy a board. Uwe Doerken argues they should be built around one measurable benefit to the customer.</div>
-          </div>
-        </a></div>
-  <div class="newsletter-block">
-    <div class="newsletter-label">Stay in the Loop</div>
-    <div class="newsletter-title">Get Tech Hub updates in your inbox</div>
-    <p class="newsletter-sub">New startup cohorts, event recaps, and ecosystem news, sent occasionally, never sold.</p>
-    <script async data-uid="9a17655aa3" src="https://leading-transformation.kit.com/9a17655aa3/index.js"></script>
+  <div class="hero-rule"></div>
+  <div class="hero-stat-block">
+    <div class="hero-stat">
+      <span class="hero-stat-num">B2B</span>
+      <span class="hero-stat-label">Enterprise Focus</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">AI</span>
+      <span class="hero-stat-label">Native Portfolio</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">5+</span>
+      <span class="hero-stat-label">Regulated Verticals</span>
+    </div>
   </div>
-  <div class="guest-cta">
-    <h2>Become a Guest</h2>
-    <p>We're always looking to feature enterprise leaders sharing their real AI-adoption and technology-transformation journey. If that's you, we'd love to have you on the show.</p>
-    <a class="btn-primary" href="../index.html?inquiry=podcast#contact-section">Get Featured</a>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section class="section section-alt" id="portfolio-section">
+  <div class="portfolio-bg"></div>
+  <div class="mw">
+    <div class="section-head">
+      <div class="section-label">Portfolio</div>
+      <div class="gold-rule"></div>
+      <h2 class="section-title">A portfolio of technology solutions for the <em>complexity of regulated industries</em></h2>
+      <p class="section-body" style="margin-top:1.5rem;max-width:920px">DDSI sits at the intersection of institutional capital, deep domain expertise, and frontier artificial intelligence. We build and operate AI-native companies, invest in transformative B2B platforms, and act as a strategic partner to guide large enterprises and government agencies through the shift to AI-native infrastructure.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">Clinical &amp; Revenue Cycle Intelligence</div>
+        <div class="portfolio-card-body">On-premises AI audit and coding compliance for Medicare Advantage risk adjustment, built for payviders where data sovereignty is non-negotiable.</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">Data Intelligence &amp; Governance Platforms</div>
+        <div class="portfolio-card-body">AI-native platforms that turn institutional data into a governed, auditable, decision-ready asset for enterprise and government environments.</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">AI for Critical Infrastructure</div>
+        <div class="portfolio-card-body">Predictive, operational AI for energy and utility operators, powering capital planning, outage forecasting, and workforce optimization at scale.</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">Compliance &amp; Government Modernization</div>
+        <div class="portfolio-card-body">Enterprise technology helping agencies and regulated institutions navigate AI adoption and legacy modernization without compromising mission continuity.</div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn-primary" href="?inquiry=portfolio#contact-section">Work With Us</a>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- STRATEGIC ADVISORY SECTION -->
+<section class="section" id="advisory-section">
+  <div class="advisory-bg"></div>
+  <div class="mw">
+    <div class="section-head">
+      <div class="section-label">Strategic Advisory</div>
+      <div class="gold-rule"></div>
+      <h2 class="section-title">We advise the institutions <em>setting the pace</em></h2>
+      <p class="section-body" style="margin-top:1rem;max-width:920px">Large enterprises and government agencies engage DDSI when the stakes of getting AI and technology adoption right are too high for incremental consulting. We bring operational depth, built from building, to every advisory mandate.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">Data Strategy for AI Insights</div>
+        <div class="portfolio-card-body">AI is only as good as the data behind it, and enterprise data is messy, structured and unstructured alike. We help clients bring both into a coherent, AI-ready foundation, sometimes through full unification, sometimes through intelligent use of what already exists, without a major infrastructure investment.</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">Technology Selection</div>
+        <div class="portfolio-card-body">We guide clients to solutions aligned with their core strategic priorities and clear, measurable outcomes, mindful of compliance and governance requirements, and grounded in a real understanding of how the organization actually works.</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">Workflow Integration, Not Bolt-On</div>
+        <div class="portfolio-card-body">AI that sits outside how people actually work rarely delivers value. We integrate AI directly into existing processes, redesigning workflows where needed to eliminate manual inefficiency and put the technology to its fullest use.</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-card-title">AI ROI: From Pilot to Scale</div>
+        <div class="portfolio-card-body">Every institution wants to invest in AI, few realize a return. Our clients do, guided by a structured framework built around organizational readiness, solution and economic fit, and a disciplined path from pilot to full-scale deployment.</div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn-primary" href="?inquiry=advisory#contact-section">Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- TECH HUB SECTION -->
+<section class="hub-preview" id="techhub-section">
+  <div class="techhub-bg"></div>
+  <div class="glow-field"><div class="glow-orb gold" style="width:420px;height:420px;top:-10%;right:5%"></div></div>
+  <div class="hub-preview-inner">
+    <div class="section-head">
+      <div class="section-label">The DDSI Ecosystem · Open Access</div>
+      <div class="gold-rule"></div>
+      <h2 class="section-title">D&amp;D <em>Tech Hub</em></h2>
+      <p class="section-body" style="margin-top:1rem;max-width:920px">A curated ecosystem connecting technology investors, enterprise partners, and founders building the next generation of AI-native companies. We bridge the gap between innovation and market entry: offering investors access to high-value deal flow, granting enterprise partners early adoption of cutting-edge solutions backed by dedicated forward-deployed engineering, and empowering startups with vital capital, strategic mentorship, and direct B2B GTM pipelines.</p>
+    </div>
+
+    <div class="carousel" id="homeHubCarousel" style="margin-top:1.75rem">
+      <div class="carousel-track" id="homeHubCarouselTrack">
+        <div class="carousel-slide"><img src="images/event-9.jpg" alt="DDSI Tech Hub startup conference" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-10.jpg" alt="DDSI Tech Hub speaker session" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-11.jpg" alt="DDSI Tech Hub evening gathering" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-12.jpg" alt="DDSI Tech Hub pitch session" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-13.jpg" alt="DDSI Tech Hub panel discussion" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-14.jpg" alt="DDSI Tech Hub investor gathering" loading="lazy"></div>
+        <div class="carousel-slide"><img src="images/event-3.jpg" alt="DDSI Tech Hub networking mixer" loading="lazy"></div>
+      </div>
+      <div class="carousel-nav prev" onclick="carouselMove('homeHubCarousel', -1)">&#8249;</div>
+      <div class="carousel-nav next" onclick="carouselMove('homeHubCarousel', 1)">&#8250;</div>
+      <div class="carousel-dots" id="homeHubCarouselDots"></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn-primary" href="tech-hub.html">Explore D&amp;D Tech Hub</a>
+    </div>
+  </div>
+</section>
+
+<!-- INCUBATOR SECTION -->
+<section class="section" id="incubator-section">
+  <div class="mw">
+    <div class="section-head">
+      <div class="section-label">Empowering Future Global Leaders</div>
+      <div class="gold-rule"></div>
+      <h2 class="section-title">Global Gateway Incubator <em>2027 Cohort</em></h2>
+    </div>
+
+    <div class="carousel" id="homeIncubatorCarousel" style="margin-top:1.75rem">
+      <div class="carousel-track" id="homeIncubatorCarouselTrack">
+        <div class="carousel-slide"><img src="images/event-15.jpg" alt="DDSI Tech Hub robotics demo, India" loading="lazy"><div class="carousel-caption">Robotics Demo, India</div></div>
+        <div class="carousel-slide"><img src="images/event-1.jpg" alt="DDSI Tech Hub session in progress" loading="lazy"><div class="carousel-caption">Tech Hub Session</div></div>
+        <div class="carousel-slide"><img src="images/event-4.jpg" alt="Founders and mentors collaborating at a DDSI Tech Hub event" loading="lazy"><div class="carousel-caption">Founder Working Session</div></div>
+        <div class="carousel-slide"><img src="images/event-5.jpg" alt="DDSI Tech Hub community gathering" loading="lazy"><div class="carousel-caption">Community Gathering</div></div>
+        <div class="carousel-slide"><img src="images/event-6.jpg" alt="DDSI Tech Hub past event" loading="lazy"><div class="carousel-caption">Tech Hub Community</div></div>
+        <div class="carousel-slide"><img src="images/event-7.jpg" alt="DDSI Tech Hub past event" loading="lazy"><div class="carousel-caption">Tech Hub Community</div></div>
+        <div class="carousel-slide"><img src="images/event-8.jpg" alt="DDSI Tech Hub India campus visit" loading="lazy"><div class="carousel-caption">Campus Visit, India</div></div>
+      </div>
+      <div class="carousel-nav prev" onclick="carouselMove('homeIncubatorCarousel', -1)">&#8249;</div>
+      <div class="carousel-nav next" onclick="carouselMove('homeIncubatorCarousel', 1)">&#8250;</div>
+      <div class="carousel-dots" id="homeIncubatorCarouselDots"></div>
+    </div>
+
+    <p class="section-body" style="margin:1.25rem auto 0;max-width:920px">A free program since 2019 to help founders build and scale technology companies through a curriculum led by investors and operators who have done it themselves. The 2027 Cohort is our Global Gateway program, in partnership with 5 Universities in India and Vietnam, to help founders in underserved markets reach the global market.</p>
+
+    <div class="stat-grid-5" style="margin-top:1.75rem">
+      <div class="stat-item">
+        <span class="stat-item-num">5</span>
+        <span class="stat-item-label">Partner Universities</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item-num">18</span>
+        <span class="stat-item-label">Founding Teams</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item-num">16 Weeks</span>
+        <span class="stat-item-label">Jan&ndash;Apr 2027</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item-num">100%</span>
+        <span class="stat-item-label">Free of Cost</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item-num">Top 5</span>
+        <span class="stat-item-label">May 2027 Demo Day</span>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn-primary" href="incubator.html">Explore 2027 Cohort</a>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST PREVIEW SECTION -->
+<section class="podcast-preview" id="podcast-preview-section">
+  <div class="glow-field"><div class="glow-orb slate" style="width:380px;height:380px;bottom:-15%;left:0"></div></div>
+  <div class="hub-preview-inner">
+    <div class="section-head">
+      <div class="section-label">Interview Series</div>
+      <div class="gold-rule"></div>
+      <h2 class="section-title"><em>Leading</em> Transformation</h2>
+    </div>
+    <div class="episode-grid">
+      <div class="episode-card" onclick="window.location.href='blog/episode-01.html'">
+        <div class="episode-art"><img src="images/episode-01-uwe-square.jpg" alt="Uwe Doerken episode cover art" loading="lazy"></div>
+        <div class="episode-info">
+          <div class="episode-title">The Transformation Playbook From the Man Who Led the World's Largest Express Company | Uwe Doerken</div>
+          <div class="episode-desc">Most transformation programs are built to satisfy a board. Uwe Doerken argues they should be built around one measurable benefit to the customer.</div>
+        </div>
+      </div>
+      <div class="episode-card" onclick="window.location.href='blog/episode-02.html'">
+        <div class="episode-art"><img src="images/episode-02-tal-square.jpg" alt="Tal Rozenberg episode cover art" loading="lazy"></div>
+        <div class="episode-info">
+          <div class="episode-title">60% Time Saved by Fixing the Process Before AI: From the CEO Managing 15,000 SKUs | Tal Rozenberg</div>
+          <div class="episode-desc">Tal Rozenberg, CEO of RH Group, Israel's leading contract electronics manufacturer, walks through a process-first approach to AI.</div>
+        </div>
+      </div>
+      <div class="episode-card" onclick="window.location.href='blog/episode-03.html'">
+        <div class="episode-art"><img src="images/episode-03-karthick-square.jpg" alt="Karthick Iyer episode cover art" loading="lazy"></div>
+        <div class="episode-info">
+          <div class="episode-title">From Pilot to Production: A Former NVIDIA VP's Approach to Deploying AI | Karthick Iyer</div>
+          <div class="episode-desc">Karthick Iyer, former VP of Systems Software at NVIDIA, on what it actually takes to move enterprise AI from pilot to production.</div>
+        </div>
+      </div>
+    </div>
+    <div class="subscribe-row">
+      <span style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)">Listen &amp; Subscribe</span>
+      <a class="subscribe-btn" href="https://www.youtube.com/@ddlegacycapital" target="_blank" rel="noopener">YouTube &#8599;</a>
+      <a class="subscribe-btn" href="https://open.spotify.com/show/0345Tr0N6qkhAUcf4GAqjN" target="_blank" rel="noopener">Spotify &#8599;</a>
+      <a class="subscribe-btn" href="https://podcasts.apple.com/us/podcast/leading-transformation-podcast-industrial-ai-without/id6819590943?i=1000793400330" target="_blank" rel="noopener">Apple Podcasts &#8599;</a>
+      <a class="subscribe-btn" href="blog/index.html">All Episodes &amp; Show Notes &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / LEAD INTAKE SECTION -->
+<section class="section" id="contact-section">
+  <div class="mw">
+    <div class="section-head">
+      <div class="section-label">Contact &amp; Inquiries</div>
+      <div class="gold-rule"></div>
+      <h2 class="section-title">Engage with DDSI</h2>
+      <p class="section-body" style="margin-top:1rem;max-width:920px">Whether you're exploring a portfolio partnership, seeking advisory engagement, joining the Tech Hub, or pitching a podcast idea, tell us about your organization and what you're facing, and we'll help you find the right path in.</p>
+    </div>
+
+    <div class="contact-inner" style="margin:0;max-width:100%">
+      <div id="form-message" style="display:none; margin-top:1rem; padding:1rem; text-align:center; font-size:0.85rem;"></div>
+
+      <form class="contact-form" id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" name="full_name" class="form-input" placeholder="Alexander The Great" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email *</label>
+            <input type="email" name="email" class="form-input" placeholder="you@organization.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Organization</label>
+            <input type="text" name="organization" class="form-input" placeholder="Your company or institution" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Role / Title</label>
+            <input type="text" name="title" class="form-input" placeholder="Chief Digital Officer" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nature of Inquiry *</label>
+          <select name="inquiry_type" id="inquiryType" class="form-select form-input" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Portfolio: Investment or Partnership</option>
+            <option>Strategic Advisory Engagement</option>
+            <option>D&amp;D Tech Hub: Investor or Enterprise Leader</option>
+            <option>Leading Transformation Podcast: Become a Guest</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">What problems or challenges are you facing? *</label>
+          <textarea name="message" class="form-textarea" placeholder="Tell us briefly about your organization, what you're working through, and how we can help..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submit-btn">Let Us Help You</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="disclaimer-section">
+  <div class="mw">
+    <div class="disclaimer-label">Disclaimer</div>
+    <p class="disclaimer-text">D&amp;D Strategic Impact, part of the D&amp;D Legacy Capital family office, is a private family office. The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities or investment advisory services. DDSI does not provide investment advice to the general public.</p>
+  </div>
+</section>
 
 <footer>
-  <div class="footer-left">Leading Transformation Podcast &middot; A <a href="../index.html">D&amp;D Strategic Impact</a> Initiative</div>
-  <div class="footer-right">&copy; 2026 D&amp;D Strategic Impact</div>
+  <div class="footer-left">
+    <div style="margin-bottom: 0.5rem;">
+      &copy; 2026 D&amp;D Strategic Impact &middot; A <a href="about.html">D&amp;D Legacy Capital</a> Company
+    </div>
+    <div style="display: flex; gap: 1.5rem; font-size: 0.65rem; letter-spacing: 0.05em;">
+      <a href="terms.html" style="color: var(--slate); border-bottom: 1px solid transparent; transition: 0.2s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='transparent'">Terms &amp; Conditions</a>
+      <a href="privacy.html" style="color: var(--slate); border-bottom: 1px solid transparent; transition: 0.2s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='transparent'">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-right">Where Capital &amp; Technology Lead Transformation</div>
 </footer>
+
 <script>
-  var navToggleLinks = document.getElementById('navLinks');
-  if (navToggleLinks) {
-    navToggleLinks.querySelectorAll('.nav-link').forEach(function(l){
-      l.addEventListener('click', function(){ navToggleLinks.classList.remove('open'); });
-    });
-  }
+document.getElementById('navLinks').querySelectorAll('.nav-link').forEach(function(l){
+  l.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+});
 </script>
+
+<!-- PREFILL "NATURE OF INQUIRY" FROM CTA LINKS (?inquiry=portfolio|advisory|techhub|podcast) -->
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var inquiry = params.get('inquiry');
+  if (!inquiry) return;
+  var map = {
+    portfolio: 'Portfolio: Investment or Partnership',
+    advisory: 'Strategic Advisory Engagement',
+    techhub: 'D&D Tech Hub: Investor or Enterprise Leader',
+    podcast: 'Leading Transformation Podcast: Become a Guest'
+  };
+  var value = map[inquiry];
+  var select = document.getElementById('inquiryType');
+  if (value && select) {
+    select.value = value;
+  }
+})();
+</script>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const submitBtn = document.getElementById('submit-btn');
+  const formMessage = document.getElementById('form-message');
+  const originalBtnText = submitBtn.textContent;
+
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+  formMessage.style.display = 'none';
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch('https://formspree.io/f/mwlppgwa', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    formMessage.style.display = 'block';
+
+    if (response.ok) {
+      formMessage.style.color = 'var(--gold)';
+      formMessage.style.background = 'rgba(201,168,76,0.1)';
+      formMessage.style.border = '1px solid var(--gold-dim)';
+      formMessage.textContent = 'Your message has been sent. Thank you for your inquiry.';
+      this.reset();
+    } else {
+      const result = await response.json().catch(() => ({}));
+      throw new Error((result.errors || []).map(e => e.message).join(', ') || 'Failed to send');
+    }
+  } catch (error) {
+    formMessage.style.display = 'block';
+    formMessage.style.color = '#ff6b6b';
+    formMessage.style.background = 'rgba(255,107,107,0.1)';
+    formMessage.style.border = '1px solid #ff6b6b';
+    formMessage.textContent = 'There was an error sending your message. Please reach out to us directly on Linkedin http://linkedin.com/in/petradoerken';
+    console.error('Form error:', error);
+  } finally {
+    submitBtn.textContent = originalBtnText;
+    submitBtn.disabled = false;
+  }
+});
+</script>
+
+<!-- CAROUSEL COMPONENT -->
+<script>
+const carousels = {};
+
+function initCarousel(id, autoplayMs) {
+  const root = document.getElementById(id);
+  if (!root) return;
+  const track = root.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const dotsWrap = document.getElementById(id + 'Dots');
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => carouselGoTo(id, i);
+    dotsWrap.appendChild(dot);
+  });
+
+  carousels[id] = { index: 0, total: slides.length, track, dotsWrap, timer: null, autoplayMs: autoplayMs || 0 };
+  if (carousels[id].autoplayMs) startCarouselAutoplay(id);
+
+  root.addEventListener('mouseenter', () => stopCarouselAutoplay(id));
+  root.addEventListener('mouseleave', () => { if (carousels[id].autoplayMs) startCarouselAutoplay(id); });
+}
+
+function renderCarousel(id) {
+  const c = carousels[id];
+  const slideEl = c.track.children[0];
+  const slideWidth = slideEl ? slideEl.getBoundingClientRect().width : 0;
+  c.track.style.transform = `translateX(-${c.index * slideWidth}px)`;
+  Array.from(c.dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === c.index));
+}
+
+function carouselMove(id, dir) {
+  const c = carousels[id];
+  c.index = (c.index + dir + c.total) % c.total;
+  renderCarousel(id);
+}
+
+function carouselGoTo(id, i) {
+  carousels[id].index = i;
+  renderCarousel(id);
+}
+
+function startCarouselAutoplay(id) {
+  stopCarouselAutoplay(id);
+  carousels[id].timer = setInterval(() => carouselMove(id, 1), carousels[id].autoplayMs);
+}
+
+function stopCarouselAutoplay(id) {
+  if (carousels[id] && carousels[id].timer) clearInterval(carousels[id].timer);
+}
+
+window.addEventListener('resize', () => {
+  Object.keys(carousels).forEach(renderCarousel);
+});
+
+initCarousel('homeHubCarousel', 5000);
+initCarousel('homeIncubatorCarousel', 5500);
+</script>
+
+<!-- SCROLL-LINKED ZOOM TRANSITION -->
+<script>
+(function () {
+  function setupZoomTransition(heroSelector, nextSectionSelector) {
+    const hero = document.querySelector(heroSelector);
+    const nextSection = document.querySelector(nextSectionSelector);
+    if (!hero || !nextSection) return;
+
+    let ticking = false;
+
+    function update() {
+      const heroRect = hero.getBoundingClientRect();
+      const heroHeight = heroRect.height;
+      const progress = Math.min(Math.max(-heroRect.top / heroHeight, 0), 1);
+
+      const scale = 1 + progress * 0.18;
+      const opacity = 1 - progress * 1.1;
+      hero.style.transform = `scale(${scale})`;
+      hero.style.opacity = Math.max(opacity, 0);
+
+      const nextScale = 1.06 - progress * 0.06;
+      const nextTranslate = (1 - progress) * 24;
+      nextSection.style.transform = `scale(${Math.max(nextScale, 1)}) translateY(${nextTranslate}px)`;
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    update();
+  }
+
+  setupZoomTransition('.hero', '#portfolio-section');
+})();
+</script>
+
 </body>
 </html>
