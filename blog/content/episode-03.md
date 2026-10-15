@@ -8,8 +8,8 @@ display_date: "Oct 14, 2026"
 guest: "Karthick Iyer, Corporate Vice President, Client Compute and Physical AI Group, Intel"
 cover_image: ../images/episode-03-karthick.jpg
 description: "Most AI pilots look impressive in a demo and never make it into production. Karthick Iyer has seen AI from the ground up and explains why, and what it actually takes to close that gap."
-youtube_embed_url: "https://www.youtube.com/embed/g50-WEEkq6E?si=LZOY9NpaA9DL-RjZ"
-listen_youtube_url: "https://youtu.be/g50-WEEkq6E"
+youtube_embed_url: "https://www.youtube.com/embed/6N8zeAO-mM8?si=P-e7kvOSfjN2N5RU"
+listen_youtube_url: "https://youtu.be/6N8zeAO-mM8"
 listen_spotify_url: "https://open.spotify.com/episode/5WhGrLtTLEF5NvbU93l60y"
 listen_apple_url: "https://podcasts.apple.com/us/podcast/leading-transformation/id6819590943"
 ---
@@ -40,22 +40,22 @@ If you lead an operation and are trying to turn AI pilots into results, this epi
 
 ## Chapters
 
-- [0:00](https://www.youtube.com/watch?v=g50-WEEkq6E) Introduction
-- [2:21](https://www.youtube.com/watch?v=g50-WEEkq6E&t=141s) What AI can deliver today: start with your biggest pain point
-- [4:38](https://www.youtube.com/watch?v=g50-WEEkq6E&t=278s) Competing with big players on a small budget
-- [8:06](https://www.youtube.com/watch?v=g50-WEEkq6E&t=486s) Misconceptions about AI and the demo-to-production gap
-- [11:02](https://www.youtube.com/watch?v=g50-WEEkq6E&t=662s) Why forward deployed engineers matter more than coding agents
-- [14:56](https://www.youtube.com/watch?v=g50-WEEkq6E&t=896s) Data silos and multi-agent orchestration
-- [17:37](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1057s) Data sovereignty and avoiding vendor lock-in
-- [21:19](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1279s) The five layers of AI
-- [22:42](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1362s) A small factory example, layer by layer
-- [26:50](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1610s) How he uses AI to save two hours every morning
-- [28:08](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1688s) The mental shift: AI as additional employees
-- [29:57](https://www.youtube.com/watch?v=g50-WEEkq6E&t=1797s) Leadership lessons from working under Jensen Huang
-- [34:14](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2054s) Work-life balance at the frontier of AI
-- [37:05](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2225s) Is an MBA still worth it?
-- [39:40](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2380s) The contrarian take
-- [42:02](https://www.youtube.com/watch?v=g50-WEEkq6E&t=2522s) Closing
+- [0:00](https://www.youtube.com/watch?v=6N8zeAO-mM8) Introduction
+- [2:21](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=141s) What AI can deliver today: start with your biggest pain point
+- [4:38](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=278s) Competing with big players on a small budget
+- [8:06](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=486s) Misconceptions about AI and the demo-to-production gap
+- [11:02](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=662s) Why forward deployed engineers matter more than coding agents
+- [14:56](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=896s) Data silos and multi-agent orchestration
+- [17:37](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=1057s) Data sovereignty and avoiding vendor lock-in
+- [21:19](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=1279s) The five layers of AI
+- [22:42](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=1362s) A small factory example, layer by layer
+- [26:50](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=1610s) How he uses AI to save two hours every morning
+- [28:08](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=1688s) The mental shift: AI as additional employees
+- [29:57](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=1797s) Leadership lessons from working under Jensen Huang
+- [34:14](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=2054s) Work-life balance at the frontier of AI
+- [37:05](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=2225s) Is an MBA still worth it?
+- [39:40](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=2380s) The contrarian take
+- [42:02](https://www.youtube.com/watch?v=6N8zeAO-mM8&t=2522s) Closing
 
 Listen on Spotify and Apple Podcasts, and find more at [leadingtransformationpodcast.com](https://leadingtransformationpodcast.com).
 
