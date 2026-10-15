@@ -10,7 +10,7 @@ cover_image: ../images/episode-03-karthick.jpg
 description: "Most AI pilots look impressive in a demo and never make it into production. Karthick Iyer has seen AI from the ground up and explains why, and what it actually takes to close that gap."
 youtube_embed_url: "https://www.youtube.com/embed/6N8zeAO-mM8?si=P-e7kvOSfjN2N5RU"
 listen_youtube_url: "https://youtu.be/6N8zeAO-mM8"
-listen_spotify_url: "https://open.spotify.com/episode/5WhGrLtTLEF5NvbU93l60y"
+listen_spotify_url: "https://open.spotify.com/episode/2SgjTtjzTsb1DvURQLbFkz?si=nJ95siXdRPC-SK-_ZQT2KQ"
 listen_apple_url: "https://podcasts.apple.com/us/podcast/leading-transformation/id6819590943"
 ---
 
