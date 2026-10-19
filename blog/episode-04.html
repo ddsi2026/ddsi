@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8c8d3c1d-e4c5-4068-8870-3a759273063d" type="text/javascript"></script>
+<title>Why Corporate AI Projects Fail: From a Serial Founder and Venture Capitalist | Pano Anthos | D&amp;D Strategic Impact</title>
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0b1322; --navy-mid: #121e33; --navy-light: #1a2a44;
+    --gold: #c9a84c; --gold-light: #e8c97a; --gold-dim: #8a6e2f;
+    --slate: #9aafc8; --slate-light: #d4dde8; --white: #f5f2ec;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--white); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; position: relative; }
+  a { color: inherit; text-decoration: none; }
+  .page-bg { position: fixed; inset: 0; z-index: -2; background-image: url('../images/portfolio-bg.jpg'); background-size: cover; background-position: center; opacity: 0.38; filter: grayscale(0.05) contrast(1.1); }
+  .page-bg-overlay { position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,19,34,0.55), rgba(11,19,34,0.78) 40%, var(--navy) 92%); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(11,19,34,0.95); backdrop-filter: blur(12px); }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo-main { font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; line-height: 1.2; }
+  .nav-logo-sub { font-size: 0.55rem; letter-spacing: 0.18em; color: var(--slate); text-transform: uppercase; line-height: 1.2; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-link { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); cursor: pointer; white-space: nowrap; }
+  .nav-link:hover { color: var(--gold); }
+  .nav-cta { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.55rem 1.3rem; border: 1px solid var(--gold-dim); color: var(--gold); }
+  .nav-cta:hover { background: var(--gold); color: var(--navy); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; }
+  .nav-toggle span { width: 22px; height: 1.5px; background: var(--gold); display: block; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 9rem 2rem 6rem; }
+  .tag { display: inline-block; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25); padding: 0.35rem 0.9rem; margin-bottom: 1.5rem; }
+  h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; max-width: none; }
+  .meta { font-size: 0.85rem; color: var(--slate); letter-spacing: 0.05em; margin-bottom: 2rem; }
+  .cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2.5rem; border: 1px solid rgba(201,168,76,0.15); }
+  .video-embed { width: 100%; aspect-ratio: 16/9; margin: 0 auto 1.75rem; border: 1px solid rgba(201,168,76,0.15); background: var(--navy-mid); }
+  .video-embed iframe { display: block; width: 100%; height: 100%; border: 0; }
+  .listen-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+  .listen-row a:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }
+  .listen-row a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 0.7rem 1.4rem; text-decoration: none; }
+  .content h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; margin: 2.5rem 0 1rem; color: var(--gold-light); }
+  .content p { margin-bottom: 1.2rem; color: var(--slate-light); font-size: 1rem; }
+  .content ul, .content ol { margin: 0 0 1.2rem 1.3rem; color: var(--slate-light); font-size: 1rem; }
+  .content li { margin-bottom: 0.4rem; }
+  .content em { color: var(--gold-dim); }
+  .back-link { display: inline-block; margin-top: 3rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--gold); }
+  footer { padding: 3rem; border-top: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; position: relative; }
+  .footer-left { font-size: 0.7rem; color: var(--slate); }
+  .footer-right { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
+  @media (max-width: 900px) {
+    nav { padding: 0.75rem 1.25rem; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 1.25rem; background: var(--navy); padding: 1.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+  }
+  @media (max-width: 860px) {
+    .wrap { padding: 8rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bg"></div>
+<div class="page-bg-overlay"></div>
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <img src="../logo.png" alt="Logo" style="height: 34px; width: auto;">
+    <div style="display:flex;flex-direction:column;">
+      <span class="nav-logo-main">D&amp;D Strategic Impact</span>
+      <span class="nav-logo-sub">A D&amp;D Legacy Capital Company</span>
+    </div>
+  </a>
+  <div class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="../index.html#top">Overview</a>
+    <a class="nav-link" href="../index.html#portfolio-section">Portfolio</a>
+    <a class="nav-link" href="../index.html#advisory-section">Advisory</a>
+    <a class="nav-link" href="../tech-hub.html">Tech Hub</a>
+    <a class="nav-link" href="../incubator.html">Incubator</a>
+    <a class="nav-link" href="index.html">Podcast</a>
+    <a class="nav-link" href="../about.html">About Us</a>
+    <a class="nav-link nav-cta" href="../index.html#contact-section">Engage</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="tag">podcast &middot; Episode 4</div>
+  <h1>Why Corporate AI Projects Fail: From a Serial Founder and Venture Capitalist | Pano Anthos</h1>
+  <div class="meta">Oct 19, 2026</div>
+  <div class="meta">Guest: Pano Anthos, Founder and Managing Partner, XRC Ventures</div>
+  <div class="video-embed"><iframe src="https://www.youtube.com/embed/0_A_RiwhFB8?si=w-P8U9U7h9IzD6pz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="listen-row"><a href="https://youtu.be/0_A_RiwhFB8" target="_blank" rel="noopener">YouTube</a></div>
+  <div class="content"><h2>Show Notes</h2>
+<p>AI has made it possible to build software in weeks, and to run a growing company with one person and a swarm of AI agents. What does that mean for large enterprises? Uwe Doerken talks with Pano Anthos, serial entrepreneur and founder and managing partner of XRC Ventures, which helps startups reach corporate buyers. Pano has sold into the logistics industry for close to 20 years and sees, every day, where new AI products succeed or stall inside large companies.</p>
+<h2>In This Episode</h2>
+<ul>
+<li>Why AI is flooding the market with new applications, and why one-size-fits-all enterprise software is giving way to fast-to-deploy micro applications</li>
+<li>Why so many AI projects built in-house fail, and when building internally makes sense</li>
+<li>How shadow AI creates data security risks, and why systems of record aren't going away</li>
+<li>Which corporate workflows AI will reshape first, starting with approvals and customer-facing work</li>
+<li>How agents are changing supply chains, from freight rerouting with a human in the loop to agents negotiating with other agents</li>
+<li>How drones and computer vision are transforming warehouse inventory</li>
+<li>Why selling innovation into large companies starts with the CFO</li>
+<li>The "startup of one," and how any company can break its work into tasks an agent can do</li>
+<li>How Pano's own firm uses AI to review incoming startups in minutes, built by a single developer</li>
+<li>Why the biggest barrier to AI in large companies is the fear of failure</li>
+</ul>
+<p>If you lead a large organization and are wondering how to keep pace with competitors that run on agents, this episode shows what that world looks like and the one mindset shift it demands.</p>
+<p>#AgenticAI #EnterpriseAI #DigitalTransformation</p></div>
+  <a class="back-link" href="index.html">&#8592; All Episodes &amp; Posts</a>
+</div>
+
+<footer>
+  <div class="footer-left">Leading Transformation Podcast &middot; A <a href="../index.html">D&amp;D Strategic Impact</a> Initiative</div>
+  <div class="footer-right">&copy; 2026 D&amp;D Strategic Impact</div>
+</footer>
+<script>
+  var navToggleLinks = document.getElementById('navLinks');
+  if (navToggleLinks) {
+    navToggleLinks.querySelectorAll('.nav-link').forEach(function(l){
+      l.addEventListener('click', function(){ navToggleLinks.classList.remove('open'); });
+    });
+  }
+</script>
+</body>
+</html>
