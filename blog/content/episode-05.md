@@ -10,8 +10,8 @@ cover_image: ../images/episode-05-sankalp.jpg
 description: "When a part goes missing in your warehouse, the cost doesn’t stay in the warehouse. It shows up as a stopped production line, a late shipment or a lost customer."
 youtube_embed_url: "https://www.youtube.com/embed/kRelMc3ij18"
 listen_youtube_url: "https://youtu.be/kRelMc3ij18"
-listen_spotify_url: "#"
-listen_apple_url: "#"
+listen_spotify_url: "https://open.spotify.com/episode/44anBAqFLHe3QV9lsuLqtU?si=YzU9XvFiQpeZ_xbJpsJlvA"
+listen_apple_url: "https://podcasts.apple.com/us/podcast/your-warehouse-runs-on-old-data-from-the-roboticist/id6819590943?i=1000798654497"
 ---
 
 ## Show Notes
