@@ -10,8 +10,8 @@ cover_image: ../images/episode-06-sri-square.jpg
 description: "Your AI pilots worked. Your P&L didn't move. Most companies now have dozens of small AI experiments and very little to show for them at the operations level."
 youtube_embed_url: "https://www.youtube.com/embed/n_a3xw6K0Zk?si=6xQ0V7ktgj-blcNN"
 listen_youtube_url: "https://youtu.be/n_a3xw6K0Zk"
-listen_spotify_url: "#"
-listen_apple_url: "#"
+listen_spotify_url: "https://open.spotify.com/episode/0k0BWWQ7ahmjCi6zFJZF5s?si=f796d71b800b4fa9"
+listen_apple_url: "https://podcasts.apple.com/us/podcast/start-ai-with-your-biggest-problem-lessons-from-h2o/id6819590943?i=1000799811670"
 ---
 
 ## Show Notes
