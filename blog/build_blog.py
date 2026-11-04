@@ -157,6 +157,9 @@ def load_post(path: Path):
     html = md.markdown(body, extensions=["extra"])
     html = re.sub(r'<a href="(https?://)', r'<a target="_blank" rel="noopener" href="\1', html)
     meta["_body_html"] = html
+    for k in ("title", "guest", "description"):
+        if isinstance(meta.get(k), str):
+            meta[k] = meta[k].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     meta.setdefault("slug", path.stem)
     return meta
 
@@ -200,7 +203,7 @@ def render_post_page(post: dict) -> str:
 TOPICS = [
     "AI Adoption: Pilot to Deployment",
     "Realizing Measurable ROI",
-    "Compliance & Governance",
+    "Compliance &amp; Governance",
     "Scaling Technology",
     "Building in Regulated Industries",
     "Unconventional, Overlooked Insights",
