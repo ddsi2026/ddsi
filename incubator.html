@@ -116,6 +116,69 @@
     .tier-table td { border-bottom: none; }
     .tier-table tr { margin-bottom: 1rem; border: 1px solid rgba(201,168,76,0.15); }
   }
+
+
+  /* Partner universities */
+  .uni-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2rem; }
+  .uni-item { margin: 0; }
+  .uni-card { background: #fff; border-radius: 4px; height: 130px; padding: 1.1rem 1.2rem; display: flex; align-items: center; justify-content: center; }
+  .uni-card img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+  .uni-item figcaption { margin-top: 0.7rem; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-light); text-align: center; line-height: 1.4; }
+  @media (max-width: 900px) { .uni-grid { grid-template-columns: repeat(2, 1fr); } .uni-item:last-child { grid-column: 1 / -1; max-width: 50%; justify-self: center; width: 100%; } .uni-card { height: 110px; } }
+
+  /* Program calendar */
+  .cal-meta { color: var(--slate-light); font-size: 1rem; margin-bottom: 1.75rem; }
+  .cal-dot { color: var(--gold); margin: 0 0.6rem; }
+  .cal-legend { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-bottom: 1rem; color: var(--slate-light); font-size: 0.85rem; }
+  .cal-legend-item { display: inline-flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .cal-note { text-align: right; color: var(--slate-light); font-size: 0.85rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .cal-pill { display: inline-block; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; white-space: nowrap; }
+  .cal-pill-speaker { background: var(--gold); color: var(--navy); }
+  .cal-pill-working { border: 1px solid var(--white); color: var(--white); }
+  .cal-pill-vac { border: 1px dashed var(--gold); color: var(--gold); }
+  .cal-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+  .cal-table th { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); font-weight: 500; text-align: left; padding: 0.4rem 0.9rem; }
+  .cal-table th.cal-th-r { text-align: right; }
+  .cal-table td { padding: 0.8rem 0.9rem; font-size: 0.85rem; color: var(--slate-light); vertical-align: middle; }
+  .cal-wk { font-family: var(--font-display); font-size: 1.35rem; width: 3rem; text-align: center; }
+  .cal-date { white-space: nowrap; width: 9.5rem; }
+  .cal-sess { width: 9.5rem; }
+  .cal-topic { color: var(--white); }
+  .cal-pt, .cal-in, .cal-vn { text-align: right; white-space: nowrap; width: 8.5rem; }
+  .cal-speaker td { background: linear-gradient(90deg, rgba(201,168,76,0.14), rgba(201,168,76,0.05)); }
+  .cal-speaker .cal-wk { color: var(--gold-light); border-left: 3px solid var(--gold); }
+  .cal-speaker .cal-pt { color: var(--gold-light); background: rgba(201,168,76,0.12); }
+  .cal-working td { background: rgba(26,42,68,0.85); }
+  .cal-working .cal-wk { color: var(--white); border-left: 3px solid var(--slate); }
+  .cal-vac td { background: repeating-linear-gradient(135deg, rgba(201,168,76,0.07) 0 6px, rgba(11,19,34,0.6) 6px 12px); border: 1px dashed rgba(201,168,76,0.55); }
+  .cal-vac-date { margin-right: 1.25rem; }
+  .cal-vac-note { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--gold-light); margin-left: 1rem; }
+  .cal-demo { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1.25rem; padding: 1.5rem 2rem; border: 1px solid rgba(201,168,76,0.4); background: linear-gradient(90deg, rgba(201,168,76,0.14), rgba(18,30,51,0.8)); }
+  .cal-demo-title { font-family: var(--font-display); font-size: 1.9rem; color: var(--gold-light); }
+  .cal-demo-title em { color: var(--white); }
+  .cal-demo-text { color: var(--slate-light); font-size: 0.95rem; }
+  .cal-foot { text-align: right; margin-top: 0.9rem; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); }
+  @media (max-width: 860px) {
+    .cal-note { text-align: left; }
+    .cal-table, .cal-table tbody, .cal-table tr, .cal-table td { display: block; width: 100%; }
+    .cal-table thead { display: none; }
+    .cal-table tr { margin-bottom: 0.75rem; padding: 0.35rem 0; }
+    .cal-speaker { background: linear-gradient(90deg, rgba(201,168,76,0.14), rgba(201,168,76,0.05)); border-left: 3px solid var(--gold); }
+    .cal-working { background: rgba(26,42,68,0.85); border-left: 3px solid var(--slate); }
+    .cal-vac { border: 1px dashed rgba(201,168,76,0.55); background: repeating-linear-gradient(135deg, rgba(201,168,76,0.07) 0 6px, rgba(11,19,34,0.6) 6px 12px); }
+    .cal-table td, .cal-speaker td, .cal-working td, .cal-vac td { background: none; border: none; padding: 0.3rem 1rem; }
+    .cal-speaker .cal-wk, .cal-working .cal-wk { border-left: none; }
+    .cal-wk { width: auto; text-align: left; }
+    .cal-date, .cal-sess { width: auto; }
+    .cal-table td.cal-pt, .cal-table td.cal-in, .cal-table td.cal-vn { width: auto; display: flex; justify-content: space-between; gap: 1rem; text-align: right; }
+    .cal-table td.cal-pt::before, .cal-table td.cal-in::before, .cal-table td.cal-vn::before { content: attr(data-label); color: var(--slate); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .cal-wk::before { content: "Week "; font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); }
+    .cal-table td.cal-pt.cal-empty { display: none; }
+    .cal-speaker .cal-pt { background: none; }
+    .cal-vac td { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
+    .cal-vac-date, .cal-vac-note { margin: 0; }
+    .cal-demo { padding: 1.25rem 1.25rem; }
+  }
 </style>
 </head>
 <body>
@@ -154,7 +217,7 @@
   <div class="mw">
     <div class="stat-grid-5">
       <div class="stat-item"><span class="stat-item-num">5</span><span class="stat-item-label">Partner Universities</span></div>
-      <div class="stat-item"><span class="stat-item-num">18</span><span class="stat-item-label">Founding Teams</span></div>
+      <div class="stat-item"><span class="stat-item-num">20</span><span class="stat-item-label">Founding Teams</span></div>
       <div class="stat-item"><span class="stat-item-num">16 Weeks</span><span class="stat-item-label">Jan&ndash;Apr 2027</span></div>
       <div class="stat-item"><span class="stat-item-num">100%</span><span class="stat-item-label">Free of Cost</span></div>
       <div class="stat-item"><span class="stat-item-num">Top 5</span><span class="stat-item-label">May 2027 Demo Day</span></div>
@@ -173,6 +236,20 @@
       <div class="carousel-nav prev" onclick="carouselMove('incubatorPageCarousel', -1)">&#8249;</div>
       <div class="carousel-nav next" onclick="carouselMove('incubatorPageCarousel', 1)">&#8250;</div>
       <div class="carousel-dots" id="incubatorPageCarouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="mw">
+    <div class="section-label">Partner Universities</div>
+    <h2 class="section-title">Five universities in <em>India and Vietnam</em></h2>
+    <div class="uni-grid">
+        <figure class="uni-item"><div class="uni-card"><img src="images/uni-hsb.png" alt="Hanoi School of Business and Management logo" loading="lazy"></div><figcaption>Hanoi School of Business and Management, Vietnam National University</figcaption></figure>
+        <figure class="uni-item"><div class="uni-card"><img src="images/uni-aiem.png" alt="Agnel Institute of Engineering &amp; Management logo" loading="lazy"></div><figcaption>Agnel Institute of Engineering &amp; Management, Goa</figcaption></figure>
+        <figure class="uni-item"><div class="uni-card"><img src="images/uni-bits-goa.png" alt="BITS Pilani, K K Birla Goa Campus logo" loading="lazy"></div><figcaption>BITS Pilani, K K Birla Goa Campus</figcaption></figure>
+        <figure class="uni-item"><div class="uni-card"><img src="images/uni-don-bosco.png" alt="Don Bosco College of Engineering logo" loading="lazy"></div><figcaption>Don Bosco College of Engineering, Goa</figcaption></figure>
+        <figure class="uni-item"><div class="uni-card"><img src="images/uni-pcce.png" alt="Padre Concei&ccedil;&atilde;o College of Engineering logo" loading="lazy"></div><figcaption>Padre Concei&ccedil;&atilde;o College of Engineering, Goa</figcaption></figure>
     </div>
   </div>
 </section>
@@ -212,7 +289,47 @@
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt" id="program-calendar">
+  <div class="mw">
+    <div class="section-label">Program Calendar &middot; January to April 2027</div>
+    <div class="gold-rule"></div>
+    <h2 class="section-title">Global Gateway Incubator <em>2027 Cohort</em></h2>
+    <p class="cal-meta">Virtual on Zoom <span class="cal-dot">&bull;</span> 5 partner universities in Vietnam and India <span class="cal-dot">&bull;</span> 20 teams <span class="cal-dot">&bull;</span> 16 weeks</p>
+    <div class="cal-legend">
+      <span class="cal-legend-item"><span class="cal-pill cal-pill-speaker">Speaker Session</span> Tuesdays, 8:00 to 10:00 AM US Pacific (2 hours)</span>
+      <span class="cal-legend-item"><span class="cal-pill cal-pill-working">Working Session</span> Saturdays, 3:00 to 8:00 PM India (5 hours)</span>
+    </div>
+    <p class="cal-note">Every Working Session includes team progress updates and buddy feedback.<br>Times are local and already adjusted for the US clock change on Mar 14.</p>
+    <div class="cal-wrap">
+      <table class="cal-table">
+        <thead><tr><th>Wk</th><th>Date</th><th>Session</th><th>Topic</th><th class="cal-th-r">US Pacific</th><th class="cal-th-r">India</th><th class="cal-th-r">Vietnam</th></tr></thead>
+        <tbody>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">1</td><td class="cal-date" data-label="Date">Tue, Jan 5, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">Customer discovery, first product (MVP) and product-market fit</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">9:30 to 11:30 PM</td><td class="cal-vn" data-label="Vietnam">11:00 PM to 1:00 AM</td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">2</td><td class="cal-date" data-label="Date">Sat, Jan 16, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Customer interviews and problem validation (plus buddy introductions)</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">3</td><td class="cal-date" data-label="Date">Tue, Jan 19, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">Business model, pricing, unit economics, finance and budget</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">9:30 to 11:30 PM</td><td class="cal-vn" data-label="Vietnam">11:00 PM to 1:00 AM</td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">4</td><td class="cal-date" data-label="Date">Sat, Jan 30, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Business model canvas, pricing and unit economics</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">5</td><td class="cal-date" data-label="Date">Tue, Feb 2, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">Product development, operations, supply chain and logistics</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">9:30 to 11:30 PM</td><td class="cal-vn" data-label="Vietnam">11:00 PM to 1:00 AM</td></tr>
+        <tr class="cal-vac"><td colspan="7"><span class="cal-vac-date">Feb 6 to 12, 2027</span><span class="cal-pill cal-pill-vac">Vacation</span><span class="cal-vac-note">No sessions this week</span></td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">6</td><td class="cal-date" data-label="Date">Sat, Feb 20, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Product roadmap and MVP build plan</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">7</td><td class="cal-date" data-label="Date">Tue, Feb 23, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">Sales, GTM and market entry, including B2B</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">9:30 to 11:30 PM</td><td class="cal-vn" data-label="Vietnam">11:00 PM to 1:00 AM</td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">8</td><td class="cal-date" data-label="Date">Sat, Mar 6, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Target market and sales pipeline plan</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">9</td><td class="cal-date" data-label="Date">Tue, Mar 9, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">PR, marketing and branding</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">9:30 to 11:30 PM</td><td class="cal-vn" data-label="Vietnam">11:00 PM to 1:00 AM</td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">10</td><td class="cal-date" data-label="Date">Sat, Mar 20, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Brand story and marketing plan</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">11</td><td class="cal-date" data-label="Date">Tue, Mar 23, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">Business Strategy and Building the Team That Can Transform</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">8:30 to 10:30 PM</td><td class="cal-vn" data-label="Vietnam">10:00 PM to 12:00 AM</td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">12</td><td class="cal-date" data-label="Date">Sat, Apr 3, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Team roles, equity split and hiring plan</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">13</td><td class="cal-date" data-label="Date">Tue, Apr 6, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">Legal: Delaware C-corp, contracts, IP and valuation</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">8:30 to 10:30 PM</td><td class="cal-vn" data-label="Vietnam">10:00 PM to 12:00 AM</td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">14</td><td class="cal-date" data-label="Date">Sat, Apr 17, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Legal checklist: Delaware setup, IP and contracts</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        <tr class="cal-speaker"><td class="cal-wk" data-label="Week">15</td><td class="cal-date" data-label="Date">Tue, Apr 20, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-speaker">Speaker Session</span></td><td class="cal-topic" data-label="Topic">Fundraising and pitching</td><td class="cal-pt" data-label="US Pacific">8:00 to 10:00 AM</td><td class="cal-in" data-label="India">8:30 to 10:30 PM</td><td class="cal-vn" data-label="Vietnam">10:00 PM to 12:00 AM</td></tr>
+        <tr class="cal-working"><td class="cal-wk" data-label="Week">16</td><td class="cal-date" data-label="Date">Sat, Apr 24, 2027</td><td class="cal-sess" data-label="Session"><span class="cal-pill cal-pill-working">Working Session</span></td><td class="cal-topic" data-label="Topic">Pitch deck and final rehearsal</td><td class="cal-pt cal-empty" data-label="US Pacific"></td><td class="cal-in" data-label="India">3:00 to 8:00 PM</td><td class="cal-vn" data-label="Vietnam">4:30 to 9:30 PM</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cal-demo"><span class="cal-demo-title">Demo Day <em>May 2027</em></span><span class="cal-demo-text">On Zoom. The top 5 teams present to investors and enterprise leaders.</span></div>
+    <p class="cal-foot">Schedule subject to change</p>
+  </div>
+</section>
+
+<section class="section">
   <div class="mw">
     <div class="section-label">Founders' Curriculum</div>
     <div class="gold-rule"></div>
@@ -228,7 +345,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
   <div class="mw">
     <div class="section-label">Strategic Opportunities</div>
     <div class="gold-rule"></div>
