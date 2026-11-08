@@ -119,12 +119,25 @@
 
 
   /* Partner universities */
-  .uni-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2rem; }
+  .uni-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
   .uni-item { margin: 0; }
   .uni-card { background: #fff; border-radius: 4px; height: 130px; padding: 1.1rem 1.2rem; display: flex; align-items: center; justify-content: center; }
   .uni-card img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
   .uni-item figcaption { margin-top: 0.7rem; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-light); text-align: center; line-height: 1.4; }
-  @media (max-width: 900px) { .uni-grid { grid-template-columns: repeat(2, 1fr); } .uni-item:last-child { grid-column: 1 / -1; max-width: 50%; justify-self: center; width: 100%; } .uni-card { height: 110px; } }
+  @media (max-width: 900px) { .uni-grid { grid-template-columns: repeat(2, 1fr); } .uni-card { height: 110px; } }
+
+
+  /* Mentors and speakers */
+  .mentor-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem 1.5rem; margin-top: 2.5rem; }
+  .mentor { width: 170px; text-align: center; text-decoration: none; display: block; }
+  .mentor-photo { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 2px solid rgba(201,168,76,0.35); background: var(--navy-light); display: flex; align-items: center; justify-content: center; transition: border-color 0.2s; }
+  .mentor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mentor-initials { font-family: var(--font-display); font-size: 2.2rem; color: var(--gold); }
+  .mentor:hover .mentor-photo, .mentor:focus-visible .mentor-photo { border-color: var(--gold); }
+  .mentor-name { font-family: var(--font-display); font-size: 1.2rem; color: var(--white); line-height: 1.25; }
+  .mentor-title { font-size: 0.8rem; color: var(--slate-light); line-height: 1.45; margin-top: 0.3rem; }
+  .mentor-more { text-align: center; color: var(--slate); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2.5rem; }
+  @media (max-width: 600px) { .mentor { width: 44%; } .mentor-photo { width: 112px; height: 112px; } .mentor-grid { gap: 2rem 1rem; } }
 
   /* Program calendar */
   .cal-meta { color: var(--slate-light); font-size: 1rem; margin-bottom: 1.75rem; }
@@ -216,7 +229,7 @@
 <section class="section">
   <div class="mw">
     <div class="stat-grid-5">
-      <div class="stat-item"><span class="stat-item-num">5</span><span class="stat-item-label">Partner Universities</span></div>
+      <div class="stat-item"><span class="stat-item-num">4</span><span class="stat-item-label">Partner Universities</span></div>
       <div class="stat-item"><span class="stat-item-num">20</span><span class="stat-item-label">Founding Teams</span></div>
       <div class="stat-item"><span class="stat-item-num">16 Weeks</span><span class="stat-item-label">Jan&ndash;Apr 2027</span></div>
       <div class="stat-item"><span class="stat-item-num">100%</span><span class="stat-item-label">Free of Cost</span></div>
@@ -243,9 +256,8 @@
 <section class="section">
   <div class="mw">
     <div class="section-label">Partner Universities</div>
-    <h2 class="section-title">Five universities in <em>India and Vietnam</em></h2>
+    <h2 class="section-title">Four universities in <em>India and Vietnam</em></h2>
     <div class="uni-grid">
-        <figure class="uni-item"><div class="uni-card"><img src="images/uni-hsb.png" alt="Hanoi School of Business and Management logo" loading="lazy"></div><figcaption>Hanoi School of Business and Management, Vietnam National University</figcaption></figure>
         <figure class="uni-item"><div class="uni-card"><img src="images/uni-aiem.png" alt="Agnel Institute of Engineering &amp; Management logo" loading="lazy"></div><figcaption>Agnel Institute of Engineering &amp; Management, Goa</figcaption></figure>
         <figure class="uni-item"><div class="uni-card"><img src="images/uni-bits-goa.png" alt="BITS Pilani, K K Birla Goa Campus logo" loading="lazy"></div><figcaption>BITS Pilani, K K Birla Goa Campus</figcaption></figure>
         <figure class="uni-item"><div class="uni-card"><img src="images/uni-don-bosco.png" alt="Don Bosco College of Engineering logo" loading="lazy"></div><figcaption>Don Bosco College of Engineering, Goa</figcaption></figure>
@@ -259,7 +271,7 @@
     <div class="section-label">The Opportunity &amp; Vision</div>
     <div class="gold-rule"></div>
     <h2 class="section-title">Talent is universal. <em>Opportunity isn't.</em></h2>
-    <p class="section-body">Talent is universally distributed, but opportunity and venture capital remain concentrated. Powered by D&amp;D Legacy Capital in direct partnership with 5 premier universities across India and Vietnam, the Global Gateway Incubator bridges this gap. Attending completely free of cost, student founders undergo an intensive 16-week business and architectural transformation. We expand their horizons beyond local markets, equipping them to acquire US/EU enterprise customers, raise institutional funding, and target global exits.</p>
+    <p class="section-body">Talent is universally distributed, but opportunity and venture capital remain concentrated. Powered by D&amp;D Legacy Capital in direct partnership with 4 premier universities across India and Vietnam, the Global Gateway Incubator bridges this gap. Attending completely free of cost, student founders undergo an intensive 16-week business and architectural transformation. We expand their horizons beyond local markets, equipping them to acquire US/EU enterprise customers, raise institutional funding, and target global exits.</p>
   </div>
 </section>
 
@@ -294,7 +306,7 @@
     <div class="section-label">Program Calendar &middot; January to April 2027</div>
     <div class="gold-rule"></div>
     <h2 class="section-title">Global Gateway Incubator <em>2027 Cohort</em></h2>
-    <p class="cal-meta">Virtual on Zoom <span class="cal-dot">&bull;</span> 5 partner universities in Vietnam and India <span class="cal-dot">&bull;</span> 20 teams <span class="cal-dot">&bull;</span> 16 weeks</p>
+    <p class="cal-meta">Virtual on Zoom <span class="cal-dot">&bull;</span> 4 partner universities in Vietnam and India <span class="cal-dot">&bull;</span> 20 teams <span class="cal-dot">&bull;</span> 16 weeks</p>
     <div class="cal-legend">
       <span class="cal-legend-item"><span class="cal-pill cal-pill-speaker">Speaker Session</span> Tuesdays, 8:00 to 10:00 AM US Pacific (2 hours)</span>
       <span class="cal-legend-item"><span class="cal-pill cal-pill-working">Working Session</span> Saturdays, 3:00 to 8:00 PM India (5 hours)</span>
@@ -329,7 +341,31 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="mentors">
+  <div class="mw">
+    <div class="section-label">Mentors &amp; Speakers</div>
+    <h2 class="section-title">Learn from <em>operators who have built and scaled</em></h2>
+    <p style="color:var(--slate-light);max-width:720px;">Founders meet investors, executives and builders who have done the work, through masterclasses and one-on-one mentoring. Select a name to view their LinkedIn profile.</p>
+    <div class="mentor-grid">
+      <a class="mentor" href="https://www.linkedin.com/in/karthickciyer" target="_blank" rel="noopener" aria-label="Karthick Iyer on LinkedIn"><div class="mentor-photo"><img src="images/mentor-karthick.jpg" alt="Photo of Karthick Iyer" loading="lazy"></div><div class="mentor-name">Karthick Iyer</div><div class="mentor-title">Corporate VP, Client Computing &amp; Physical AI Software, Intel</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/petradoerken" target="_blank" rel="noopener" aria-label="Dr. Petra Doerken on LinkedIn"><div class="mentor-photo"><img src="images/mentor-petra.jpg" alt="Photo of Dr. Petra Doerken" loading="lazy"></div><div class="mentor-name">Dr. Petra Doerken</div><div class="mentor-title">Managing Partner, D&amp;D Legacy Capital</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/uwedoerken" target="_blank" rel="noopener" aria-label="Uwe Doerken on LinkedIn"><div class="mentor-photo"><img src="images/mentor-uwe.jpg" alt="Photo of Uwe Doerken" loading="lazy"></div><div class="mentor-name">Uwe Doerken</div><div class="mentor-title">Managing Partner, D&amp;D Legacy Capital; Former Chairman &amp; CEO, DHL Global</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/panoanthos" target="_blank" rel="noopener" aria-label="Pano Anthos on LinkedIn"><div class="mentor-photo"><img src="images/mentor-pano.jpg" alt="Photo of Pano Anthos" loading="lazy"></div><div class="mentor-name">Pano Anthos</div><div class="mentor-title">Managing Partner, XRC Ventures</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/eddiepma" target="_blank" rel="noopener" aria-label="Eddie Ma on LinkedIn"><div class="mentor-photo"><img src="images/mentor-eddie.jpg" alt="Photo of Eddie Ma" loading="lazy"></div><div class="mentor-name">Eddie Ma</div><div class="mentor-title">Sr. Director, Engineering Solutions, Elsevier</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/prashant-diggikar-techenthusiast" target="_blank" rel="noopener" aria-label="Prashant Diggikar on LinkedIn"><div class="mentor-photo"><img src="images/mentor-prashant.jpg" alt="Photo of Prashant Diggikar" loading="lazy"></div><div class="mentor-name">Prashant Diggikar</div><div class="mentor-title">Director of Transformation, Gainwell Technologies</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/srisatishambati" target="_blank" rel="noopener" aria-label="Sri Ambati on LinkedIn"><div class="mentor-photo"><img src="images/mentor-sri.jpg" alt="Photo of Sri Ambati" loading="lazy"></div><div class="mentor-name">Sri Ambati</div><div class="mentor-title">Founder &amp; CEO, H2O AI</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/shriram-phadte" target="_blank" rel="noopener" aria-label="Shriram Phadte on LinkedIn"><div class="mentor-photo"><img src="images/mentor-shriram.jpg" alt="Photo of Shriram Phadte" loading="lazy"></div><div class="mentor-name">Shriram Phadte</div><div class="mentor-title">Chief Architect, D&amp;D Strategic Impact</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/serge-joris-a7825b28" target="_blank" rel="noopener" aria-label="Serge Joris on LinkedIn"><div class="mentor-photo"><img src="images/mentor-serge.jpg" alt="Photo of Serge Joris" loading="lazy"></div><div class="mentor-name">Serge Joris</div><div class="mentor-title">Group CEO, Frigoglass</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/talrozenberg" target="_blank" rel="noopener" aria-label="Tal Rozenberg on LinkedIn"><div class="mentor-photo"><img src="images/mentor-tal.jpg" alt="Photo of Tal Rozenberg" loading="lazy"></div><div class="mentor-name">Tal Rozenberg</div><div class="mentor-title">CEO, RH Group</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/aniladvani" target="_blank" rel="noopener" aria-label="Anil Advani on LinkedIn"><div class="mentor-photo"><img src="images/mentor-anil.jpg" alt="Photo of Anil Advani" loading="lazy"></div><div class="mentor-name">Anil Advani</div><div class="mentor-title">Founder and Managing Partner, Inventus Law</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/rob-fitzpatrick-163ba13" target="_blank" rel="noopener" aria-label="Rob Fitzpatrick on LinkedIn"><div class="mentor-photo"><img src="images/mentor-rob.jpg" alt="Photo of Rob Fitzpatrick" loading="lazy"></div><div class="mentor-name">Rob Fitzpatrick</div><div class="mentor-title">Author, The Mom Test</div></a>
+      <a class="mentor" href="https://www.linkedin.com/in/giffconstable" target="_blank" rel="noopener" aria-label="Giff Constable on LinkedIn"><div class="mentor-photo"><img src="images/mentor-giff.jpg" alt="Photo of Giff Constable" loading="lazy"></div><div class="mentor-name">Giff Constable</div><div class="mentor-title">Author, Talking to Humans; Former Chief Product Officer, Meetup</div></a>
+    </div>
+    <div class="mentor-more">More to be announced</div>
+  </div>
+</section>
+
+<section class="section section-alt">
   <div class="mw">
     <div class="section-label">Founders' Curriculum</div>
     <div class="gold-rule"></div>
@@ -345,7 +381,7 @@
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section">
   <div class="mw">
     <div class="section-label">Strategic Opportunities</div>
     <div class="gold-rule"></div>
@@ -362,7 +398,7 @@
         <tr>
           <td><strong style="color:var(--gold-light)">Cash Sponsors</strong></td>
           <td>
-            Financial support sponsoring student's startup infrastructure and prizes.
+            Cash funding for student grand prizes only. Cash sponsorship does not fund infrastructure.
             <ul style="margin:0.85rem 0 0 1.1rem; padding:0; color:var(--slate-light);">
               <li>Platinum &mdash; $5,000</li>
               <li>Gold &mdash; $2,000</li>
