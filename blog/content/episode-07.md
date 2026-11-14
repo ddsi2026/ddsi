@@ -4,14 +4,14 @@ slug: episode-07
 category: podcast
 episode_number: 7
 date: 2026-11-11
-display_date: "Coming on Nov 11, 2026"
+display_date: "Nov 11, 2026"
 guest: "Serge Joris, CEO, Frigoglass"
 cover_image: ../images/episode-07-serge-square.jpg
 description: "Margins are shrinking, the board wants answers, and the obvious move is to start cutting. Before you do, hear from a CEO who has led manufacturers out of crisis more than once."
 youtube_embed_url: "https://www.youtube.com/embed/W01IpLK_cVk?si=Hviq3Lqcc-DdhcOO"
 listen_youtube_url: "https://youtu.be/W01IpLK_cVk"
-listen_spotify_url: "#"
-listen_apple_url: "#"
+listen_spotify_url: "https://open.spotify.com/episode/2W4QSF6Ia61ffwlsAkSv7G"
+listen_apple_url: "https://podcasts.apple.com/us/podcast/inside-a-manufacturing-turnaround-from-deep-crisis/id6819590943?i=1000801216877"
 ---
 
 ## Show Notes
