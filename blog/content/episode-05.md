@@ -38,4 +38,26 @@ Sankalp holds a PhD in robotics from Carnegie Mellon University, where he and hi
 
 If you run a manufacturing, industrial or logistics operation and suspect your numbers aren’t telling the whole story, this episode shows what becomes possible when you can see your operation as it really is.
 
+## Chapters
+
+- [0:00](https://www.youtube.com/watch?v=kRelMc3ij18) Intro
+- [1:28](https://www.youtube.com/watch?v=kRelMc3ij18&t=88s) From a DARPA-funded autonomous helicopter to warehouse drones: the origin of physical AI at Gather AI
+- [4:09](https://www.youtube.com/watch?v=kRelMc3ij18&t=249s) How "curious" drones use computer vision to count inventory without GPS
+- [5:25](https://www.youtube.com/watch?v=kRelMc3ij18&t=325s) The hidden cost of undigitized physical data: lost inventory, stockouts and manufacturing line-down risk
+- [8:14](https://www.youtube.com/watch?v=kRelMc3ij18&t=494s) Why operations run on three-month-old inventory data, and what a real-time digital twin changes
+- [8:55](https://www.youtube.com/watch?v=kRelMc3ij18&t=535s) Deploying physical AI in a warehouse: live in 3 weeks, and the 99.9% vs 85% inventory accuracy reality
+- [11:32](https://www.youtube.com/watch?v=kRelMc3ij18&t=692s) Drones, forklift cameras and WMS integration: how visual data fits your existing systems
+- [13:13](https://www.youtube.com/watch?v=kRelMc3ij18&t=793s) ROI and payback: 4.5 months, low capex and fewer non-value-added tasks
+- [14:45](https://www.youtube.com/watch?v=kRelMc3ij18&t=885s) How to sell AI when your KPIs are hiding the problem
+- [16:03](https://www.youtube.com/watch?v=kRelMc3ij18&t=963s) AI agents for shift planning, forecasting, slotting and route planning: from insights to actions
+- [17:47](https://www.youtube.com/watch?v=kRelMc3ij18&t=1067s) When physical AI makes sense for mid-market manufacturers and distribution centers
+- [19:46](https://www.youtube.com/watch?v=kRelMc3ij18&t=1186s) From reactive to proactive inventory management: mispicks, customer complaints and labor planning
+- [22:01](https://www.youtube.com/watch?v=kRelMc3ij18&t=1321s) How to measure operational ROI on the P&L
+- [23:13](https://www.youtube.com/watch?v=kRelMc3ij18&t=1393s) Building hardware and software: why physical AI has a smaller margin of error
+- [24:41](https://www.youtube.com/watch?v=kRelMc3ij18&t=1481s) Why AI pilots fail: success metrics not agreed upfront
+- [26:21](https://www.youtube.com/watch?v=kRelMc3ij18&t=1581s) Contrarian take: the cost-center mindset, $500K integrations and the capex myth
+- [28:50](https://www.youtube.com/watch?v=kRelMc3ij18&t=1730s) Beyond inventory counting: orchestrating the warehouse with AI agents on ground-truth data
+- [29:42](https://www.youtube.com/watch?v=kRelMc3ij18&t=1782s) Final message: AI and the centralization of power
+- [31:05](https://www.youtube.com/watch?v=kRelMc3ij18&t=1865s) Closing
+
 \#PhysicalAI \#AIinManufacturing \#SupplyChain
