@@ -4,14 +4,14 @@ slug: episode-08
 category: podcast
 episode_number: 8
 date: 2026-11-18
-display_date: "Coming on Nov 18, 2026"
+display_date: "Nov 18, 2026"
 guest: "Noam Shakuri, Co-founder and CEO, Evolinq"
 cover_image: ../images/episode-08-noam-square.jpg
 description: "Thousands of open purchase orders. Hundreds of suppliers. And a buying team chasing confirmations one email at a time. If that sounds like your procurement department, you're not alone."
 youtube_embed_url: "https://www.youtube.com/embed/4F4WZqV1tFs?si=881QcX8OnQRWl6Za"
 listen_youtube_url: "https://youtu.be/4F4WZqV1tFs"
-listen_spotify_url: "#"
-listen_apple_url: "#"
+listen_spotify_url: "https://open.spotify.com/episode/2TwWdZQL6oOlpxgd1hoV9i"
+listen_apple_url: "https://podcasts.apple.com/us/podcast/ai-managed-procurement-60-less-buyer-time-from-the/id6819590943?i=1000802710450"
 ---
 
 ## Show Notes
