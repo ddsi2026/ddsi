@@ -11,7 +11,7 @@ description: "Every manufacturer is being told to bring in AI and robots. Few ar
 youtube_embed_url: "https://www.youtube.com/embed/zfpDro-VFn4"
 listen_youtube_url: "https://youtu.be/zfpDro-VFn4"
 listen_spotify_url: "https://spotifycreators-web.app.link/e/q3f6HnAKl8b"
-listen_apple_url: "#"
+listen_apple_url: "https://podcasts.apple.com/us/podcast/leading-transformation/id6819590943?i=1000803942732"
 ---
 
 ## Show Notes
